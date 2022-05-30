@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA.
 
-## Grupo {N}
+## Grupo
 
 * **Integrante 1** - [Nicolas Puccar](https://github.com/NicolasPuccar)
 * **Integrante 2** - [Rocio Belen Ianniello](https://github.com/IannielloR)
