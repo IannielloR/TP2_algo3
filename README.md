@@ -10,7 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 2** - [Rocio Belen Ianniello](https://github.com/IannielloR)
 * **Integrante 3** - [Mateo Lardiez](https://github.com/MateoLardiez)
 * **Integrante 4** - [Tomas Iglesias](https://github.com/IglesiasT)
-* **Integrante 4** - [Martin Sosa](https://github.com/Martinsosa95)
+* **Integrante 5** - [Martin Sosa](https://github.com/Martinsosa95)
 
 Corrector: **{Corrector}**
 
