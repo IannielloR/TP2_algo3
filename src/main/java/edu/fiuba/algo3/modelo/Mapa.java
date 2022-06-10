@@ -20,32 +20,34 @@ public class Mapa {
         this.yVehiculo = 1;
     }
 
-    public int moverVehiculo(String direccion){
-        switch (direccion){
-            case "arriba":
-                yVehiculo++;
-                if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-                    return 4;
-                }
-                break;
-            case "abajo":
-                yVehiculo--;
-                if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-                    return 4;
-                }
-                break;
-            case "izquierda":
-                xVehiculo--;
-                if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-                    return 4;
-                }
-                break;
-            case "derecha":
-                xVehiculo++;
-                if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-                    return 4;
-                }
-                break;
+    public int moverVehiculoDerecha(){
+        xVehiculo++;
+        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
+            return 4;
+        }
+        return 1;
+    }
+
+    public int moverVehiculoArriba(){
+        yVehiculo++;
+        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
+            return 4;
+        }
+        return 1;
+    }
+
+    public int moverVehiculoAbajo(){
+        yVehiculo--;
+        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
+            return 4;
+        }
+        return 1;
+    }
+
+    public int moverVehiculoIzquierda(){
+        xVehiculo--;
+        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
+            return 4;
         }
         return 1;
     }

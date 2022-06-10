@@ -11,10 +11,21 @@ public class Juego {
         //this.jugador = new Jugador();
     }
 
-    public void moverVechiculo(String direccion){
-        movimientos += mapa.moverVehiculo(direccion);
+    public void moverVehiculoArriba(){
+        movimientos += mapa.moverVehiculoArriba();
     }
 
+    public void moverVehiculoAbajo(){
+        movimientos += mapa.moverVehiculoAbajo();
+    }
+
+    public void moverVehiculoIzquierda(){
+        movimientos += mapa.moverVehiculoIzquierda();
+    }
+
+    public void moverVehiculoDerecha(){
+        movimientos += mapa.moverVehiculoDerecha();
+    }
     public int getMovimientos(){
         return movimientos;
     }

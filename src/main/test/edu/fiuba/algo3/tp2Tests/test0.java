@@ -20,9 +20,9 @@ public class test0 {
         int movimientosEsperados = 6;
 
         // Act
-        gpsChallenge.moverVechiculo("derecha");
-        gpsChallenge.moverVechiculo("arriba");
-        gpsChallenge.moverVechiculo("izquierda");
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoArriba();
+        gpsChallenge.moverVehiculoIzquierda();
 
         // Assert
         assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
