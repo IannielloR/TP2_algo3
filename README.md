@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Tomas Iglesias](https://github.com/IglesiasT)
 * **Integrante 5** - [Mauricio Luca Cabrera](https://github.com/MauricioFIUBA)
 
-Correctores: **[Santiago Valdez](https://github.com/SantiValdezUlzurrun) - [Agustin Rodriguez]**
+Correctores: **[Santiago Valdez](https://github.com/SantiValdezUlzurrun) - [Agustin Rodriguez](https://github.com/AgusCarpincho)**
 
 ## Aplicación
 
