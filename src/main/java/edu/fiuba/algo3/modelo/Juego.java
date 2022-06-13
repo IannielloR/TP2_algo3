@@ -1,12 +1,13 @@
 package edu.fiuba.algo3.modelo;
 
+import java.lang.String;
 public class Juego {
     private Mapa mapa;
     int movimientos;
     //private Jugador jugador;
 
     public Juego(String vehiculo){
-        this.mapa = new Mapa();
+        this.mapa = new Mapa(vehiculo);
         this.movimientos = 0;
         //this.jugador = new Jugador();
     }
