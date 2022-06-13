@@ -6,6 +6,13 @@ public class CuatroXCuatro extends Vehiculo{
     public CuatroXCuatro(){
         this.pozos = 0;
     }
+
+    public String devolverSorpresaCambioDeVehiculo() {
+        return "4x4";
+    }
+    public int devolverPenalizacionControlPolical(){
+        return 0;
+    }
     public int devolverPenalizacionPozo(){
         this.pozos++;
         if(this.pozos == 3){
