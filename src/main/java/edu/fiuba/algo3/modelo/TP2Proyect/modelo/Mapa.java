@@ -18,10 +18,10 @@ public class Mapa {
         this.vehiculo = vehiculo;
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
-        this.obstaculo1 = new Pozo(2,1);
-        this.obstaculo2 = new Pozo(2,2);
-        this.obstaculo3 = new Pozo(3,2);
-        this.obstaculo4 = new Piquete(4,2);
+     //   this.obstaculo1 = new Pozo(2,1);
+     //   this.obstaculo2 = new Pozo(2,2);
+     //   this.obstaculo3 = new Pozo(3,2);
+     //   this.obstaculo4 = new Piquete(4,2);
     }
     public int moverVehiculoAbajo(){
         if(posVehiculoY + 1 <= maximoY) {
