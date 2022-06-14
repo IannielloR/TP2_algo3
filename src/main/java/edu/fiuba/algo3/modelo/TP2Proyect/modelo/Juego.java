@@ -1,14 +1,12 @@
-package edu.fiuba.algo3.modelo;
-import java.lang.String;
-public class Juego {
-    private Mapa mapa;
-    int movimientos;
-    //private Jugador jugador;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
-    public Juego(String vehiculo){
+public class Juego {
+    private int movimientos;
+    private Mapa mapa;
+
+    public Juego(Vehiculo vehiculo){
         this.mapa = new Mapa(vehiculo);
         this.movimientos = 0;
-        //this.jugador = new Jugador();
     }
 
     public void moverVehiculoArriba(){
@@ -27,6 +25,7 @@ public class Juego {
         movimientos += mapa.moverVehiculoDerecha();
     }
     public int getMovimientos(){
-        return movimientos;
+        return this.movimientos;
     }
+
 }

@@ -1,60 +1,34 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+
+import java.util.ArrayList;
 
 public class Mapa {
-    private int xMaximo;
-    private int yMaximo;
-    private int xVehiculo;
-    private int yVehiculo;
-    private int xPozo;
-    private int yPozo;
+    private int maximoX;
+    private int maximoY;
+    private Vehiculo vehiculo;
+    private int posVehiculoX;
+    private int posVehiculoY;
+    //private Pozo obstaculo1;
+    //private Pozo obstaculo2;
+    // private Pozo obstaculo3;
 
-    //private Moto moto;
-    //private Pozo pozo;
-    public Mapa(){
-        //Cantidad de esquinas que tiene el mapa
-        this.xMaximo = 10;
-        this.yMaximo = 10;
+    private Piquete obstaculo4;
 
-        //Hay un pozo en 2,2
-        this.xPozo = 2;
-        this.yPozo = 2;
+    ArrayList<Obstaculo> interferencias;
+    ArrayList<SorpesaCambioVehiculo> cambiosDeVehiculos;
 
-        //Vehiculo empieza en 1,1
-        this.xVehiculo = 1;
-        this.yVehiculo = 1;
-    }
+    public Mapa(Vehiculo vehiculo){
+        this.maximoX = 5;
+        this.maximoY = 5;
 
-    public int moverVehiculoDerecha(){
-        xVehiculo++;
-        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-            //bool motoPozo = moto.atravesoUnPozo();
-            //return pozo.movimientos(motoPozo);
-            return 4;
+        private int revisarObstaculos(){
+            int movimientos = 1;
+            for(int i = 0; i <= interferencias.size(); i++){
+                movimientos += interferencias.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY, movimientos);
+            }
+            for(int i = 0; i <= cambiosDeVehiculos.size(); i++){
+                this.vehiculo= cambiosDeVehiculos.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY);
+            }
+            return movimientos;
         }
-        return 1;
     }
-
-    public int moverVehiculoArriba(){
-        yVehiculo++;
-        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-            return 4;
-        }
-        return 1;
-    }
-
-    public int moverVehiculoAbajo(){
-        yVehiculo--;
-        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-            return 4;
-        }
-        return 1;
-    }
-
-    public int moverVehiculoIzquierda(){
-        xVehiculo--;
-        if ((xVehiculo == xPozo) && (yVehiculo == yPozo)){
-            return 4;
-        }
-        return 1;
-    }
-}
