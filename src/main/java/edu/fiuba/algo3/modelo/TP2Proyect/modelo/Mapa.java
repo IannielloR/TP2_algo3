@@ -8,14 +8,9 @@ public class Mapa {
     private Vehiculo vehiculo;
     private int posVehiculoX;
     private int posVehiculoY;
-    //private Pozo obstaculo1;
-    //private Pozo obstaculo2;
-   // private Pozo obstaculo3;
-
-    private Piquete obstaculo4;
-
-    ArrayList<Obstaculo> interferencias;
-    ArrayList<SorpesaCambioVehiculo> cambiosDeVehiculos;
+    private int posVehiculoXAnterior;
+    private int posVehiculoYAnterior;
+    ArrayList<Interferencia> interferencias;
 
     public Mapa(Vehiculo vehiculo){
         this.maximoX = 5;
@@ -23,39 +18,37 @@ public class Mapa {
         this.vehiculo = vehiculo;
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
-     //   this.obstaculo1 = new Pozo(2,1);
-     //   this.obstaculo2 = new Pozo(2,2);
-     //   this.obstaculo3 = new Pozo(3,2);
-     //   this.obstaculo4 = new Piquete(4,2);
+        this.posVehiculoXAnterior = 0;
+        this.posVehiculoYAnterior = 0;
     }
     public int moverVehiculoAbajo(){
         if(posVehiculoY + 1 <= maximoY) {
+            posVehiculoYAnterior = posVehiculoY;
             posVehiculoY++;
-
             return revisarObstaculos();
         }
         return 0;
     }
     public int moverVehiculoArriba(){
         if(posVehiculoY - 1 == 0) {
+            posVehiculoYAnterior = posVehiculoY;
             posVehiculoY--;
-
             return revisarObstaculos();
         }
         return 0;
     }
     public int moverVehiculoDerecha(){
         if(posVehiculoX + 1 <= maximoX) {
+            posVehiculoXAnterior = posVehiculoX;
             posVehiculoX++;
-
             return revisarObstaculos();
         }
         return 0;
     }
     public int moverVehiculoIzquierda(){
         if(posVehiculoX - 1 == 0) {
+            posVehiculoXAnterior = posVehiculoX;
             posVehiculoX--;
-
             return revisarObstaculos();
         }
         return 0;
@@ -63,10 +56,7 @@ public class Mapa {
     private int revisarObstaculos(){
         int movimientos = 1;
         for(int i = 0; i <= interferencias.size(); i++){
-            movimientos += interferencias.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY, movimientos);
-        }
-        for(int i = 0; i <= cambiosDeVehiculos.size(); i++){
-            this.vehiculo= cambiosDeVehiculos.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY);
+            movimientos += interferencias.get(i).analizarVehiculo(vehiculo, posVehiculoXAnterior, posVehiculoYAnterior, posVehiculoX, posVehiculoY, movimientos);
         }
         return movimientos;
     }
