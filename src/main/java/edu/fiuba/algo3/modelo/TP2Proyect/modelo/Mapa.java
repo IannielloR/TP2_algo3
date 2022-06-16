@@ -132,26 +132,35 @@ public class Mapa {
 
         Random random = new Random();
         int cantTotalInterfencias = random.nextInt(10);
+        int indiceObstaculos = 0;
+        int indiceSorpresas = 0;
         for(int i = 0; i< cantTotalInterfencias; i++){
             int maxInterferencias = 6;
             int numInterferencia = random.nextInt(maxInterferencias);
+
             if (numInterferencia == 0){
-                this.obstaculos.add(i,new Pozo(maximoX,maximoY));
+                this.obstaculos.add(indiceObstaculos,new Pozo(maximoX,maximoY));
+                indiceObstaculos++;
             }
             if (numInterferencia == 1){
-                this.obstaculos.add(i,new Piquete(maximoX,maximoY));
+                this.obstaculos.add(indiceObstaculos,new Piquete(maximoX,maximoY));
+                indiceObstaculos++;
             }
             if (numInterferencia == 2){
-                this.obstaculos.add(i,new ControlPolicial(maximoX,maximoY));
+                this.obstaculos.add(indiceObstaculos,new ControlPolicial(maximoX,maximoY));
+                indiceObstaculos++;
             }
             if (numInterferencia == 3){
-                this.obstaculos.add(i,new SorpresaDesfavorable(maximoX,maximoY));
+                this.sorpresas.add(indiceSorpresas,new SorpresaDesfavorable(maximoX,maximoY));
+                indiceSorpresas++;
             }
             if (numInterferencia == 4){
-                this.obstaculos.add(i,new SorpresaFavorable(maximoX,maximoY));
+                this.sorpresas.add(indiceSorpresas,new SorpresaFavorable(maximoX,maximoY));
+                indiceSorpresas++;
             }
             if (numInterferencia == 5){
-                this.obstaculos.add(i,new SorpesaCambioVehiculo(maximoX,maximoY));
+                this.sorpresas.add(indiceSorpresas,new SorpesaCambioVehiculo(maximoX,maximoY));
+                indiceSorpresas++;
             }
         }
 
