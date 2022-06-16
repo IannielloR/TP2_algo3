@@ -11,7 +11,7 @@ public class VehiculoTest {
     public void motoSeDesplazaYSeEncuentraUnPozo(){
         // Arrange
         Juego gpsChallenge = new Juego(new Moto());
-        int movimientosEsperados = 6;
+        int movimientosEsperados = 6;   //3 desplazamiento + 3 pozo
 
         // Act
         gpsChallenge.moverVehiculoDerecha();
