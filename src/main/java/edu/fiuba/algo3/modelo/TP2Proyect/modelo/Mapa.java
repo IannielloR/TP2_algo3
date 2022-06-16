@@ -14,8 +14,8 @@ public class Mapa {
 
     private Piquete obstaculo4;
 
-    ArrayList<Obstaculo> interferencias;
-    ArrayList<SorpesaCambioVehiculo> cambiosDeVehiculos;
+    private ArrayList<Obstaculo> interferencias;
+    private ArrayList<SorpesaCambioVehiculo> cambiosDeVehiculos;
 
     public Mapa(Vehiculo vehiculo){
         this.maximoX = 5;
@@ -23,10 +23,8 @@ public class Mapa {
         this.vehiculo = vehiculo;
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
-     //   this.obstaculo1 = new Pozo(2,1);
-     //   this.obstaculo2 = new Pozo(2,2);
-     //   this.obstaculo3 = new Pozo(3,2);
-     //   this.obstaculo4 = new Piquete(4,2);
+        this.interferencias = new ArrayList<Obstaculo>();
+        this.cambiosDeVehiculos = new ArrayList<SorpesaCambioVehiculo>();
     }
     public int moverVehiculoAbajo(){
         if(posVehiculoY + 1 <= maximoY) {
@@ -62,10 +60,10 @@ public class Mapa {
     }
     private int revisarObstaculos(){
         int movimientos = 1;
-        for(int i = 0; i <= interferencias.size(); i++){
+        for(int i = 0; i < interferencias.size(); i++){
             movimientos += interferencias.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY, movimientos);
         }
-        for(int i = 0; i <= cambiosDeVehiculos.size(); i++){
+        for(int i = 0; i < cambiosDeVehiculos.size(); i++){
             this.vehiculo= cambiosDeVehiculos.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY);
         }
         return movimientos;
