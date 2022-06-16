@@ -95,7 +95,7 @@ public class Mapa {
         }
 
         for(int i = 0; i < this.sorpresas.size(); i++){
-            movimientos += obstaculos.get(i).analizarVehiculo(this.vehiculo,posX, posY, movimientosTotales);
+            movimientos += sorpresas.get(i).analizarVehiculo(this.vehiculo,posX, posY, movimientosTotales);
 
         }
         return movimientos;
@@ -108,7 +108,7 @@ public class Mapa {
         Interferencia obstaculo5 = new ControlPolicial(4,1);
 
         Interferencia obstaculo6 = new SorpresaDesfavorable(4,5);
-        Interferencia obstaculo7 = new SorpresaFavorable(10,3);
+        Interferencia obstaculo7 = new SorpresaFavorable(3,3);
         Interferencia obstaculo8 = new SorpesaCambioVehiculo(6,5);
 
         Interferencia obstaculo9 = new Piquete(7,4);
