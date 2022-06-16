@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
-public class Moto extends Vehiculo{
+public class Moto extends Vehiculo {
     public Moto(){
     }
     public String devolverSorpresaCambioDeVehiculo() {
