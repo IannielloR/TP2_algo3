@@ -32,6 +32,7 @@ public class Test3 {
         gpsChallenge.moverVehiculoDerecha(); // 7,5 --> nada = 1, total = 17/18
         gpsChallenge.moverVehiculoArriba(); // 7,4 --> piquete = 2 + sorpresa desfavorable = 23( 17 +2) / 24( 17 +2 ) / 25( 18 +2 ) / 21(17)/ 22(17) / 22(18)/ 23(18)
         gpsChallenge.moverVehiculoIzquierda(); //6,4 --> nada = 1, total = ( 22/23/23/24  )/19/20/21
+        
 /*      Interferencia obstaculo1 = new Pozo(2,1);
         Interferencia obstaculo2 = new Pozo(2,2);
         Interferencia obstaculo3 = new Pozo(3,2);
