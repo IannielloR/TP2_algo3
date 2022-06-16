@@ -30,8 +30,8 @@ public class Mapa {
         this.maximoX = 10;
         this.maximoY = 10;
         this.vehiculo = new TipoVehiculo(vehiculo);
-        this.posVehiculoX = 0;
-        this.posVehiculoY = 0;
+        this.posVehiculoX = 1;
+        this.posVehiculoY = 1;
         this.senialMovimeinto = 0;
         crearInterferencias();
     }
@@ -87,7 +87,7 @@ public class Mapa {
         int movimientos = 1;
         int movimientoIndividual;
         for(int i = 0; i < this.obstaculos.size(); i++){
-            movimientoIndividual = obstaculos.get(i).analizarVehiculo(this.vehiculo,posX, posY, movimientosTotales);
+            movimientoIndividual = obstaculos.get(i).analizarVehiculo(this.vehiculo,posVehiculoX, posVehiculoY, posX, posY, movimientosTotales);
             if(movimientoIndividual == -1){
                 this.senialMovimeinto = 1;
             }
@@ -95,7 +95,7 @@ public class Mapa {
         }
 
         for(int i = 0; i < this.sorpresas.size(); i++){
-            movimientos += obstaculos.get(i).analizarVehiculo(this.vehiculo,posX, posY, movimientosTotales);
+            movimientos += sorpresas.get(i).analizarVehiculo(this.vehiculo,posVehiculoX, posVehiculoY, posX, posY, movimientosTotales);
 
         }
         return movimientos;
@@ -108,7 +108,7 @@ public class Mapa {
         Interferencia obstaculo5 = new ControlPolicial(4,1);
 
         Interferencia obstaculo6 = new SorpresaDesfavorable(4,5);
-        Interferencia obstaculo7 = new SorpresaFavorable(10,3);
+        Interferencia obstaculo7 = new SorpresaFavorable(3,3);
         Interferencia obstaculo8 = new SorpesaCambioVehiculo(6,5);
 
         Interferencia obstaculo9 = new Piquete(7,4);
@@ -130,4 +130,3 @@ public class Mapa {
         this.sorpresas.add(3,obstaculo10);
     }
 }
-

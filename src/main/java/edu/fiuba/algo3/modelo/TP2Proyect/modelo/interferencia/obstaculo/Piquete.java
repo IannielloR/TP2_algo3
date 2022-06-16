@@ -4,12 +4,11 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
 
 public class Piquete extends Interferencia {
-    public Piquete(int id1, int id2) {
-        this.posX = id1;
-        this.posY = id2;
+    public Piquete(int xMax, int yMax) {
+        this.cordenada.generarCoordenadas(xMax, yMax);
     }
-    public int analizarVehiculo(TipoVehiculo vehiculo, int id1, int id2, int movimientos){
-        if(this.posX == id1 && this.posY == id2 ){
+    public int analizarVehiculo(TipoVehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal, int movimientos){
+        if(cordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
             return (vehiculo.devolverVehiculo()).devolverPenalizacionPiquete();
         }
         return 0;

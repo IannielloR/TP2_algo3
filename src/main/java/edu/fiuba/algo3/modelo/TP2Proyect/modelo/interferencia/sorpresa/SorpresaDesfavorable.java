@@ -4,13 +4,12 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
 
 public class SorpresaDesfavorable extends Interferencia {
-    public SorpresaDesfavorable(int id1, int id2) {
-        this.posX = id1;
-        this.posY = id2;
+    public SorpresaDesfavorable(int maxX, int maxY) {
+        this.cordenada.generarCoordenadas(maxX, maxY);
     }
-    public int analizarVehiculo(TipoVehiculo vehiculo, int id1, int id2, int movimientos){
-        if(this.posX == id1 && this.posY == id2 ){
-            return (vehiculo.devolverVehiculo()).devolverSorpresaDesfavorable(movimientos);
+    public int analizarVehiculo(TipoVehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal, int movimientos){
+        if(cordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
+            return (vehiculo.devolverVehiculo()).devolverPenalizacionPozo();
         }
         return 0;
     }
