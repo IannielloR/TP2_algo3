@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+
 public class SorpresaDesfavorable extends Interferencia {
     public SorpresaDesfavorable(int id1, int id2) {
         this.posXInicial = id1;

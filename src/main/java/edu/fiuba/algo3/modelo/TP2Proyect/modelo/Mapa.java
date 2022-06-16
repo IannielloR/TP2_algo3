@@ -1,4 +1,4 @@
-ackage edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
@@ -30,8 +30,8 @@ public class Mapa {
         this.maximoX = 10;
         this.maximoY = 10;
         this.vehiculo = new TipoVehiculo(vehiculo);
-        this.posVehiculoX = 1;
-        this.posVehiculoY = 1;
+        this.posVehiculoX = 0;
+        this.posVehiculoY = 0;
         this.senialMovimeinto = 0;
         crearInterferencias();
     }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 public abstract class Interferencia {
     protected int posXInicial;
     protected int posYInicial;

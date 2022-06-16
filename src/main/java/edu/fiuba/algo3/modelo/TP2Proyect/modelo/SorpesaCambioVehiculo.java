@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
+
 public class SorpesaCambioVehiculo extends Interferencia{
 
     public SorpesaCambioVehiculo(int id1, int id2) {

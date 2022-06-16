@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 public class Piquete extends Interferencia {
     public Piquete(int id1, int id2) {
         this.posXInicial = id1;
