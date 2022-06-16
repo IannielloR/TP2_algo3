@@ -32,5 +32,14 @@ public class Coordenada {
             }
         }
     }
+    public boolean hayColision(int vehiculoXInical, int vehiculoYInicial, int vehiculoXFinal, int vehiculoYFinal){
+        if((vehiculoXInical == posXInicial) && (vehiculoYInicial == posYInicial) && (vehiculoXFinal == posXFinal) && (vehiculoYFinal == posYFinal)){
+            return true;
+        }
+        if((vehiculoXInical == posXFinal) && (vehiculoYInicial == posYFinal) && (vehiculoXFinal == posXInicial) && (vehiculoYFinal == posYInicial)){
+            return true;
+        }
+        return false;
+    }
 
 }
