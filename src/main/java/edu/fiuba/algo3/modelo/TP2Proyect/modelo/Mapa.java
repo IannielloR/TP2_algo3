@@ -60,10 +60,10 @@ public class Mapa {
     }
     private int revisarObstaculos(){
         int movimientos = 1;
-        for(int i = 0; i <= interferencias.size(); i++){
+        for(int i = 0; i < interferencias.size(); i++){
             movimientos += interferencias.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY, movimientos);
         }
-        for(int i = 0; i <= cambiosDeVehiculos.size(); i++){
+        for(int i = 0; i < cambiosDeVehiculos.size(); i++){
             this.vehiculo= cambiosDeVehiculos.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY);
         }
         return movimientos;
