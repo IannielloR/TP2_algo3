@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
-public class CuatroXCuatro extends Vehiculo{
+public class CuatroXCuatro extends Vehiculo {
     private int pozos;
 
     public CuatroXCuatro(){
