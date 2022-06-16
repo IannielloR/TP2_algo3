@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.tp2Tests;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
