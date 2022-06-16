@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Mapa {
     private int maximoX;
@@ -101,32 +102,60 @@ public class Mapa {
         return movimientos;
     }
     private void crearInterferencias(){
-        Interferencia obstaculo1 = new Pozo(2,1);
-        Interferencia obstaculo2 = new Pozo(2,2);
-        Interferencia obstaculo3 = new Pozo(3,2);
-        Interferencia obstaculo4 = new Piquete(4,2);
-        Interferencia obstaculo5 = new ControlPolicial(4,1);
+        //Interferencia obstaculo1 = new Pozo(maximoX,maximoY);
+        //Interferencia obstaculo2 = new Pozo(maximoX,maximoY);
+        //Interferencia obstaculo3 = new Pozo(maximoX,maximoY);
+        //Interferencia obstaculo4 = new Piquete(maximoX,maximoY);
+        //Interferencia obstaculo5 = new ControlPolicial(maximoX,maximoY);
 
-        Interferencia obstaculo6 = new SorpresaDesfavorable(4,5);
-        Interferencia obstaculo7 = new SorpresaFavorable(3,3);
-        Interferencia obstaculo8 = new SorpesaCambioVehiculo(6,5);
+        //Interferencia obstaculo6 = new SorpresaDesfavorable(maximoX,maximoY);
+        //Interferencia obstaculo7 = new SorpresaFavorable(maximoX,maximoY);
+        //Interferencia obstaculo8 = new SorpesaCambioVehiculo(maximoX,maximoY);
 
-        Interferencia obstaculo9 = new Piquete(7,4);
+        //Interferencia obstaculo9 = new Piquete(maximoX,maximoY);
 
-        Interferencia obstaculo10 = new SorpresaDesfavorable(7,4);
+        //Interferencia obstaculo10 = new SorpresaDesfavorable(maximoX,maximoY);
 
-        this.obstaculos.add(0,obstaculo1);
-        this.obstaculos.add(1,obstaculo2);
-        this.obstaculos.add(2,obstaculo3);
-        this.obstaculos.add(3,obstaculo4);
-        this.obstaculos.add(4,obstaculo5);
+        //this.obstaculos.add(0,obstaculo1);
+        //this.obstaculos.add(1,obstaculo2);
+        //this.obstaculos.add(2,obstaculo3);
+        // this.obstaculos.add(3,obstaculo4);
+        //this.obstaculos.add(4,obstaculo5);
 
-        this.sorpresas.add(0,obstaculo6);
-        this.sorpresas.add(1,obstaculo7);
-        this.sorpresas.add(2,obstaculo8);
+        //this.sorpresas.add(0,obstaculo6);
+        //this.sorpresas.add(1,obstaculo7);
+        //this.sorpresas.add(2,obstaculo8);
 
-        this.obstaculos.add(5,obstaculo9);
+        //this.obstaculos.add(5,obstaculo9);
 
-        this.sorpresas.add(3,obstaculo10);
+        //this.sorpresas.add(3,obstaculo10);
+
+        Random random = new Random();
+        int cantTotalInterfencias = random.nextInt(10);
+        for(int i = 0; i< cantTotalInterfencias; i++){
+            int maxInterferencias = 6;
+            int numInterferencia = random.nextInt(maxInterferencias);
+            if (numInterferencia == 0){
+                this.obstaculos.add(i,new Pozo(maximoX,maximoY));
+            }
+            if (numInterferencia == 1){
+                this.obstaculos.add(i,new Piquete(maximoX,maximoY));
+            }
+            if (numInterferencia == 2){
+                this.obstaculos.add(i,new ControlPolicial(maximoX,maximoY));
+            }
+            if (numInterferencia == 3){
+                this.obstaculos.add(i,new SorpresaDesfavorable(maximoX,maximoY));
+            }
+            if (numInterferencia == 4){
+                this.obstaculos.add(i,new SorpresaFavorable(maximoX,maximoY));
+            }
+            if (numInterferencia == 5){
+                this.obstaculos.add(i,new SorpesaCambioVehiculo(maximoX,maximoY));
+            }
+        }
+
+
     }
+
 }
