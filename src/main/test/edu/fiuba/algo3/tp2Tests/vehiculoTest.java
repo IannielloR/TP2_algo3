@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.tp2Tests;
+/*package edu.fiuba.algo3.tp2Tests;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,3 +36,4 @@ public class VehiculoTest {
         assertEquals(movimientosEsperadosB, gpsChallenge.getMovimientos());
     }
 }
+*/

@@ -23,8 +23,8 @@ public class Mapa {
     private List<Interferencia> interferencias = new ArrayList<Interferencia>();
 
     public Mapa(Vehiculo vehiculo){
-        this.maximoX = 5;
-        this.maximoY = 5;
+        this.maximoX = 10;
+        this.maximoY = 10;
         this.vehiculo = new TipoVehiculo(vehiculo);
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
@@ -64,7 +64,7 @@ public class Mapa {
     }
     private int revisarObstaculos(){
         int movimientos = 1;
-        for(int i = 0; i <= interferencias.size(); i++){
+        for(int i = 0; i < interferencias.size(); i++){
             movimientos += interferencias.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY, movimientos);
         }
         return movimientos;
