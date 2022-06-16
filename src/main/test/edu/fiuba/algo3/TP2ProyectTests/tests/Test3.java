@@ -19,10 +19,10 @@ public class Test3 {
         gpsChallenge.moverVehiculoAbajo(); // 2,2
         gpsChallenge.moverVehiculoDerecha(); // 3,2
         gpsChallenge.moverVehiculoDerecha(); // 4,2
-        gpsChallenge.moverVehiculoAbajo(); //4,3 = 6
+        gpsChallenge.moverVehiculoAbajo(); //4,3 = 7
 
-        gpsChallenge.moverVehiculoIzquierda(); //3,3
-        gpsChallenge.moverVehiculoAbajo(); //3,4
+        gpsChallenge.moverVehiculoAbajo(); //4,4
+        gpsChallenge.moverVehiculoIzquierda(); //3,4
         gpsChallenge.moverVehiculoAbajo(); //3,5
         gpsChallenge.moverVehiculoAbajo(); // 3,6
         gpsChallenge.moverVehiculoDerecha(); // 4,6

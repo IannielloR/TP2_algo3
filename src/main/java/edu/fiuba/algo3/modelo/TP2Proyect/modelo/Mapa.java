@@ -19,53 +19,80 @@ public class Mapa {
     private TipoVehiculo vehiculo;
     private int posVehiculoX;
     private int posVehiculoY;
+    private int senialMovimiento;
+    private List<Interferencia> obstaculos = new ArrayList<Interferencia>();
+    private List<Interferencia> sorpresas = new ArrayList<Interferencia>();
 
-    private List<Interferencia> interferencias = new ArrayList<Interferencia>();
-
-    public Mapa(Vehiculo vehiculo){
+    public Mapa(Vehiculo vehiculo) {
         this.maximoX = 10;
         this.maximoY = 10;
         this.vehiculo = new TipoVehiculo(vehiculo);
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
+        this.senialMovimiento = 0;
         crearInterferencias();
     }
-    public int moverVehiculoAbajo(){
+    public int moverVehiculoAbajo(int movimientos){
         if(posVehiculoY + 1 <= maximoY) {
-            posVehiculoY++;
-
-            return revisarObstaculos();
+            int movimientosRealizados = revisarObstaculos(movimientos,(posVehiculoY --),posVehiculoY);
+            if(this.senialMovimiento != 1){
+                posVehiculoY--;
+                return movimientosRealizados;
+            }
+            this.senialMovimiento = 0;
+            return movimientosRealizados;
         }
         return 0;
     }
-    public int moverVehiculoArriba(){
-        if(posVehiculoY - 1 == 0) {
-            posVehiculoY--;
-
-            return revisarObstaculos();
+    public int moverVehiculoArriba(int movimientos){
+        if(posVehiculoY - 1 != 0) {
+            int movimientosRealizados = revisarObstaculos(movimientos,(posVehiculoY ++),posVehiculoY);
+            if(this.senialMovimiento != 1){
+                posVehiculoY++;
+                return movimientosRealizados;
+            }
+            this.senialMovimiento = 0;
+            return movimientosRealizados;
         }
         return 0;
     }
-    public int moverVehiculoDerecha(){
+    public int moverVehiculoDerecha(int movimientos){
         if(posVehiculoX + 1 <= maximoX) {
-            posVehiculoX++;
-
-            return revisarObstaculos();
+            int movimientosRealizados = revisarObstaculos(movimientos,(posVehiculoX ++),posVehiculoY);
+            if(this.senialMovimiento != 1){
+                posVehiculoX++;
+                return movimientosRealizados;
+            }
+            this.senialMovimiento = 0;
+            return movimientosRealizados;
         }
         return 0;
     }
-    public int moverVehiculoIzquierda(){
-        if(posVehiculoX - 1 == 0) {
-            posVehiculoX--;
-
-            return revisarObstaculos();
+    public int moverVehiculoIzquierda(int movimientos){
+        if(posVehiculoX - 1 != 0) {
+            int movimientosRealizados = revisarObstaculos(movimientos, (posVehiculoX --),posVehiculoY);
+            if(this.senialMovimiento != 1){
+                posVehiculoX--;
+                return movimientosRealizados;
+            }
+            this.senialMovimiento = 0;
+            return movimientosRealizados;
         }
         return 0;
     }
-    private int revisarObstaculos(){
+    private int revisarObstaculos(int movimientosTotales, int posX, int posY){
         int movimientos = 1;
-        for(int i = 0; i < interferencias.size(); i++){
-            movimientos += interferencias.get(i).analizarVehiculo(vehiculo,posVehiculoX, posVehiculoY, movimientos);
+        int movimientoIndividual = 0;
+        for(int i = 0; i < this.obstaculos.size(); i++){
+            movimientoIndividual += obstaculos.get(i).analizarVehiculo(vehiculo,posX, posY, movimientosTotales);
+            if(movimientoIndividual == -1){
+                this.senialMovimiento = 1;
+            }
+            movimientos += movimientoIndividual;
+        }
+        for(int i = 0; i < this.sorpresas.size(); i++){
+            movimientos += sorpresas.get(i).analizarVehiculo(vehiculo,posX, posY, movimientosTotales);
+
         }
         return movimientos;
     }
@@ -75,20 +102,27 @@ public class Mapa {
         Interferencia obstaculo3 = new Pozo(3,2);
         Interferencia obstaculo4 = new Piquete(4,2);
         Interferencia obstaculo5 = new ControlPolicial(4,1);
+
         Interferencia obstaculo6 = new SorpresaDesfavorable(4,5);
-        Interferencia obstaculo7 = new SorpresaFavorable(3,3);
+        Interferencia obstaculo7 = new SorpresaFavorable(1,6);
         Interferencia obstaculo8 = new SorpesaCambioVehiculo(6,5);
+
         Interferencia obstaculo9 = new Piquete(7,4);
+
         Interferencia obstaculo10 = new SorpresaDesfavorable(7,4);
-        this.interferencias.add(0,obstaculo1);
-        this.interferencias.add(1,obstaculo2);
-        this.interferencias.add(2,obstaculo3);
-        this.interferencias.add(3,obstaculo4);
-        this.interferencias.add(4,obstaculo5);
-        this.interferencias.add(5,obstaculo6);
-        this.interferencias.add(6,obstaculo7);
-        this.interferencias.add(7,obstaculo8);
-        this.interferencias.add(8,obstaculo9);
-        this.interferencias.add(9,obstaculo10);
+
+        this.obstaculos.add(0,obstaculo1);
+        this.obstaculos.add(1,obstaculo2);
+        this.obstaculos.add(2,obstaculo3);
+        this.obstaculos.add(3,obstaculo4);
+        this.obstaculos.add(4,obstaculo5);
+
+        this.sorpresas.add(0,obstaculo6);
+        this.sorpresas.add(1,obstaculo7);
+        this.sorpresas.add(2,obstaculo8);
+
+        this.obstaculos.add(5,obstaculo9);
+
+        this.sorpresas.add(3,obstaculo10);
     }
 }

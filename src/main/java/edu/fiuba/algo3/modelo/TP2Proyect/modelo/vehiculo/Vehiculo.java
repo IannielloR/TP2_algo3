@@ -4,10 +4,10 @@ import java.util.Random;
 
 public abstract class Vehiculo {
     public int devolverSorpresaFavorable(int movimientos){
-        return (movimientos - ((movimientos * 20)/100));
+        return Math.round( - ((movimientos * 20)/100));
     }
     public int devolverSorpresaDesfavorable(int movimientos){
-        return (movimientos + ((movimientos * 25)/100));
+        return Math.round((movimientos * 25)/100);
     }
     public abstract String devolverSorpresaCambioDeVehiculo();
     public abstract int devolverPenalizacionControlPolical();
