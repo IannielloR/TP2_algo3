@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
 import java.util.Random;
 
-public class Auto extends Vehiculo{
+public class Auto extends Vehiculo {
 
     public Auto(){ }
     public String devolverSorpresaCambioDeVehiculo(){
