@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
-import java.util.Random;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+
 public class Juego {
     private int movimientos;
     private Mapa mapa;
 
-    public Juego(Vehiculo vehiculo){
+    public Juego(TipoVehiculo vehiculo){
         this.mapa = new Mapa(vehiculo);
         this.movimientos = 0;
     }

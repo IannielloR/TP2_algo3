@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
 import java.util.Random;
 
-public class Moto extends Vehiculo {
+public class Moto extends TipoVehiculo {
     public Moto(){
     }
-    public String devolverSorpresaCambioDeVehiculo() {
-        return "moto";
+    public TipoVehiculo devolverSorpresaCambioDeVehiculo() {
+        return new Auto();
     }
     public int devolverPenalizacionControlPolical(){
         Random random = new Random();

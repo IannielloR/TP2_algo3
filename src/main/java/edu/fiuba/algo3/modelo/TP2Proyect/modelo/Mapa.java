@@ -7,8 +7,8 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpesaCambioVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaDesfavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.Random;
 public class Mapa {
     private int maximoX;
     private int maximoY;
-    private TipoVehiculo vehiculo;
+    private Vehiculo vehiculo;
     private int posVehiculoX;
     private int posVehiculoY;
 
@@ -27,10 +27,10 @@ public class Mapa {
 
     private List<Interferencia> sorpresas = new ArrayList<Interferencia>();
 
-    public Mapa(Vehiculo vehiculo){
+    public Mapa(TipoVehiculo vehiculo){
         this.maximoX = 10;
         this.maximoY = 10;
-        this.vehiculo = new TipoVehiculo(vehiculo);
+        this.vehiculo = new Vehiculo(vehiculo);
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
         this.senialMovimeinto = 0;

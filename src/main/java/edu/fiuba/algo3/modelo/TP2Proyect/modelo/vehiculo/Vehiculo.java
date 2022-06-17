@@ -1,16 +1,18 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
-import java.util.Random;
+public class Vehiculo {
 
-public abstract class Vehiculo {
-    public int devolverSorpresaFavorable(int movimientos){
-        return ( - ((movimientos * 20)/100));
+    private TipoVehiculo tipoVehiculo;
+
+    public Vehiculo(TipoVehiculo vehiculo){
+        this.tipoVehiculo = vehiculo;
     }
-    public int devolverSorpresaDesfavorable(int movimientos){
-        return ((movimientos * 25)/100);
+
+    public TipoVehiculo devolverVehiculo(){
+        return this.tipoVehiculo;
     }
-    public abstract String devolverSorpresaCambioDeVehiculo();
-    public abstract int devolverPenalizacionControlPolical();
-    public abstract int devolverPenalizacionPozo();
-    public abstract int devolverPenalizacionPiquete();
+    public void cambiarEstado(){
+        this.tipoVehiculo = this.tipoVehiculo.devolverSorpresaCambioDeVehiculo();
+    }
+
 }
