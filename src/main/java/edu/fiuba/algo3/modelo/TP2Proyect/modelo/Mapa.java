@@ -9,10 +9,11 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaD
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Random;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Random;
+
 
 public class Mapa {
     private int maximoX;
@@ -22,6 +23,8 @@ public class Mapa {
     private int posVehiculoY;
 
     private int senialMovimeinto;
+
+    private Random random;
 
     private List<Interferencia> obstaculos = new ArrayList<Interferencia>();
 
@@ -34,6 +37,7 @@ public class Mapa {
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
         this.senialMovimeinto = 0;
+        this.random = new Random(maximoX, maximoY);
         crearInterferencias();
     }
     public int moverVehiculoAbajo(int movimientos){
@@ -130,28 +134,31 @@ public class Mapa {
 
         //this.sorpresas.add(3,obstaculo10);
 
-        Random random = new Random();
-        int cantTotalInterfencias = random.nextInt(10);
+        int cantTotalInterfencias = random.generarInt(10);
         for(int i = 0; i< cantTotalInterfencias; i++){
             int maxInterferencias = 6;
-            int numInterferencia = random.nextInt(maxInterferencias);
+            int numInterferencia = random.generarInt(maxInterferencias);
+            int xIncial = random.generarXInicial();
+            int yInicial = random.generarYInicial();
+            int xFinal = random.generarXFinal(xIncial);
+            int yFinal = random.generarYFinal(yInicial, xIncial, xFinal);
             if (numInterferencia == 0){
-                this.obstaculos.add(i,new Pozo(maximoX,maximoY));
+                this.obstaculos.add(i,new Pozo(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 1){
-                this.obstaculos.add(i,new Piquete(maximoX,maximoY));
+                this.obstaculos.add(i,new Piquete(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 2){
-                this.obstaculos.add(i,new ControlPolicial(maximoX,maximoY));
+                this.obstaculos.add(i,new ControlPolicial(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 3){
-                this.obstaculos.add(i,new SorpresaDesfavorable(maximoX,maximoY));
+                this.obstaculos.add(i,new SorpresaDesfavorable(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 4){
-                this.obstaculos.add(i,new SorpresaFavorable(maximoX,maximoY));
+                this.obstaculos.add(i,new SorpresaFavorable(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 5){
-                this.obstaculos.add(i,new SorpesaCambioVehiculo(maximoX,maximoY));
+                this.obstaculos.add(i,new SorpesaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
             }
         }
 
