@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.tp2Tests;
+/*package edu.fiuba.algo3.tp2Tests;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.CuatroXCuatro;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
@@ -39,3 +39,4 @@ public class VehiculoTest {
         assertEquals(movimientosEsperadosB, gpsChallenge.getMovimientos());
     }
 }
+*/

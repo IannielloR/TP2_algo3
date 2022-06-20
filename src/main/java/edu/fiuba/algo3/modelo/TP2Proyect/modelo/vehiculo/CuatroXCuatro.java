@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
-public class CuatroXCuatro extends Vehiculo{
+import java.util.Random;
+
+public class CuatroXCuatro extends Vehiculo {
     private int pozos;
 
     public CuatroXCuatro(){
@@ -10,7 +12,10 @@ public class CuatroXCuatro extends Vehiculo{
     public String devolverSorpresaCambioDeVehiculo() {
         return "4x4";
     }
-    public int devolverPenalizacionControlPolical(){
+    public int devolverPenalizacionControlPolical(float prob){
+        if(prob < 0.3){
+            return 3;
+        }
         return 0;
     }
     public int devolverPenalizacionPozo(){
