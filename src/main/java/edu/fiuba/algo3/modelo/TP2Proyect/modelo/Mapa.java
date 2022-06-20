@@ -133,41 +133,31 @@ public class Mapa {
         //this.obstaculos.add(5,obstaculo9);
 
         //this.sorpresas.add(3,obstaculo10);
-
-
-        Random random = new Random();
-        int cantTotalInterfencias = random.nextInt(10);
-        int indiceObstaculos = 0;
-        int indiceSorpresas = 0;
+        int cantTotalInterfencias = random.generarInt(10);
         for(int i = 0; i< cantTotalInterfencias; i++){
             int maxInterferencias = 6;
-            int numInterferencia = random.nextInt(maxInterferencias);
-
+            int numInterferencia = random.generarInt(maxInterferencias);
+            int xIncial = random.generarXInicial();
+            int yInicial = random.generarYInicial();
+            int xFinal = random.generarXFinal(xIncial);
+            int yFinal = random.generarYFinal(yInicial, xIncial, xFinal);
             if (numInterferencia == 0){
-                this.obstaculos.add(indiceObstaculos,new Pozo(maximoX,maximoY));
-                indiceObstaculos++;
+                this.obstaculos.add(i,new Pozo(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 1){
-                this.obstaculos.add(indiceObstaculos,new Piquete(maximoX,maximoY));
-                indiceObstaculos++;
+                this.obstaculos.add(i,new Piquete(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 2){
-                this.obstaculos.add(indiceObstaculos,new ControlPolicial(maximoX,maximoY));
-                indiceObstaculos++;
+                this.obstaculos.add(i,new ControlPolicial(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 3){
-                this.sorpresas.add(indiceSorpresas,new SorpresaDesfavorable(maximoX,maximoY));
-                indiceSorpresas++;
+                this.obstaculos.add(i,new SorpresaDesfavorable(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 4){
-                this.sorpresas.add(indiceSorpresas,new SorpresaFavorable(maximoX,maximoY));
-                indiceSorpresas++;
+                this.obstaculos.add(i,new SorpresaFavorable(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 5){
-                this.sorpresas.add(indiceSorpresas,new SorpesaCambioVehiculo(maximoX,maximoY));
-                indiceSorpresas++;
-            }
-        }
+                this.obstaculos.add(i,new SorpesaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
 
 
     }
