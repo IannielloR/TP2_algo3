@@ -159,7 +159,7 @@ public class Mapa {
             if (numInterferencia == 5){
                 this.obstaculos.add(i,new SorpesaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
 
-
+            }
+        }
     }
-
 }
