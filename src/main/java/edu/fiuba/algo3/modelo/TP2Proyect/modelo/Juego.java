@@ -5,6 +5,7 @@ import java.util.Random;
 public class Juego {
     private int movimientos;
     private Mapa mapa;
+    private boolean llegada;
 
     public Juego(Vehiculo vehiculo){
         this.mapa = new Mapa(vehiculo);
@@ -13,18 +14,22 @@ public class Juego {
 
     public void moverVehiculoArriba(){
         movimientos += mapa.moverVehiculoArriba(this.movimientos);
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoAbajo(){
         movimientos += mapa.moverVehiculoAbajo(this.movimientos);
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoIzquierda(){
         movimientos += mapa.moverVehiculoIzquierda(this.movimientos);
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoDerecha(){
         movimientos += mapa.moverVehiculoDerecha(this.movimientos);
+        llegada = mapa.verificarMeta();
     }
     public int getMovimientos(){
         return this.movimientos;
