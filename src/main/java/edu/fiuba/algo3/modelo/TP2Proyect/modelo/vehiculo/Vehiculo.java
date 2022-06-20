@@ -10,7 +10,7 @@ public abstract class Vehiculo {
         return ((movimientos * 25)/100);
     }
     public abstract String devolverSorpresaCambioDeVehiculo();
-    public abstract int devolverPenalizacionControlPolical();
+    public abstract int devolverPenalizacionControlPolical(float prob);
     public abstract int devolverPenalizacionPozo();
     public abstract int devolverPenalizacionPiquete();
 }

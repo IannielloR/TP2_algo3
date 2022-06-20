@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo;
 
+
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+
+import java.util.Random;
 
 public class ControlPolicial extends Interferencia {
 
@@ -10,7 +13,9 @@ public class ControlPolicial extends Interferencia {
     }
     public int analizarVehiculo(TipoVehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal, int movimientos){
         if(cordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
-            return (vehiculo.devolverVehiculo()).devolverPenalizacionControlPolical();
+            Random random = new Random();
+            float prob = random.nextFloat();
+            return (vehiculo.devolverVehiculo()).devolverPenalizacionControlPolical(prob);
         }
         return 0;
     }

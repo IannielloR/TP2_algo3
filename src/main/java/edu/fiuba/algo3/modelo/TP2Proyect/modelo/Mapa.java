@@ -106,33 +106,6 @@ public class Mapa {
         return movimientos;
     }
     private void crearInterferencias(){
-        //Interferencia obstaculo1 = new Pozo(maximoX,maximoY);
-        //Interferencia obstaculo2 = new Pozo(maximoX,maximoY);
-        //Interferencia obstaculo3 = new Pozo(maximoX,maximoY);
-        //Interferencia obstaculo4 = new Piquete(maximoX,maximoY);
-        //Interferencia obstaculo5 = new ControlPolicial(maximoX,maximoY);
-
-        //Interferencia obstaculo6 = new SorpresaDesfavorable(maximoX,maximoY);
-        //Interferencia obstaculo7 = new SorpresaFavorable(maximoX,maximoY);
-        //Interferencia obstaculo8 = new SorpesaCambioVehiculo(maximoX,maximoY);
-
-        //Interferencia obstaculo9 = new Piquete(maximoX,maximoY);
-
-        //Interferencia obstaculo10 = new SorpresaDesfavorable(maximoX,maximoY);
-
-        //this.obstaculos.add(0,obstaculo1);
-        //this.obstaculos.add(1,obstaculo2);
-        //this.obstaculos.add(2,obstaculo3);
-        // this.obstaculos.add(3,obstaculo4);
-        //this.obstaculos.add(4,obstaculo5);
-
-        //this.sorpresas.add(0,obstaculo6);
-        //this.sorpresas.add(1,obstaculo7);
-        //this.sorpresas.add(2,obstaculo8);
-
-        //this.obstaculos.add(5,obstaculo9);
-
-        //this.sorpresas.add(3,obstaculo10);
         int cantTotalInterfencias = random.generarInt(10);
         for(int i = 0; i< cantTotalInterfencias; i++){
             int maxInterferencias = 6;

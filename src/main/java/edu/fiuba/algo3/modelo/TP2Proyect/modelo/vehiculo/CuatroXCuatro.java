@@ -12,9 +12,8 @@ public class CuatroXCuatro extends Vehiculo {
     public String devolverSorpresaCambioDeVehiculo() {
         return "4x4";
     }
-    public int devolverPenalizacionControlPolical(){
-        Random random = new Random();
-        if(random.nextFloat() < 0.3){
+    public int devolverPenalizacionControlPolical(float prob){
+        if(prob < 0.3){
             return 3;
         }
         return 0;

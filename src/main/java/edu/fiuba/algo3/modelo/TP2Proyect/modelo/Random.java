@@ -19,7 +19,7 @@ public class Random {
         int valor = 2;
         int empiezaConX = random.nextInt(valor);
         int posXFinal = xInicial;
-        if(empiezaConX == 2){
+        if(empiezaConX == 0){
             if(xInicial == this.maxXMapa){
                 posXFinal = (xInicial-1);
             }else{
@@ -41,6 +41,9 @@ public class Random {
     }
     public int generarInt( int numMax){
         return random.nextInt(numMax);
+    }
+    public float generarFloat(){
+        return random.nextFloat();
     }
 
 
