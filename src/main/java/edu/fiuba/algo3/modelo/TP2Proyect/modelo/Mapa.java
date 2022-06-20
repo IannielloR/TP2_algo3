@@ -24,6 +24,8 @@ public class Mapa {
 
     private int senialMovimeinto;
 
+    private boolean llegada;
+    private Meta meta;
     private Random random;
 
     private List<Interferencia> obstaculos = new ArrayList<Interferencia>();
@@ -34,6 +36,7 @@ public class Mapa {
     public Mapa(Vehiculo vehiculo){
         this.maximoX = 10;
         this.maximoY = 10;
+        this.meta = new Meta (maximoX, 5);
         this.vehiculo = new TipoVehiculo(vehiculo);
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
@@ -41,6 +44,9 @@ public class Mapa {
         this.random = new Random(maximoX, maximoY);
         crearInterferencias();
 
+    }
+    public boolean verificarMeta(){
+       return meta.verificarMeta(posVehiculoX, posVehiculoY);
     }
     public int moverVehiculoAbajo(int movimientos){
         if(posVehiculoY + 1 <= maximoY) {
