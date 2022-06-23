@@ -23,30 +23,18 @@ public class Mapa {
     public Mapa(TipoVehiculo vehiculo){
         this.maximoX = 10;
         this.maximoY = 10;
-<<<<<<< HEAD
-        this.meta = new Meta (maximoX, 5);
-        this.vehiculo = new TipoVehiculo(vehiculo);
-=======
         this.vehiculo = new Vehiculo(vehiculo);
->>>>>>> 9633c478fc4560ef4a348a96ab06bb5869a16af0
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
         this.random = new Random(maximoX, maximoY);
 
     }
-<<<<<<< HEAD
-    public boolean verificarMeta(){
-       return meta.verificarMeta(posVehiculoX, posVehiculoY);
-    }
-    public int moverVehiculoAbajo(int movimientos){
-=======
 
 
     public int devolverMovimientos(){
         return this.vehiculo.devolverMovimientos();
     }
     public void moverVehiculoAbajo(){
->>>>>>> 9633c478fc4560ef4a348a96ab06bb5869a16af0
         if(posVehiculoY + 1 <= maximoY) {
             if (revisarObstaculos(posVehiculoX, (posVehiculoY + 1))) {
                 posVehiculoY++;
