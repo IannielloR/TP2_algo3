@@ -1,8 +1,8 @@
-/*package edu.fiuba.algo3.tp2Tests;
+package edu.fiuba.algo3.TP2ProyectTests.tests;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.CuatroXCuatro;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Moto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -39,4 +39,3 @@ public class VehiculoTest {
         assertEquals(movimientosEsperadosB, gpsChallenge.getMovimientos());
     }
 }
-*/
