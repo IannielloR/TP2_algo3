@@ -25,11 +25,11 @@ public class VehiculoTest {
     }
 
     @Test
-    public void cuatroXCuatroSeCruzaConUnControlPolicial(){
+    public void cuatroXCuatroRecorreElMapaYSeEncuentraConObstaculos(){
         // Arrange
         CuatroXCuatro vehiculo = new CuatroXCuatro();
         Juego gpsChallenge = new Juego(vehiculo);
-        int movimientosEsperados = 6;
+        int movimientosEsperados = 15;
 
         // Act
         gpsChallenge.moverVehiculoDerecha();
@@ -37,6 +37,18 @@ public class VehiculoTest {
         gpsChallenge.moverVehiculoDerecha();
         gpsChallenge.moverVehiculoDerecha();
         gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoIzquierda();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoArriba();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoArriba();
+        gpsChallenge.moverVehiculoIzquierda();
 
         // Assert
         assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
