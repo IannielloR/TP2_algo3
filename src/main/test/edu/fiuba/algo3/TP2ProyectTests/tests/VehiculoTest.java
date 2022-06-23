@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.TP2ProyectTests.tests;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,17 +24,18 @@ public class VehiculoTest {
     @Test
     public void cuatroXCuatroSeCruzaConUnControlPolicial(){
         // Arrange
-        Juego gpsChallenge = new Juego(new CuatroXCuatro());
-        int movimientosEsperadosA = 6;
-        int movimientosEsperadosB = 3;
+        CuatroXCuatro vehiculo = new CuatroXCuatro();
+        Juego gpsChallenge = new Juego(vehiculo);
+        int movimientosEsperados = 6;
 
         // Act
-        gpsChallenge.moverVehiculoArriba();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
         gpsChallenge.moverVehiculoDerecha();
         gpsChallenge.moverVehiculoAbajo();
 
         // Assert
-        assertEquals(movimientosEsperadosA, gpsChallenge.getMovimientos());
-        assertEquals(movimientosEsperadosB, gpsChallenge.getMovimientos());
+        assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
     }
 }
