@@ -1,33 +1,28 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 
 import java.util.Random;
 
 public class Coordenada {
+        private int posXInicial;
+        private int posYInicial;
+        private int posXFinal;
+        private int posYFinal;
 
-    private int posXInicial;
-    private int posYInicial;
-    private int posXFinal;
-    private int posYFinal;
-    public Coordenada() {
-        int posXInicial = 0;
-        int posYInicial = 0;
-        int posXFinal = 0;
-        int posYFinal = 0;
+    public void asignarCoordenadas( int xInicial, int yInicial, int xFinal, int yFinal){
+        this.posXInicial = xInicial;
+        this.posYInicial = yInicial;
+        this.posXFinal = xFinal;
+        this.posYFinal = yFinal;
     }
-
-    public void asignarCooredenada(int posXFinal, int posYFinal){
-
-        Random random = new Random();
-        int limite = 2;
-        int variable = random.nextInt(limite);
-
-//        this.posXInicial;
-
-        if(variable == 0){
-
+    public boolean hayColision(int vehiculoXInical, int vehiculoYInicial, int vehiculoXFinal, int vehiculoYFinal) {
+        if ((vehiculoXInical == posXInicial) && (vehiculoYInicial == posYInicial) && (vehiculoXFinal == posXFinal) && (vehiculoYFinal == posYFinal)) {
+            return true;
         }
+        if ((vehiculoXInical == posXFinal) && (vehiculoYInicial == posYFinal) && (vehiculoXFinal == posXInicial) && (vehiculoYFinal == posYInicial)) {
+            return true;
+        }
+        return false;
     }
 }
 //    private int posX;
