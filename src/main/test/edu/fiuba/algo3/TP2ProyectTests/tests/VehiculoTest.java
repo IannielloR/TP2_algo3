@@ -11,7 +11,7 @@ public class VehiculoTest {
         // Arrange
         Moto vehiculo = new Moto();
         Juego gpsChallenge = new Juego(vehiculo);
-        int movimientosEsperados = 6;   //3 desplazamiento + 3 pozo
+        int movimientosEsperados = 16;   //3 desplazamiento + 3 pozo
 
         // Act
         gpsChallenge.moverVehiculoDerecha();
@@ -37,6 +37,33 @@ public class VehiculoTest {
         gpsChallenge.moverVehiculoDerecha();
         gpsChallenge.moverVehiculoDerecha();
         gpsChallenge.moverVehiculoAbajo();
+
+        // Assert
+        assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
+    }
+
+    @Test
+    public void autoSeRecorreElMapaYSeEncuentraConObstaculos(){
+        // Arrange
+        Auto vehiculo = new Auto();
+        Juego gpsChallenge = new Juego(vehiculo);
+        int movimientosEsperados = 22;
+
+        // Act
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoIzquierda();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoIzquierda();
 
         // Assert
         assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
