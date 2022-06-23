@@ -74,12 +74,4 @@ public class Juego {
     public int getMovimientos(){
         return this.mapa.devolverMovimientos();
     }
-
-/*    public void prueba(){
-        Random rand = new Random(); //instance of random class
-        int upperbound = 25;
-        //generate random values from 0-24
-        int int_random = rand.nextInt(upperbound);
-    }
-*/
 }
