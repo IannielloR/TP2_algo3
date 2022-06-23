@@ -15,28 +15,25 @@ public class Test3 {
         int movimientosEsperados = 15;
 
         // Act
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoAbajo();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoAbajo();
-        gpsChallenge.moverVehiculoIzquierda();
-        gpsChallenge.moverVehiculoAbajo();
-        gpsChallenge.moverVehiculoAbajo();
-        gpsChallenge.moverVehiculoAbajo();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoArriba();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoDerecha();
-        gpsChallenge.moverVehiculoArriba();
-        gpsChallenge.moverVehiculoIzquierda();
+        gpsChallenge.moverVehiculoDerecha(); //2,1
+        gpsChallenge.moverVehiculoAbajo(); // 2,2
+        gpsChallenge.moverVehiculoDerecha(); // 3,2
+        gpsChallenge.moverVehiculoDerecha(); // 4,2
+        gpsChallenge.moverVehiculoAbajo(); //4,3 = 7
 
-        // Assert
-        assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
-    }
-}
+        gpsChallenge.moverVehiculoAbajo(); //4,4
+        gpsChallenge.moverVehiculoIzquierda(); //3,4
+        gpsChallenge.moverVehiculoAbajo(); //3,5
+        gpsChallenge.moverVehiculoAbajo(); // 3,6
+        gpsChallenge.moverVehiculoDerecha(); // 4,6
+        gpsChallenge.moverVehiculoArriba(); // 4,5
+        gpsChallenge.moverVehiculoDerecha(); // 5,5
+        gpsChallenge.moverVehiculoDerecha(); // 6,5
+        gpsChallenge.moverVehiculoDerecha(); // 7,5
+        gpsChallenge.moverVehiculoDerecha(); // 8,5
+        gpsChallenge.moverVehiculoArriba(); // 7,5
+        gpsChallenge.moverVehiculoIzquierda(); //7,4
+
 /*      Interferencia obstaculo1 = new Pozo(2,1);
         Interferencia obstaculo2 = new Pozo(2,2);
         Interferencia obstaculo3 = new Pozo(3,2);
@@ -47,3 +44,9 @@ public class Test3 {
         Interferencia obstaculo8 = new SorpesaCambioVehiculo(6,5);
         Interferencia obstaculo9 = new Piquete(7,4);
         Interferencia obstaculo10 = new SorpresaDesfavorable(7,4);*/
+
+
+        // Assert
+        assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
+    }
+}
