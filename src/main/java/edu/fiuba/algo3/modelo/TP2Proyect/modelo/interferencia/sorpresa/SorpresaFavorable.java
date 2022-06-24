@@ -2,16 +2,16 @@ package edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 
 public class SorpresaFavorable extends Interferencia {
-    public SorpresaFavorable(int id1, int id2) {
-        this.posX = id1;
-        this.posY = id2;
+    public SorpresaFavorable(int xInicial, int yInicial, int xFinal, int yFinal) {
+        this.coordenada.asignarCoordenadas(xInicial,  yInicial, xFinal, yFinal);
     }
-    public int analizarVehiculo(TipoVehiculo vehiculo, int id1, int id2, int movimientos){
-        if(this.posX == id1 && this.posY == id2 ){
-            return (vehiculo.devolverVehiculo()).devolverSorpresaFavorable(movimientos);
+    public boolean analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal){
+        if(coordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
+            vehiculo.devolverSorpresaFavorable();
         }
-        return 0;
+        return true;
     }
 }
