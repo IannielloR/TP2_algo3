@@ -7,54 +7,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Test3 {
 
-    @Test
-    public void test(){
-        // Arrange
-        CuatroXCuatro vehiculo = new CuatroXCuatro();
-        Juego gpsChallenge = new Juego(vehiculo);
-        int movimientosEsperados = 15;
+        @Test
+        public void test(){
+                // Arrange
+                CuatroXCuatro vehiculo = new CuatroXCuatro();
+                Juego gpsChallenge = new Juego(vehiculo);
+                int movimientosEsperados = 15;
 
-        // Act
-<<<<<<< HEAD
-        gpsChallenge.moverVehiculoDerecha(); //2,1 --> pozo 1 = 1
-        gpsChallenge.moverVehiculoAbajo(); // 2,2 --> pozo 2 = 1
-        gpsChallenge.moverVehiculoDerecha(); // 3,2 --> pozo 3 = 3
-        gpsChallenge.moverVehiculoDerecha(); // 3,2 --> piquete 1 = 0
-        gpsChallenge.moverVehiculoAbajo(); // 3,3 --> sorpresa favorable = -1, total = 5
-        gpsChallenge.moverVehiculoIzquierda(); //2,3 --> nada = 1
-        gpsChallenge.moverVehiculoAbajo(); // 2,4 --> nada = 1
-        gpsChallenge.moverVehiculoAbajo(); // 2,5 --> nada = 1
-        gpsChallenge.moverVehiculoAbajo(); // 2,6 --> nada = 1
-        gpsChallenge.moverVehiculoDerecha(); // 3,6 --> nada = 1
-        gpsChallenge.moverVehiculoArriba(); // 3,5 --> nada = 1, total = 11
-        gpsChallenge.moverVehiculoDerecha(); // 4,5 --> sorpresa desfavorable = +2/3, total = 14/15
-        gpsChallenge.moverVehiculoDerecha(); // 5,5 -> nada = 1
-        gpsChallenge.moverVehiculoDerecha(); // 6,5 --> sorpresaCambioVehiculo ( de 4x4 a moto) = 1
-        gpsChallenge.moverVehiculoDerecha(); // 7,5 --> nada = 1, total = 17/18
-        gpsChallenge.moverVehiculoArriba(); // 7,4 --> piquete = 2 + sorpresa desfavorable = 23( 17 +2) / 24( 17 +2 ) / 25( 18 +2 ) / 21(17)/ 22(17) / 22(18)/ 23(18)
-        gpsChallenge.moverVehiculoIzquierda(); //6,4 --> nada = 1, total = ( 22/23/23/24  )/19/20/21
-        
-=======
-        gpsChallenge.moverVehiculoDerecha(); //2,1
-        gpsChallenge.moverVehiculoAbajo(); // 2,2
-        gpsChallenge.moverVehiculoDerecha(); // 3,2
-        gpsChallenge.moverVehiculoDerecha(); // 4,2
-        gpsChallenge.moverVehiculoAbajo(); //4,3 = 7
+                // Act
+                gpsChallenge.moverVehiculoDerecha(); //2,1
+                gpsChallenge.moverVehiculoAbajo(); // 2,2
+                gpsChallenge.moverVehiculoDerecha(); // 3,2
+                gpsChallenge.moverVehiculoDerecha(); // 4,2
+                gpsChallenge.moverVehiculoAbajo(); //4,3 = 7
 
-        gpsChallenge.moverVehiculoAbajo(); //4,4
-        gpsChallenge.moverVehiculoIzquierda(); //3,4
-        gpsChallenge.moverVehiculoAbajo(); //3,5
-        gpsChallenge.moverVehiculoAbajo(); // 3,6
-        gpsChallenge.moverVehiculoDerecha(); // 4,6
-        gpsChallenge.moverVehiculoArriba(); // 4,5
-        gpsChallenge.moverVehiculoDerecha(); // 5,5
-        gpsChallenge.moverVehiculoDerecha(); // 6,5
-        gpsChallenge.moverVehiculoDerecha(); // 7,5
-        gpsChallenge.moverVehiculoDerecha(); // 8,5
-        gpsChallenge.moverVehiculoArriba(); // 7,5
-        gpsChallenge.moverVehiculoIzquierda(); //7,4
+                gpsChallenge.moverVehiculoAbajo(); //4,4
+                gpsChallenge.moverVehiculoIzquierda(); //3,4
+                gpsChallenge.moverVehiculoAbajo(); //3,5
+                gpsChallenge.moverVehiculoAbajo(); // 3,6
+                gpsChallenge.moverVehiculoDerecha(); // 4,6
+                gpsChallenge.moverVehiculoArriba(); // 4,5
+                gpsChallenge.moverVehiculoDerecha(); // 5,5
+                gpsChallenge.moverVehiculoDerecha(); // 6,5
+                gpsChallenge.moverVehiculoDerecha(); // 7,5
+                gpsChallenge.moverVehiculoDerecha(); // 8,5
+                gpsChallenge.moverVehiculoArriba(); // 7,5
+                gpsChallenge.moverVehiculoIzquierda(); //7,4
 
->>>>>>> develop
 /*      Interferencia obstaculo1 = new Pozo(2,1);
         Interferencia obstaculo2 = new Pozo(2,2);
         Interferencia obstaculo3 = new Pozo(3,2);
@@ -67,7 +46,7 @@ public class Test3 {
         Interferencia obstaculo10 = new SorpresaDesfavorable(7,4);*/
 
 
-        // Assert
-        assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
-    }
+                // Assert
+                assertEquals(movimientosEsperados, gpsChallenge.getMovimientos());
+        }
 }

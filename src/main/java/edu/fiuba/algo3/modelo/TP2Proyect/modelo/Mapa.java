@@ -63,11 +63,14 @@ public class Mapa {
         }
     }
     private boolean revisarObstaculos(int posX, int posY){
-        boolean vehiculoAvanza = false;
+        boolean vehiculoAvanza = true;
         for(int i = 0; i < this.interferencias.size(); i++){
-            vehiculoAvanza = interferencias.get(i).analizarVehiculo(this.vehiculo,posVehiculoX, posVehiculoY, posX, posY);
+            boolean permiso = interferencias.get(i).analizarVehiculo(this.vehiculo,posVehiculoX, posVehiculoY, posX, posY);
+            if(!permiso) {
+                vehiculoAvanza = false;
+            }
         }
-
+        this.vehiculo.sumarMovimiento();
         return vehiculoAvanza;
     }
 

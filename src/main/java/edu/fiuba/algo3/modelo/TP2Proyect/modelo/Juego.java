@@ -18,6 +18,7 @@ public class Juego {
 
 
     public Juego(TipoVehiculo vehiculo){
+        this.random = new Random();
         this.mapa = new Mapa(vehiculo);
         this.movimientos = 0;
     }
@@ -40,7 +41,7 @@ public class Juego {
                 agregarInterferencia(i, new Piquete(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 2) {
-                agregarInterferencia(i, new ControlPolicial(xIncial, yInicial, xFinal, yFinal));
+                agregarInterferencia(i, new ControlPolicial(xIncial, yInicial, xFinal, yFinal, random.generarFloat()));
             }
             if (numInterferencia == 3) {
                 agregarInterferencia(i, new SorpresaDesfavorable(xIncial, yInicial, xFinal, yFinal));
