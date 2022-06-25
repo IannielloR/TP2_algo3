@@ -4,11 +4,10 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpesaCambioVehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaCambioVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaDesfavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 
 public class Juego {
     private int movimientos;
@@ -50,7 +49,7 @@ public class Juego {
                 agregarInterferencia(i, new SorpresaFavorable(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 5) {
-                agregarInterferencia(i, new SorpesaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
+                agregarInterferencia(i, new SorpresaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
 
             }
         }
