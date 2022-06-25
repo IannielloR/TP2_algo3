@@ -4,26 +4,31 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpesaCambioVehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaCambioVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaDesfavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 
 public class Juego {
     private int movimientos;
     private Mapa mapa;
     private boolean llegada;
-
     private Random random;
 
 
     public Juego(TipoVehiculo vehiculo){
+        this.random = new Random();
         this.mapa = new Mapa(vehiculo);
         this.movimientos = 0;
     }
     public void agregarInterferencia(int posicion, Interferencia interferencia){
         this.mapa.agregarInterferenciaAMapa(posicion,interferencia);
+    }
+    public void crearMeta(){
+        this.mapa.crearMeta(this.random);
+    }
+    public void agregarMeta(int y){
+        this.mapa.agregarMeta(y);
     }
     public void crearInterferencias() {
         int cantTotalInterfencias = random.generarInt(10);
@@ -41,7 +46,7 @@ public class Juego {
                 agregarInterferencia(i, new Piquete(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 2) {
-                agregarInterferencia(i, new ControlPolicial(xIncial, yInicial, xFinal, yFinal));
+                agregarInterferencia(i, new ControlPolicial(xIncial, yInicial, xFinal, yFinal, random.generarFloat()));
             }
             if (numInterferencia == 3) {
                 agregarInterferencia(i, new SorpresaDesfavorable(xIncial, yInicial, xFinal, yFinal));
@@ -50,7 +55,7 @@ public class Juego {
                 agregarInterferencia(i, new SorpresaFavorable(xIncial, yInicial, xFinal, yFinal));
             }
             if (numInterferencia == 5) {
-                agregarInterferencia(i, new SorpesaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
+                agregarInterferencia(i, new SorpresaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
 
             }
         }
@@ -58,40 +63,32 @@ public class Juego {
 
 
     public void moverVehiculoArriba(){
-<<<<<<< HEAD
-        movimientos += mapa.moverVehiculoArriba(this.movimientos);
-        llegada = mapa.verificarMeta();
-    }
 
-    public void moverVehiculoAbajo(){
-        movimientos += mapa.moverVehiculoAbajo(this.movimientos);
-        llegada = mapa.verificarMeta();
-    }
-
-    public void moverVehiculoIzquierda(){
-        movimientos += mapa.moverVehiculoIzquierda(this.movimientos);
-        llegada = mapa.verificarMeta();
-    }
-
-    public void moverVehiculoDerecha(){
-        movimientos += mapa.moverVehiculoDerecha(this.movimientos);
-        llegada = mapa.verificarMeta();
-=======
         mapa.moverVehiculoArriba();
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoAbajo(){
         mapa.moverVehiculoAbajo();
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoIzquierda(){
         mapa.moverVehiculoIzquierda();
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoDerecha(){
         mapa.moverVehiculoDerecha();
->>>>>>> 9633c478fc4560ef4a348a96ab06bb5869a16af0
+
+
+        llegada = mapa.verificarMeta();
     }
+
+    public boolean getLlegada() {
+        return llegada;
+    }
+
     public int getMovimientos(){
         return this.mapa.devolverMovimientos();
     }

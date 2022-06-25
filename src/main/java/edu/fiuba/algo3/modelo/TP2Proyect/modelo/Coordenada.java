@@ -4,10 +4,10 @@ package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 import java.util.Random;
 
 public class Coordenada {
-        private int posXInicial;
-        private int posYInicial;
-        private int posXFinal;
-        private int posYFinal;
+    private int posXInicial;
+    private int posYInicial;
+    private int posXFinal;
+    private int posYFinal;
 
     public void asignarCoordenadas( int xInicial, int yInicial, int xFinal, int yFinal){
         this.posXInicial = xInicial;

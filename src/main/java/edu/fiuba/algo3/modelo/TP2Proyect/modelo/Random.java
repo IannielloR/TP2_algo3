@@ -4,12 +4,15 @@ public class Random {
     private java.util.Random random = new java.util.Random();
     private int maxXMapa;
     private int maxYMapa;
+
+    public Random(){
+    }
     public Random(int xMapa, int yMapa) {
         this.maxXMapa = xMapa;
         this.maxYMapa = yMapa;
     }
     public int generarXInicial(){
-       return random.nextInt((this.maxXMapa+1));
+        return random.nextInt((this.maxXMapa+1));
     }
     public int generarYInicial(){
         return random.nextInt((this.maxYMapa+1));

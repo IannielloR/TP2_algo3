@@ -24,4 +24,3 @@ public class Auto extends TipoVehiculo {
 
 
 }
-

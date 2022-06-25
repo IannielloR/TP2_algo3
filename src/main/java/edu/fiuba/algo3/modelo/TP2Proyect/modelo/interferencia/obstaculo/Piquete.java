@@ -14,9 +14,13 @@ public class Piquete extends Interferencia {
 =======
     public boolean analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal){
         if(coordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
+<<<<<<< HEAD
             vehiculo.devolverPenalizacionPiquete();
             return false;
 >>>>>>> 9633c478fc4560ef4a348a96ab06bb5869a16af0
+=======
+            return vehiculo.devolverPenalizacionPiquete();
+>>>>>>> ianniello
         }
         return true;
     }
