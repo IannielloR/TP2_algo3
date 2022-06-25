@@ -14,7 +14,7 @@ public class TestPruebaAuto {
     public void test1(){
         // Arrange
         Auto vehiculo = new Auto();
-        Juego gpsChallenge = new Juego(vehiculo);
+        Juego gpsChallenge = new Juego(vehiculo,10,10);
 
         Interferencia obstaculo1 = new Pozo(1,2,2,2);
 
@@ -31,6 +31,8 @@ public class TestPruebaAuto {
         gpsChallenge.agregarInterferencia(2,obstaculo3);
         gpsChallenge.agregarInterferencia(3,obstaculo4);
         gpsChallenge.agregarInterferencia(4,obstaculo5);
+
+        gpsChallenge.agregarMeta(1);
 
         int movimientosEsperados = 21;
 
@@ -58,7 +60,7 @@ public class TestPruebaAuto {
     public void test2(){
         // Arrange
         Auto vehiculo = new Auto();
-        Juego gpsChallenge = new Juego(vehiculo);
+        Juego gpsChallenge = new Juego(vehiculo,10,10);
 
         Interferencia obstaculo1 = new Pozo(1,2,2,2);
 
@@ -75,6 +77,8 @@ public class TestPruebaAuto {
         gpsChallenge.agregarInterferencia(2,obstaculo3);
         gpsChallenge.agregarInterferencia(3,obstaculo4);
         gpsChallenge.agregarInterferencia(4,obstaculo5);
+
+        gpsChallenge.agregarMeta(1);
 
         int movimientosEsperados = 24;
 
