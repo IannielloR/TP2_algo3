@@ -17,7 +17,7 @@ public class TestCompleto {
     public void test1(){
         // Arrange
         Auto vehiculo = new Auto();
-        Juego gpsChallenge = new Juego(vehiculo);
+        Juego gpsChallenge = new Juego(vehiculo,10,10);
 
         Interferencia obstaculo1 = new Pozo(1,2,2,2);
 
@@ -52,6 +52,8 @@ public class TestCompleto {
         gpsChallenge.agregarInterferencia(8,obstaculo9);
         gpsChallenge.agregarInterferencia(9,obstaculo10);
         gpsChallenge.agregarInterferencia(10,obstaculo11);
+
+        gpsChallenge.agregarMeta(1);
 
         int movimientosEsperados = 39;
 

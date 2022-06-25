@@ -16,19 +16,19 @@ public class Mapa {
     private int posVehiculoY;
     private List<Interferencia> interferencias = new ArrayList<Interferencia>();
 
+    private boolean llegada;
+    private Meta meta;
     private Random random;
 
-    public Mapa(TipoVehiculo vehiculo){
-        this.maximoX = 10;
-        this.maximoY = 10;
+    public Mapa(TipoVehiculo vehiculo, int maxPosX, int maxPosY){
+        this.maximoX = maxPosX;
+        this.maximoY = maxPosY;
         this.vehiculo = new Vehiculo(vehiculo);
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
         this.random = new Random(maximoX, maximoY);
 
     }
-
-
     public int devolverMovimientos(){
         return this.vehiculo.devolverMovimientos();
     }
@@ -78,4 +78,14 @@ public class Mapa {
         this.interferencias.add(posicion,interferencia);
 
     }
+    public void crearMeta(Random ran){
+        this.meta = new Meta (maximoX, ran.generarInt(maximoY));
+    }
+    public void agregarMeta(int y){
+        this.meta = new Meta (maximoX, y);
+    }
+    public boolean verificarMeta(){
+        return meta.verificarMeta(posVehiculoX, posVehiculoY);
+    }
+
 }
