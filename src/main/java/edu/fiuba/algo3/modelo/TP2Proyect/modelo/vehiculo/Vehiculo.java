@@ -35,8 +35,10 @@ public class Vehiculo {
     public void devolverPenalizacionPozo(){
         this.movimientos += (this.tipoVehiculo.devolverPenalizacionPozo());
     };
-    public void devolverPenalizacionPiquete(){
-        this.movimientos += this.tipoVehiculo.devolverPenalizacionPiquete();
+    public boolean devolverPenalizacionPiquete(){
+        int costo = this.tipoVehiculo.devolverPenalizacionPiquete();
+        this.movimientos += costo;
+        return costo != -1;
     };
 
 }

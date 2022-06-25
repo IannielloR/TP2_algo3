@@ -24,7 +24,7 @@ public class TestPruebaMoto {
 
         Interferencia obstaculo4 = new Piquete(3,3,4,3);
 
-        Interferencia obstaculo5 = new ControlPolicial(4,1,3,1, (float) 0.8);
+        Interferencia obstaculo5 = new ControlPolicial(4,1,3,1, (float) 0.9);
 
         gpsChallenge.agregarInterferencia(0,obstaculo1);
         gpsChallenge.agregarInterferencia(1,obstaculo2);
@@ -32,15 +32,14 @@ public class TestPruebaMoto {
         gpsChallenge.agregarInterferencia(3,obstaculo4);
         gpsChallenge.agregarInterferencia(4,obstaculo5);
 
-        int movimientosEsperados = 22;
+        int movimientosEsperados = 21;
 
         // Act
         gpsChallenge.moverVehiculoAbajo();//(1,2)
         gpsChallenge.moverVehiculoDerecha();//(2,2)
         gpsChallenge.moverVehiculoDerecha();//(3,2)
         gpsChallenge.moverVehiculoAbajo();//(3,3)
-        gpsChallenge.moverVehiculoDerecha();//(3,3)
-        gpsChallenge.moverVehiculoAbajo(); // (4,3)
+        gpsChallenge.moverVehiculoDerecha();//(4,3)
         gpsChallenge.moverVehiculoDerecha(); //(5,3)
         gpsChallenge.moverVehiculoArriba(); // (5,2)
         gpsChallenge.moverVehiculoArriba(); // (5,1)
@@ -73,15 +72,14 @@ public class TestPruebaMoto {
         gpsChallenge.agregarInterferencia(3,obstaculo4);
         gpsChallenge.agregarInterferencia(4,obstaculo5);
 
-        int movimientosEsperados = 22;
+        int movimientosEsperados = 24;
 
         // Act
         gpsChallenge.moverVehiculoAbajo();//(1,2)
         gpsChallenge.moverVehiculoDerecha();//(2,2)
         gpsChallenge.moverVehiculoDerecha();//(3,2)
         gpsChallenge.moverVehiculoAbajo();//(3,3)
-        gpsChallenge.moverVehiculoDerecha();//(3,3)
-        gpsChallenge.moverVehiculoAbajo(); // (4,3)
+        gpsChallenge.moverVehiculoDerecha();//(4,3)
         gpsChallenge.moverVehiculoDerecha(); //(5,3)
         gpsChallenge.moverVehiculoArriba(); // (5,2)
         gpsChallenge.moverVehiculoArriba(); // (5,1)
