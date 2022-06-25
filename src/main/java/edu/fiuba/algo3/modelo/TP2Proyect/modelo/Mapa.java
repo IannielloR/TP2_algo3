@@ -163,8 +163,6 @@ public class Mapa {
                 indiceSorpresas++;
             }
         }
-
-
     }
 
 }
