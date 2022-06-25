@@ -13,6 +13,7 @@ public class Juego {
     private int movimientos;
     private Mapa mapa;
 
+    private boolean llegada;
     private Random random;
 
 
@@ -23,6 +24,12 @@ public class Juego {
     }
     public void agregarInterferencia(int posicion, Interferencia interferencia){
         this.mapa.agregarInterferenciaAMapa(posicion,interferencia);
+    }
+    public void crearMeta(){
+        this.mapa.crearMeta(this.random);
+    }
+    public void agregarMeta(int y){
+        this.mapa.agregarMeta(y);
     }
     public void crearInterferencias() {
         int cantTotalInterfencias = random.generarInt(10);
@@ -58,19 +65,28 @@ public class Juego {
 
     public void moverVehiculoArriba(){
         mapa.moverVehiculoArriba();
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoAbajo(){
         mapa.moverVehiculoAbajo();
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoIzquierda(){
         mapa.moverVehiculoIzquierda();
+        llegada = mapa.verificarMeta();
     }
 
     public void moverVehiculoDerecha(){
         mapa.moverVehiculoDerecha();
+        llegada = mapa.verificarMeta();
     }
+
+    public boolean getLlegada() {
+        return llegada;
+    }
+
     public int getMovimientos(){
         return this.mapa.devolverMovimientos();
     }
