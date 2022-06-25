@@ -12,9 +12,8 @@ public class CuatroXCuatro extends TipoVehiculo {
     public TipoVehiculo devolverSorpresaCambioDeVehiculo() {
         return new Moto();
     }
-    public int devolverPenalizacionControlPolical(){
-        Random random = new Random();
-        if(random.nextFloat() < 0.3){
+    public int devolverPenalizacionControlPolical(float prob){
+        if(prob < 0.3){
             return 3;
         }
         return 0;

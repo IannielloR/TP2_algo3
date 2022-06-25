@@ -8,7 +8,7 @@ public abstract class TipoVehiculo {
         return ((movimientos * 25)/100);
     }
     public abstract TipoVehiculo devolverSorpresaCambioDeVehiculo();
-    public abstract int devolverPenalizacionControlPolical();
+    public abstract int devolverPenalizacionControlPolical(float prob);
     public abstract int devolverPenalizacionPozo();
     public abstract int devolverPenalizacionPiquete();
 }

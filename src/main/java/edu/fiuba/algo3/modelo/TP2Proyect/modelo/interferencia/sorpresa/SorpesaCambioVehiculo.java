@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
 
 public class SorpesaCambioVehiculo extends Interferencia {
-    public SorpesaCambioVehiculo(int xMax, int yMax) {
-        this.cordenada.generarCoordenadas(xMax, yMax);
+    public SorpesaCambioVehiculo(int xInicial, int yInicial, int xFinal, int yFinal) {
+        this.coordenada.asignarCoordenadas(xInicial,  yInicial, xFinal, yFinal);
     }
-    public int analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal, int movimientos){
-        if(cordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
+    public boolean analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal){
+        if(coordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
             vehiculo.cambiarEstado();
-            return 1;
         }
-        return 0;
+        return true;
     }
 }

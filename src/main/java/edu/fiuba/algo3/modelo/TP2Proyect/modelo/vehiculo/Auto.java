@@ -8,9 +8,8 @@ public class Auto extends TipoVehiculo {
     public TipoVehiculo devolverSorpresaCambioDeVehiculo(){
         return new CuatroXCuatro();
     }
-    public  int devolverPenalizacionControlPolical(){
-        Random random = new Random();
-        if(random.nextFloat() < 0.5){
+    public  int devolverPenalizacionControlPolical(float prob){
+        if(prob < 0.5){
             return 3;
         }
         return 0;
@@ -25,4 +24,3 @@ public class Auto extends TipoVehiculo {
 
 
 }
-

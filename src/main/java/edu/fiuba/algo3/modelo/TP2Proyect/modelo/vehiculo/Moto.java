@@ -8,9 +8,8 @@ public class Moto extends TipoVehiculo {
     public TipoVehiculo devolverSorpresaCambioDeVehiculo() {
         return new Auto();
     }
-    public int devolverPenalizacionControlPolical(){
-        Random random = new Random();
-        if(random.nextFloat() < 0.8){
+    public int devolverPenalizacionControlPolical(float prob){
+        if(prob < 0.8){
             return 3;
         }
         return 0;
