@@ -19,17 +19,17 @@ public class TestAleatorioMuestra {
         gpsChallenge.crearInterferencias();
 
         // Act
-        gpsChallenge.moverVehiculoAbajo();//(1,2)
-        gpsChallenge.moverVehiculoDerecha();//(2,2)
-        gpsChallenge.moverVehiculoDerecha();//(3,2)
-        gpsChallenge.moverVehiculoAbajo();//(3,3)
-        gpsChallenge.moverVehiculoDerecha();//(3,3)
-        gpsChallenge.moverVehiculoAbajo(); // (4,3)
-        gpsChallenge.moverVehiculoDerecha(); //(5,3)
-        gpsChallenge.moverVehiculoArriba(); // (5,2)
-        gpsChallenge.moverVehiculoArriba(); // (5,1)
-        gpsChallenge.moverVehiculoIzquierda(); // (4,1)
-        gpsChallenge.moverVehiculoIzquierda(); // (3,1)
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha();
+        gpsChallenge.moverVehiculoAbajo();
+        gpsChallenge.moverVehiculoDerecha(); 
+        gpsChallenge.moverVehiculoArriba(); 
+        gpsChallenge.moverVehiculoArriba(); 
+        gpsChallenge.moverVehiculoIzquierda(); 
+        gpsChallenge.moverVehiculoIzquierda(); 
 
         boolean validacion = true;
         if(gpsChallenge.getMovimientos() < 0){
