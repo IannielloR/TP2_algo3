@@ -16,8 +16,14 @@ public class TestVehiculoLlegaAMeta {
     public void test1(){
         // Arrange
         Auto vehiculo = new Auto();
+<<<<<<< HEAD
         Juego gpsChallenge = new Juego(vehiculo);
         gpsChallenge.agregarMeta(1);
+=======
+        Juego gpsChallenge = new Juego(vehiculo,10,10);
+        gpsChallenge.agregarMeta(1);
+        int movimientosEsperados = 9;
+>>>>>>> master
         // Act
         gpsChallenge.moverVehiculoDerecha();//(1,2)
         gpsChallenge.moverVehiculoDerecha();//(1,3)
@@ -31,5 +37,11 @@ public class TestVehiculoLlegaAMeta {
 
         // Assert
         assertTrue(gpsChallenge.getLlegada());
+<<<<<<< HEAD
     }
 }
+=======
+        assertEquals(movimientosEsperados,gpsChallenge.getMovimientos());
+    }
+}
+>>>>>>> master

@@ -17,6 +17,7 @@ public class TestAleatorioMuestra {
         Auto vehiculo = new Auto();
         Juego gpsChallenge = new Juego(vehiculo);
         gpsChallenge.crearInterferencias();
+        gpsChallenge.crearMeta();
 
         // Act
         gpsChallenge.moverVehiculoAbajo();

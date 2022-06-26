@@ -18,7 +18,12 @@ public class Juego {
 
     public Juego(TipoVehiculo vehiculo){
         this.random = new Random();
-        this.mapa = new Mapa(vehiculo);
+        this.mapa = new Mapa(vehiculo,this.random.generarInt(15),this.random.generarInt(15));
+        this.movimientos = 0;
+    }
+    public Juego(TipoVehiculo vehiculo,int maxPosX, int maxPosY){
+        this.random = new Random();
+        this.mapa = new Mapa(vehiculo,maxPosX,maxPosY);
         this.movimientos = 0;
     }
     public void agregarInterferencia(int posicion, Interferencia interferencia){
@@ -83,6 +88,7 @@ public class Juego {
 
 
         llegada = mapa.verificarMeta();
+
     }
 
     public boolean getLlegada() {

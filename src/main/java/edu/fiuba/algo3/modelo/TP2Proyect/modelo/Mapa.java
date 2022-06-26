@@ -20,9 +20,9 @@ public class Mapa {
     private Meta meta;
     private Random random;
 
-    public Mapa(TipoVehiculo vehiculo){
-        this.maximoX = 10;
-        this.maximoY = 10;
+    public Mapa(TipoVehiculo vehiculo, int maxPosX, int maxPosY){
+        this.maximoX = maxPosX;
+        this.maximoY = maxPosY;
         this.vehiculo = new Vehiculo(vehiculo);
         this.posVehiculoX = 1;
         this.posVehiculoY = 1;
