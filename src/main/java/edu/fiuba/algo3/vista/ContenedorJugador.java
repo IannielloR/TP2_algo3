@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.manejadores.BotonEntrarEventHandle;
-import edu.fiuba.algo3.controlador.manejadores.BotonEntrarJuegoAutoEventHandle;
-import edu.fiuba.algo3.controlador.manejadores.BotonEntrarJuegoCuatroXCuatroEventHandle;
-import edu.fiuba.algo3.controlador.manejadores.BotonEntrarJuegoMotoEventHandle;
+import edu.fiuba.algo3.vista.manejadores.BotonCuatroXCuatroEventHandle;
+import edu.fiuba.algo3.vista.manejadores.BotonInicioEventHandle;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.vista.manejadores.BotonMotoEventHandle;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -34,40 +32,34 @@ public class ContenedorJugador extends VBox {
 
         Button botonAuto = new Button();
         botonAuto.setText("Auto");
+        BotonoAutoEventHandle botonAutoEventHandle = new BotonoAutoEventHandle(stage);
+        botonAuto.setOnAction(botonEntrarJuegoAutoEventHandle);
 
         Button botonMoto = new Button();
         botonMoto.setText("Moto");
+        BotonMotoEventHandle botonMotoEventHandle = new BotonMotoEventHandle(stage);
+        botonMoto.setOnAction(botonEntrarJuegoMotoEventHandle);
 
         Button boton4x4 = new Button();
         boton4x4.setText("4x4");
+        BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(stage);
+        boton4x4.setOnAction(botonEntrarJuegoCuatroXCuatroEventHandle);
 
+        Button botonJugar = new Button();
+        boton4x4.setText("Iniciar Partida");
+        BotonInicioEventHandle botonJuegoHandler = new BotonInicioEventHandle(stage, escenaJuego);
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-
         etiqueta.setText("Seleccione su vehiculo");
         etiqueta.setTextFill(Color.web("#000000"));
 
-        Juego juego = crearModelo();
-        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego);
+
+        ContenedorJuego contenedorJuego = new ContenedorJuego(stage);
         Scene escenaJuego = new Scene(contenedorJuego, 640, 480);
-
-        BotonEntrarEventHandle botonJuegoHandler = new BotonEntrarEventHandle(stage, escenaJuego);
-
-        BotonEntrarJuegoAutoEventHandle botonEntrarJuegoAutoEventHandle = new BotonEntrarJuegoAutoEventHandle(stage, tipoVehiculo);
-        BotonEntrarJuegoMotoEventHandle botonEntrarJuegoMotoEventHandle = new BotonEntrarJuegoMotoEventHandle(stage, tipoVehiculo);
-        BotonEntrarJuegoCuatroXCuatroEventHandle botonEntrarJuegoCuatroXCuatroEventHandle = new BotonEntrarJuegoCuatroXCuatroEventHandle(stage, tipoVehiculo);
-
-        botonAuto.setOnAction(botonEntrarJuegoAutoEventHandle);
-        botonMoto.setOnAction(botonEntrarJuegoMotoEventHandle);
-        boton4x4.setOnAction(botonEntrarJuegoCuatroXCuatroEventHandle);
 
 
         this.getChildren().addAll(etiqueta, botonAuto, botonMoto, boton4x4);
-    }
-
-    private Juego crearModelo() {
-        return new Juego(tipoVehiculo, 10, 10);
     }
 
 }

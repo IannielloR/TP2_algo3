@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.manejadores.BotonEntrarEventHandle;
+import edu.fiuba.algo3.vista.manejadores.BotonInicioEventHandle;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,7 +16,7 @@ public class ContenedorInicio extends VBox {
     Stage stage;
     //VBox contenedor;
     //static private String path;
-    public ContenedorInicio(Stage stage, Scene escenaJuegador, Scene escenaRanking){
+    public ContenedorInicio(Stage stage, Scene escenaJugador, Scene escenaRanking){
         super();
 
         this.stage = stage;
@@ -40,11 +40,11 @@ public class ContenedorInicio extends VBox {
         etiqueta.setText("GPS Challenge");
         etiqueta.setTextFill(Color.web("#000000"));
 
-        BotonEntrarEventHandle botonJuegoHandler = new BotonEntrarEventHandle(stage, escenaJuegador);
+        BotonInicioEventHandle botonJuegoHandler = new BotonInicioEventHandle(stage, escenaJugador);
         botonJuego.setOnAction(botonJuegoHandler);
 
 
-        BotonEntrarEventHandle botonRankingHandler = new BotonEntrarEventHandle(stage, escenaRanking);
+        BotonInicioEventHandle botonRankingHandler = new BotonInicioEventHandle(stage, escenaRanking);
         botonRanking.setOnAction(botonRankingHandler);
 
         this.getChildren().addAll(etiqueta, botonJuego, botonRanking);
