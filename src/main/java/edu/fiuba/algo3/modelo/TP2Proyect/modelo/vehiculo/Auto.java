@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
-import java.util.Random;
 
 public class Auto extends TipoVehiculo {
 
@@ -14,7 +13,6 @@ public class Auto extends TipoVehiculo {
         }
         return 0;
     }
-
     public int devolverPenalizacionPozo(){
         return 3;
     }

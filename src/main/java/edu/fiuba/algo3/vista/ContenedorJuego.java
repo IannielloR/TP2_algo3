@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.vista.manejadores.BotonInicioEventHandle;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,7 +30,7 @@ public class ContenedorJuego extends VBox {
         Label titulo = new Label();
         titulo.setFont(Font.font("Arial", FontWeight.BOLD, 40));
 
-        titulo.setText("GPS Challenge");
+        titulo.setText("PROXIMAMENTE");
         titulo.setTextFill(Color.web("#000000"));
 
         this.getChildren().addAll(titulo);
