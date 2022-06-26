@@ -1,6 +1,10 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.SystemInfo;
 import edu.fiuba.algo3.controlador.manejadores.BotonEntrarEventHandle;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.vista.ContenedorInicio;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,22 +25,33 @@ public class App extends Application {
         // var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
 
         // Label etiqueta = new Label();
+        // Juego juego = crearModelo();
+
         Button botonInicio = new Button("inicio");
         HBox ContenedorInicio = new HBox(botonInicio);
         Button botonRanking = new Button("ranking");
 
         // HBox contenedorHorizon = new HBox(botonInicio);
 
-        Scene escenaJuego = new Scene(ContenedorInicio, 640, 480);
+        ContenedorJugador contenedorJugador = new ContenedorJugador(stage);
+        Scene escenaJugador = new Scene(ContenedorJugador, 640, 480);
 
+        ContenedorRanking contenedorRanking = new ContenedorRanking();
         Scene escenaRanking = new Scene(botonRanking, 640, 480);
 
-        ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaJuego, escenaRanking);
-
+        ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaJugador, escenaRanking);
         Scene escenaInicio = new Scene(contenedorInicio, 640, 480);
 
         stage.setScene(escenaInicio);
         stage.show();
+    }
+
+    private Juego crearModelo() {
+        TipoVehiculo tipoVehiculo = new Auto();
+
+        Juego juego = new Juego(tipoVehiculo, 10, 10);
+        // ...
+        return juego;
     }
 
     public static void main(String[] args) {

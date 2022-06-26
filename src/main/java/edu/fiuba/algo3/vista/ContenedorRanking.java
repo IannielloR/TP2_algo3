@@ -6,17 +6,17 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class ContenedorInicio extends VBox {
+public class ContenedorRanking extends VBox {
     Stage stage;
     //VBox contenedor;
     //static private String path;
-    public ContenedorInicio(Stage stage, Scene escenaJuegador, Scene escenaRanking){
+    public ContenedorRanking(Stage stage, Scene escenaJuegador, Scene escenaRanking){
         super();
 
         this.stage = stage;
