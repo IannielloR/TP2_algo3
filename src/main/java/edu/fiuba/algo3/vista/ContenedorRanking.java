@@ -26,12 +26,6 @@ public class ContenedorRanking extends VBox {
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
 
-        Button botonJuego = new Button();
-        botonJuego.setText("Jugar");
-
-        Button botonRanking = new Button();
-        botonRanking.setText("Ver Ranking");
-
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
@@ -39,13 +33,8 @@ public class ContenedorRanking extends VBox {
         etiqueta.setText("GPS Challenge");
         etiqueta.setTextFill(Color.web("#000000"));
 
-        BotonInicioEventHandle botonJuegoHandler = new BotonInicioEventHandle(stage, escenaJuegador);
-        botonJuego.setOnAction(botonJuegoHandler);
 
 
-        BotonInicioEventHandle botonRankingHandler = new BotonInicioEventHandle(stage, escenaRanking);
-        botonRanking.setOnAction(botonRankingHandler);
-
-        this.getChildren().addAll(etiqueta, botonJuego, botonRanking);
+        this.getChildren().addAll(etiqueta);
     }
 }

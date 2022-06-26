@@ -8,15 +8,10 @@ public class SorpresaFavorable extends Interferencia {
     public SorpresaFavorable(int xInicial, int yInicial, int xFinal, int yFinal) {
         this.coordenada.asignarCoordenadas(xInicial,  yInicial, xFinal, yFinal);
     }
-<<<<<<< HEAD
-    public int analizarVehiculo(TipoVehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal, int movimientos){
-        if(coordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
-            return (vehiculo.devolverVehiculo()).devolverSorpresaFavorable(movimientos);
-=======
+
     public boolean analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal){
         if(coordenada.hayColision(xInicial, yInicial, xFinal, yFinal)){
             vehiculo.devolverSorpresaFavorable();
->>>>>>> 9633c478fc4560ef4a348a96ab06bb5869a16af0
         }
         return true;
     }

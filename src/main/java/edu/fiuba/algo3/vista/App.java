@@ -15,11 +15,14 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    public static void main(String[] args) {
+        launch();
+    }
     @Override
     public void start(Stage stage) {
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
-
+        stage.setTitle("GPS Challenge");
 
         Button botonInicio = new Button("inicio");
         HBox ContenedorInicio = new HBox(botonInicio);
@@ -27,7 +30,7 @@ public class App extends Application {
 
 
         ContenedorJugador contenedorJugador = new ContenedorJugador(stage);
-        Scene escenaJugador = new Scene(ContenedorJugador, 640, 480);
+        Scene escenaJugador = new Scene(contenedorJugador, 640, 480);
 
         ContenedorRanking contenedorRanking = new ContenedorRanking(stage);
         Scene escenaRanking = new Scene(botonRanking, 640, 480);
@@ -39,15 +42,6 @@ public class App extends Application {
         stage.show();
     }
 
-    private Juego crearModelo() {
-        TipoVehiculo tipoVehiculo = new Auto();
 
-        Juego juego = new Juego(tipoVehiculo, 10, 10);
-        return juego;
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
 
 }

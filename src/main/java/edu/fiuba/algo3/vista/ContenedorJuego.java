@@ -26,21 +26,12 @@ public class ContenedorJuego extends VBox {
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
 
-        Button botonInicio = new Button();
-        botonInicio.setText("Salir");
+        Label titulo = new Label();
+        titulo.setFont(Font.font("Arial", FontWeight.BOLD, 40));
 
+        titulo.setText("GPS Challenge");
+        titulo.setTextFill(Color.web("#000000"));
 
-
-        Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-
-        etiqueta.setText("GPS Challenge");
-        etiqueta.setTextFill(Color.web("#000000"));
-
-        BotonInicioEventHandle botonSalirHandler = new BotonInicioEventHandle(stage, escenaInicio);
-        botonInicio.setOnAction(botonSalirHandler);
-
-
-        this.getChildren().addAll(etiqueta, botonInicio);
+        this.getChildren().addAll(titulo);
     }
 }

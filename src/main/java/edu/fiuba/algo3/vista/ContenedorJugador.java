@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.vista.manejadores.BotonAutoEventHandle;
 import edu.fiuba.algo3.vista.manejadores.BotonCuatroXCuatroEventHandle;
 import edu.fiuba.algo3.vista.manejadores.BotonInicioEventHandle;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
@@ -32,18 +33,21 @@ public class ContenedorJugador extends VBox {
 
         Button botonAuto = new Button();
         botonAuto.setText("Auto");
-        BotonoAutoEventHandle botonAutoEventHandle = new BotonoAutoEventHandle(stage);
-        botonAuto.setOnAction(botonEntrarJuegoAutoEventHandle);
+        BotonAutoEventHandle botonAutoEventHandle = new BotonAutoEventHandle(stage);
+        botonAuto.setOnAction(botonAutoEventHandle);
 
         Button botonMoto = new Button();
         botonMoto.setText("Moto");
         BotonMotoEventHandle botonMotoEventHandle = new BotonMotoEventHandle(stage);
-        botonMoto.setOnAction(botonEntrarJuegoMotoEventHandle);
+        botonMoto.setOnAction(botonMotoEventHandle);
 
         Button boton4x4 = new Button();
         boton4x4.setText("4x4");
         BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(stage);
-        boton4x4.setOnAction(botonEntrarJuegoCuatroXCuatroEventHandle);
+        boton4x4.setOnAction(botonCuatroXCuatroEventHandle);
+
+        ContenedorJuego contenedorJuego = new ContenedorJuego(stage);
+        Scene escenaJuego = new Scene(contenedorJuego, 640, 480);
 
         Button botonJugar = new Button();
         boton4x4.setText("Iniciar Partida");
@@ -55,8 +59,7 @@ public class ContenedorJugador extends VBox {
         etiqueta.setTextFill(Color.web("#000000"));
 
 
-        ContenedorJuego contenedorJuego = new ContenedorJuego(stage);
-        Scene escenaJuego = new Scene(contenedorJuego, 640, 480);
+
 
 
         this.getChildren().addAll(etiqueta, botonAuto, botonMoto, boton4x4);
