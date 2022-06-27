@@ -54,7 +54,7 @@ public class ContenedorJugador extends VBox {
         BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(vehiculo, tipoVehiculo);
         boton4x4.setOnAction(botonCuatroXCuatroEventHandle);
 
-       // Juego juego = crearModelo();
+        Juego juego = crearModelo();
 
 
         ContenedorJuego contenedorJuego = new ContenedorJuego(stage);
@@ -73,9 +73,9 @@ public class ContenedorJugador extends VBox {
 
         this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, tipoVehiculo, botonJugar);
     }
-/*
+
     private Juego crearModelo(){
         return new Juego(this.vehiculo, 10, 10);
     }
-*/
+
 }
