@@ -87,4 +87,11 @@ public class Mapa {
         return meta.verificarMeta(posVehiculoX, posVehiculoY);
     }
 
+    public int[] obtenerTamanioMapa(){
+        int[] tamanio = new int[2];
+        tamanio[0] = maximoX;
+        tamanio[1] = maximoY;
+        return tamanio;
+    }
+
 }

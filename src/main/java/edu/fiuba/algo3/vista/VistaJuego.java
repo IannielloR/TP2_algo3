@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 public class VistaJuego{
@@ -26,6 +24,8 @@ public class VistaJuego{
     private void dibujarMapa(){
         this.clean();
         canvas.getGraphicsContext2D().setFill(Color.RED);
+        GridPane mapa = 
+        for (int i = 0; i < )
 
     }
     private void dibujarVehiculo(){

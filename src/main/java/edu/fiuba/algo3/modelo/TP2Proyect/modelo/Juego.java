@@ -66,6 +66,9 @@ public class Juego {
         }
     }
 
+    public int[] obtenerTamanioMapa(){
+        return this.mapa.obtenerTamanioMapa();
+    }
 
     public void moverVehiculoArriba(){
 

@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 public class ContenedorJugador extends VBox {
     Stage stage;
     private TipoVehiculo vehiculo;
+    private  Label tipoVehiculo;
     public ContenedorJugador(Stage stage){
         super();
 
@@ -28,34 +29,34 @@ public class ContenedorJugador extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(25));
         this.vehiculo = new Moto();
+
         // Image imagen = new Image(path);
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
 
-        Label tipoVehiculo = new Label();
-        tipoVehiculo.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-        tipoVehiculo.setTextFill(Color.web("#000000"));
-        tipoVehiculo.setText("Moto");
+        this.tipoVehiculo = new Label();
+        this.tipoVehiculo.setFont(Font.font("Arial", FontWeight.BOLD, 40));
+        this.tipoVehiculo.setTextFill(Color.web("#000000"));
+        this.tipoVehiculo.setText("Moto");
 
         Button botonAuto = new Button();
         botonAuto.setText("Auto");
-        BotonAutoEventHandle botonAutoEventHandle = new BotonAutoEventHandle(this.vehiculo, tipoVehiculo);
+        BotonAutoEventHandle botonAutoEventHandle = new BotonAutoEventHandle(this.vehiculo, this.tipoVehiculo);
         botonAuto.setOnAction(botonAutoEventHandle);
 
         Button botonMoto = new Button();
         botonMoto.setText("Moto");
-        BotonMotoEventHandle botonMotoEventHandle = new BotonMotoEventHandle(this.vehiculo, tipoVehiculo);
+        BotonMotoEventHandle botonMotoEventHandle = new BotonMotoEventHandle(this.vehiculo, this.tipoVehiculo);
         botonMoto.setOnAction(botonMotoEventHandle);
+
 
         Button boton4x4 = new Button();
         boton4x4.setText("4x4");
-        BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(this.vehiculo, tipoVehiculo);
+        BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(this.vehiculo, this.tipoVehiculo);
         boton4x4.setOnAction(botonCuatroXCuatroEventHandle);
 
-        Juego juego = crearModelo();
 
-
-        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego, this.vehiculo);
+        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, crearModelo(), this.vehiculo);
         Scene escenaJuego = new Scene(contenedorJuego, 800, 800);
 
         Button botonJugar = new Button();
@@ -69,10 +70,19 @@ public class ContenedorJugador extends VBox {
         etiqueta.setText("Seleccione su vehiculo");
         etiqueta.setTextFill(Color.web("#000000"));
 
-        this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, tipoVehiculo, botonJugar);
+        this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, this.tipoVehiculo, botonJugar);
     }
 
     private Juego crearModelo(){
+        if(this.tipoVehiculo.getText() == "4x4"){
+            this.vehiculo = new CuatroXCuatro();
+        }
+        if(this.tipoVehiculo.getText() == "Moto"){
+            this.vehiculo = new Moto();
+        }
+        if(this.tipoVehiculo.getText() == "Auto"){
+            this.vehiculo = new Auto();
+        }
         return new Juego(this.vehiculo, 10, 10);
 
     }
