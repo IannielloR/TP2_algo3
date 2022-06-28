@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
-
-import java.util.Random;
-
 public class Coordenada {
     private int posXInicial;
     private int posYInicial;
@@ -25,16 +22,3 @@ public class Coordenada {
         return false;
     }
 }
-//    private int posX;
-//    private int posY;
-//    public Pozo(int id1, int id2) {
-//        this.posX = id1;
-//        this.posY = id2;
-//    }
-//    public int analizarVehiculo(TipoVehiculo vehiculo, int id1, int id2, int movimientos){
-//        if(this.posX == id1 && this.posY == id2 ){
-//            return (vehiculo.devolverVehiculo()).devolverPenalizacionPozo();
-//        }
-//        return 0;
-//    }
-//}
