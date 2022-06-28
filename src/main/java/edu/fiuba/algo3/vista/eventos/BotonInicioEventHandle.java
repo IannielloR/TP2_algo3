@@ -1,9 +1,8 @@
-package edu.fiuba.algo3.vista.manejadores;
+package edu.fiuba.algo3.vista.eventos;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class BotonInicioEventHandle implements EventHandler<ActionEvent> {

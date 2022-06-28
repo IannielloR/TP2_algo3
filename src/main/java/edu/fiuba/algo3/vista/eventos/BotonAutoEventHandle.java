@@ -1,12 +1,10 @@
-package edu.fiuba.algo3.vista.manejadores;
+package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 public class BotonAutoEventHandle implements EventHandler<ActionEvent> {
 
