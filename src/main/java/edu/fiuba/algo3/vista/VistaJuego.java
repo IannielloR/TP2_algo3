@@ -21,20 +21,26 @@ public class VistaJuego{
         this.vehiculo = vehiculo;
         this.canvas = canvas;
     }
-    public void dibujar(){
-        this.dibujarMapa();
+    public void dibujar(int maxX, int maxY){
+        this.dibujarMapa(maxX, maxY);
         //this.dibujarVehiculo();
     }
-    private void dibujarMapa(){
+    private void dibujarMapa(int maxX, int maxY){
         //this.clean();
         canvas.getGraphicsContext2D().setFill(Color.RED);
-        int[] tamanio = this.juego.obtenerTamanioMapa();
-        for (int i = 0; i < (tamanio[0]*30); i += 30){
-            for(int j = 0; j < (tamanio[1] * 30); j += 30){
+        int[] cantidad = this.juego.obtenerTamanioMapa();
+        cantidad[0] = cantidad[0] +1;
+        cantidad[1] = cantidad[1] +1;
+        float largoX = maxX / cantidad[0];
+        float largoY = maxY / cantidad[1];
+        float espacioCalleX = ((largoX*25)/100);
+        float espacioCalleY = ((largoY*25)/100);
+        for (float i = 0; i < ((largoY)*cantidad[1]); i += largoY){
+            for(float j = 0; j < ((largoX)*cantidad[0]); j += largoX){
                 canvas.getGraphicsContext2D().setFill(Color.GRAY);
-                canvas.getGraphicsContext2D().fillRect(i, j, 30, 30);
+                canvas.getGraphicsContext2D().fillRect(i, j, largoX, largoY);
                 canvas.getGraphicsContext2D().setFill(Color.GREEN);
-                canvas.getGraphicsContext2D().fillRect(i, j, 20, 20);
+                canvas.getGraphicsContext2D().fillRect(i+10, j+10, (largoX-espacioCalleX), (largoY-espacioCalleY));
             }
         }
 
@@ -61,7 +67,7 @@ public class VistaJuego{
         canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
         canvas.getGraphicsContext2D().fillRect(0,0,468,220);
     }
-    public  void update(){
+  /*  public  void update(){
         this.dibujar();
-    }
+    }*/
 }

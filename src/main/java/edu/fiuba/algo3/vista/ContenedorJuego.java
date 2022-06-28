@@ -33,9 +33,9 @@ public class ContenedorJuego extends BorderPane {
     }
 
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
-        canvasCentral = new Canvas(460, 220);
+        canvasCentral = new Canvas(800, 800);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
-        vistaJuego.dibujar();
+        vistaJuego.dibujar(800, 800);
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
@@ -45,8 +45,8 @@ public class ContenedorJuego extends BorderPane {
 
         contenedorCentral = new VBox(canvasCentral, etiqueta);
         contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
+        //contenedorCentral.setSpacing(20);
+        //contenedorCentral.setPadding(new Insets(25));
 
 
        // Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
