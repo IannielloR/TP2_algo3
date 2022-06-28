@@ -74,6 +74,7 @@ public class ContenedorJugador extends VBox {
 
     private Juego crearModelo(){
         return new Juego(this.vehiculo, 10, 10);
+
     }
 
 }
