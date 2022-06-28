@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Vehiculo{
+- int movimientos
++ Vehiculo( TipoVehiculo vehiculo )
++ devolverMovimientos() : int
++ sumarMovimiento() : void
++ cambiarEstado() : void
++ devolverSorpresaFavorable() : void
++ devolverSorpresaDesfavorable() : void
++ devolverPenalizacionControlPolical(float prob) : void
++ devolverPenalizacionPozo() : void
++ devolverPenalizacionPiquete() : boolean
+}
+
+abstract class TipoVehiculo{
++ devolverSorpresaFavorable(int movimientos) : int
++ devolverSorpresaDesfavorable(int movimientos) : int
++ devolverSorpresaCambioDeVehiculo() : TipoVehiculo
++ devolverPenalizacionControlPolical(float prob) : int
++ devolverPenalizacionPozo() : int
++ devolverPenalizacionPiquete() : int
+}
+
+class Auto{
++ devolverSorpresaCambioDeVehiculo() : TipoVehiculo
++ devolverPenalizacionControlPolical(float prob) : int
++ devolverPenalizacionPozo() : int
++ devolverPenalizacionPiquete() : int
+}
+
+class Moto{
++ devolverSorpresaCambioDeVehiculo() : TipoVehiculo
++ devolverPenalizacionControlPolical(float prob) : int
++ devolverPenalizacionPozo() : int
++ devolverPenalizacionPiquete() : int
+}
+
+class CuatroXCuatro{
+- int pozos
++ devolverSorpresaCambioDeVehiculo() : TipoVehiculo
++ devolverPenalizacionControlPolical(float prob) : int
++ devolverPenalizacionPozo() : int
++ devolverPenalizacionPiquete() : int
+}
+
+Vehiculo "1" --> "1" TipoVehiculo
+
+TipoVehiculo <|-- Moto
+TipoVehiculo <|-- Auto
+TipoVehiculo <|-- CuatroXCuatro
+
+@enduml
