@@ -4,13 +4,17 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class VistaJuego{
     private Juego juego;
     private TipoVehiculo vehiculo;
     Canvas canvas;
+    Pane pane;
 
     public VistaJuego(Juego juego, TipoVehiculo vehiculo, Canvas canvas){
         this.juego = juego;
@@ -18,14 +22,21 @@ public class VistaJuego{
         this.canvas = canvas;
     }
     public void dibujar(){
-        //this.dibujarMapa();
-        this.dibujarVehiculo();
+        this.dibujarMapa();
+        //this.dibujarVehiculo();
     }
     private void dibujarMapa(){
-        this.clean();
+        //this.clean();
         canvas.getGraphicsContext2D().setFill(Color.RED);
-        GridPane mapa = 
-        for (int i = 0; i < )
+        int[] tamanio = this.juego.obtenerTamanioMapa();
+        for (int i = 0; i < (tamanio[0]*30); i += 30){
+            for(int j = 0; j < (tamanio[1] * 30); j += 30){
+                canvas.getGraphicsContext2D().setFill(Color.GRAY);
+                canvas.getGraphicsContext2D().fillRect(i, j, 30, 30);
+                canvas.getGraphicsContext2D().setFill(Color.GREEN);
+                canvas.getGraphicsContext2D().fillRect(i, j, 20, 20);
+            }
+        }
 
     }
     private void dibujarVehiculo(){
