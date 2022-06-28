@@ -1,11 +1,8 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
-import edu.fiuba.algo3.vista.eventos.BotonAutoEventHandle;
-import edu.fiuba.algo3.vista.eventos.BotonCuatroXCuatroEventHandle;
-import edu.fiuba.algo3.vista.eventos.BotonInicioEventHandle;
+import edu.fiuba.algo3.vista.eventos.*;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.vista.eventos.BotonMotoEventHandle;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -19,8 +16,9 @@ import javafx.stage.Stage;
 
 public class ContenedorJugador extends VBox {
     Stage stage;
-    private TipoVehiculo vehiculo;
+    public TipoVehiculo vehiculo;
     private  Label tipoVehiculo;
+    private Juego juego;
     public ContenedorJugador(Stage stage){
         super();
 
@@ -55,13 +53,9 @@ public class ContenedorJugador extends VBox {
         BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(this.vehiculo, this.tipoVehiculo);
         boton4x4.setOnAction(botonCuatroXCuatroEventHandle);
 
-
-        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, crearModelo(), this.vehiculo);
-        Scene escenaJuego = new Scene(contenedorJuego, 800, 800);
-
         Button botonJugar = new Button();
         botonJugar.setText("Iniciar Partida");
-        BotonInicioEventHandle botonJuegoHandler = new BotonInicioEventHandle(stage, escenaJuego);
+        BotonJuegoEventHandle botonJuegoHandler = new BotonJuegoEventHandle(stage, this);
         botonJugar.setOnAction(botonJuegoHandler);
 
 
@@ -73,7 +67,7 @@ public class ContenedorJugador extends VBox {
         this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, this.tipoVehiculo, botonJugar);
     }
 
-    private Juego crearModelo(){
+    public void crearModelo(){
         if(this.tipoVehiculo.getText() == "4x4"){
             this.vehiculo = new CuatroXCuatro();
         }
@@ -83,8 +77,13 @@ public class ContenedorJugador extends VBox {
         if(this.tipoVehiculo.getText() == "Auto"){
             this.vehiculo = new Auto();
         }
-        return new Juego(this.vehiculo, 10, 10);
+        this.juego = new Juego(this.vehiculo, 10, 10);
 
+    }
+
+    public Scene obtenerProximaEscena() {
+        ContenedorJuego contenedorJuego = new ContenedorJuego(stage, this.juego, this.vehiculo);
+        return new Scene(contenedorJuego, 800, 800);
     }
 
 }
