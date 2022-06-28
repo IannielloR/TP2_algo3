@@ -27,6 +27,7 @@ public class ContenedorJugador extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
+        this.vehiculo = new Moto();
         // Image imagen = new Image(path);
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
@@ -55,7 +56,7 @@ public class ContenedorJugador extends VBox {
 
 
         ContenedorJuego contenedorJuego = new ContenedorJuego(stage, juego, this.vehiculo);
-        Scene escenaJuego = new Scene(contenedorJuego, 640, 480);
+        Scene escenaJuego = new Scene(contenedorJuego, 800, 800);
 
         Button botonJugar = new Button();
         botonJugar.setText("Iniciar Partida");

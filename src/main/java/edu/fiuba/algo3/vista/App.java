@@ -29,13 +29,13 @@ public class App extends Application {
         Button botonRanking = new Button("ranking");
 
         ContenedorJugador contenedorJugador = new ContenedorJugador(stage);
-        Scene escenaJugador = new Scene(contenedorJugador, 640, 480);
+        Scene escenaJugador = new Scene(contenedorJugador, 800, 800);
 
         ContenedorRanking contenedorRanking = new ContenedorRanking(stage);
-        Scene escenaRanking = new Scene(botonRanking, 640, 480);
+        Scene escenaRanking = new Scene(botonRanking, 800, 800);
 
         ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaJugador, escenaRanking);
-        Scene escenaInicio = new Scene(contenedorInicio, 640, 480);
+        Scene escenaInicio = new Scene(contenedorInicio, 800, 800);
 
         stage.setScene(escenaInicio);
         stage.show();
