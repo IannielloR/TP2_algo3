@@ -5,6 +5,7 @@ import edu.fiuba.algo3.vista.ContenedorJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class BotonJuegoEventHandle implements EventHandler<ActionEvent> {
@@ -21,9 +22,13 @@ public class BotonJuegoEventHandle implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent evento) {
         Scene escena;
-
+        ContenedorJuego contenedorJuego;
         this.contenedorJugador.crearModelo();
-        escena = this.contenedorJugador.obtenerProximaEscena();
+
+        contenedorJuego = this.contenedorJugador.obtenerContenedorJuego();
+        escena = new Scene(contenedorJuego, 800, 800);
+        escena.setOnKeyPressed(new ControlesEventHandler(this.stage,this.contenedorJugador.obtenerJuego(),contenedorJuego.obtenerVistaJuego()));
+
         this.stage.setScene(escena);
         this.stage.setFullScreenExitHint("");
         this.stage.setFullScreen(false);

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,7 +18,6 @@ import javafx.stage.Stage;
 
 public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent>{
     Stage stage;
-
     BarraDeMenu menuBar;
     VistaJuego vistaJuego;
     Canvas canvasCentral;
@@ -36,7 +36,7 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
     }
 
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
-        canvasCentral = new Canvas(800, 800);
+        canvasCentral = new Canvas(800, 770);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
 
        vistaJuego.dibujar(800, 800 );
@@ -80,18 +80,21 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
     public void handle(KeyEvent event) {
         switch (event.getCode()){
             case UP:
-                    //Mover vehiculo arriba
+                System.out.println("Arriba");
                 break;
             case DOWN:
-                    //Mover vehiculo abajo
-                    break;
+                System.out.println("Abajo");
+                break;
             case RIGHT:
-                    //Mover vehiculo derecha
-                   break;
+                System.out.println("Der");
+                break;
             case LEFT:
-                    //Mover vehiculo izquierda
+                System.out.println("Izq");
                 break;
         }
+    }
+    public VistaJuego obtenerVistaJuego(){
+        return  vistaJuego;
     }
 
 }

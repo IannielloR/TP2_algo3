@@ -80,9 +80,15 @@ public class ContenedorJugador extends VBox {
             this.vehiculo = new Auto();
         }
         this.juego = new Juego(this.vehiculo, 10, 10);
-
+        juego.crearMeta();
     }
 
+    public Juego obtenerJuego(){
+        return this.juego;
+    }
+    public ContenedorJuego obtenerContenedorJuego(){
+       return new ContenedorJuego(stage, this.juego, this.vehiculo);
+    }
     public Scene obtenerProximaEscena() {
         ContenedorJuego contenedorJuego = new ContenedorJuego(stage, this.juego, this.vehiculo);
         return new Scene(contenedorJuego, 800, 800);
