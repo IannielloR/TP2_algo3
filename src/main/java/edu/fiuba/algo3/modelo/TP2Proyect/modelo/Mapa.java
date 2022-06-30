@@ -100,5 +100,8 @@ public class Mapa {
         coordenada[1] = posVehiculoY;
         return coordenada;
     }
+    public int[] obtenerCoordenadaMeta(){
+        return this.meta.obtenerCoordenadasMeta();
+    }
 
 }

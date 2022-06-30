@@ -46,6 +46,7 @@ public class VistaJuego{
         return display;
         */
         this.dibujarMapa(maxX,maxY);
+        this.dibujarMeta();
         this.dibujarVehiculo();
     }
     private void dibujarMapa(int maxX, int maxY) {
@@ -84,6 +85,14 @@ public class VistaJuego{
         }
         canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],10,10);
 
+
+    }
+    private void dibujarMeta(){
+        int [] coordenada = juego.obtenerCoordenadaMeta();
+        coordenada[0] = (coordenada[0] *this.largoCuadraX);
+        coordenada[1] = (coordenada[1] *this.largoCuadraY);
+        canvas.getGraphicsContext2D().setFill(Color.WHITE);
+        canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],this.espacioCalleX,this.espacioCalleY);
 
     }
 

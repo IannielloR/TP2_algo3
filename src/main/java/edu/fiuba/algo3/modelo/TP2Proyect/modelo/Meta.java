@@ -16,4 +16,10 @@ public class Meta {
         }
         return false;
     }
+    public int[] obtenerCoordenadasMeta(){
+        int[] coordenada = new int[2];
+        coordenada[0] = posX;
+        coordenada[1] = posY;
+        return coordenada;
+    }
 }

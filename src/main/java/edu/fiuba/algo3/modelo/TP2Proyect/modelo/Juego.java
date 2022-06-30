@@ -72,6 +72,7 @@ public class Juego {
     public int[] obtenerCoordenada(){
         return this.mapa.obtenerCoordenada();
     }
+    public int[] obtenerCoordenadaMeta(){return this.mapa.obtenerCoordenadaMeta();}
 
     public void moverVehiculoArriba(){
 
