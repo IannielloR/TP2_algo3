@@ -9,6 +9,8 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaD
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 
+import java.util.List;
+
 public class Juego {
     private int movimientos;
     private Mapa mapa;
@@ -73,6 +75,10 @@ public class Juego {
         return this.mapa.obtenerCoordenada();
     }
     public int[] obtenerCoordenadaMeta(){return this.mapa.obtenerCoordenadaMeta();}
+
+    public List<Interferencia> obtenerInterferencias(){
+        return this.mapa.obtenerInterferencias();
+    }
 
     public void moverVehiculoArriba(){
 

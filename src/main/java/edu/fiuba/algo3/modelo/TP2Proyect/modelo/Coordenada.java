@@ -24,6 +24,14 @@ public class Coordenada {
         }
         return false;
     }
+    public int[] obtenerCordenadaInterferencia(){
+        int[] coordenada = new int[4];
+        coordenada[0] = posXInicial;
+        coordenada[1] = posYInicial;
+        coordenada[2] = posXFinal;
+        coordenada[3] = posYFinal;
+        return coordenada;
+    }
 }
 //    private int posX;
 //    private int posY;

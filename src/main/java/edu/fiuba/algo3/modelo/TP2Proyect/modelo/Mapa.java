@@ -104,4 +104,8 @@ public class Mapa {
         return this.meta.obtenerCoordenadasMeta();
     }
 
+    public List<Interferencia> obtenerInterferencias(){
+        return interferencias;
+    }
+
 }
