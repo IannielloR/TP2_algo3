@@ -71,8 +71,8 @@ public class VistaJuego{
 
     private void dibujarVehiculo(){
         int [] coordenada = juego.obtenerCoordenada();
-        coordenada[0] = ((1 *this.largoCuadraX)+ (espacioCalleX/4));
-        coordenada[1] = ((7 *this.largoCuadraY) + (espacioCalleY/4));
+        coordenada[0] = ((coordenada[0] *this.largoCuadraX)+ (espacioCalleX/4));
+        coordenada[1] = ((coordenada[1] *this.largoCuadraY) + (espacioCalleY/4));
         if(this.vehiculo.getClass() == Moto.class){
             canvas.getGraphicsContext2D().setFill(Color.RED);
         }

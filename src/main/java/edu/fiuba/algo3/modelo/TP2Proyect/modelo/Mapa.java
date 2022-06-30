@@ -96,8 +96,8 @@ public class Mapa {
 
     public int[] obtenerCoordenada(){
         int[] coordenada = new int[2];
-        coordenada[0] = maximoX;
-        coordenada[1] = maximoY;
+        coordenada[0] = posVehiculoX;
+        coordenada[1] = posVehiculoY;
         return coordenada;
     }
 

@@ -2,17 +2,20 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class ContenedorJuego extends BorderPane {
+
+public class ContenedorJuego extends BorderPane/* implements EventHandler<KeyEvent>*/{
     Stage stage;
 
     BarraDeMenu menuBar;
@@ -35,7 +38,8 @@ public class ContenedorJuego extends BorderPane {
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
         canvasCentral = new Canvas(800, 800);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
-        vistaJuego.dibujar(800, 800);
+
+       vistaJuego.dibujar(800, 800 );
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
@@ -71,4 +75,24 @@ public class ContenedorJuego extends BorderPane {
     public BarraDeMenu getMenuBar() {
         return menuBar;
     }
+/*
+    @Override
+    public void handle(KeyEvent event) {
+        switch (event.getCode()){
+            case UP:
+                    //Mover vehiculo arriba
+                break;
+            case DOWN:
+                    //Mover vehiculo abajo
+                    break;
+            case RIGHT:
+                    //Mover vehiculo derecha
+                   break;
+            case LEFT:
+                    //Mover vehiculo izquierda
+                break;
+        }
+    }
+    */
 }
+
