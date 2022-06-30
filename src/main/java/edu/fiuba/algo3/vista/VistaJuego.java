@@ -59,9 +59,13 @@ public class VistaJuego{
         return display;
         */
         this.dibujarMapa(maxX,maxY);
-        this.dibujarVisivilidadJugador(maxX,maxY);
-        this.dibujarMeta();
+
+
         this.dibujarInterferencias();
+
+        this.dibujarMascara();
+        this.dibujarMeta();
+        this.dibujarVisivilidadJugador(maxX,maxY);
         this.dibujarVehiculo();
     }
     private int[] coordenadasVehiculo(){
@@ -77,7 +81,7 @@ public class VistaJuego{
         return coordenada;
     }
     private void dibujarMapa(int maxX, int maxY) {
-        this.clean();
+        // this.clean();
         int[] cantidad = this.juego.obtenerTamanioMapa();
         cantidad[0] = cantidad[0] + 1;
         cantidad[1] = cantidad[1] + 1;
@@ -166,7 +170,7 @@ public class VistaJuego{
         for(int i = 0; i < interferencias.size(); i++){
             int[] coordenadaInterferencia = interferencias.get(i).obtenerCoordenadaInterferencia();
             int posXSiXInicialIgualXFinal = (coordenadaInterferencia[0] * largoCuadra)+ largoCuadra/2;
-            int posYSiYInicialIgualYFinal = (coordenadaInterferencia[0] * largoCuadra)+ largoCuadra/2;
+            int posYSiYInicialIgualYFinal = (coordenadaInterferencia[1] * largoCuadra)+ largoCuadra/2;
 
             if(interferencias.get(i).getClass() == ControlPolicial.class){
                 canvas.getGraphicsContext2D().setFill(Color.CHOCOLATE);
@@ -206,6 +210,18 @@ public class VistaJuego{
 
         }
 
+    }
+
+    private void dibujarMascara() {
+        canvas.getGraphicsContext2D().setStroke(Color.BLACK);
+
+        int radio = 1500;
+
+        canvas.getGraphicsContext2D().setLineWidth(radio - 2*(this.largoCuadra + this.espacioCalle));
+
+        int[] coordenada = coordenadasVehiculo();
+        int shift = (radio - 10) / 2;
+        canvas.getGraphicsContext2D().strokeOval(coordenada[0] - shift, coordenada[1] - shift, radio, radio);
     }
 
 
