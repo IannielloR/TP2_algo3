@@ -15,7 +15,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 
-public class ContenedorJuego extends BorderPane/* implements EventHandler<KeyEvent>*/{
+public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent>{
     Stage stage;
 
     BarraDeMenu menuBar;
@@ -75,7 +75,7 @@ public class ContenedorJuego extends BorderPane/* implements EventHandler<KeyEve
     public BarraDeMenu getMenuBar() {
         return menuBar;
     }
-/*
+
     @Override
     public void handle(KeyEvent event) {
         switch (event.getCode()){
@@ -93,6 +93,6 @@ public class ContenedorJuego extends BorderPane/* implements EventHandler<KeyEve
                 break;
         }
     }
-    */
+
 }
 
