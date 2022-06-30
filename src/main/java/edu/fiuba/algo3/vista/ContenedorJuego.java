@@ -35,7 +35,6 @@ public class ContenedorJuego extends BorderPane{
     }
 
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
-
         int[] cantidad = juego.obtenerTamanioMapa();
         cantidad[0] = cantidad[0] + 1;
         cantidad[1] = cantidad[1] + 1;
@@ -46,7 +45,7 @@ public class ContenedorJuego extends BorderPane{
         }else {
             maxX = (maxY/cantidad[1])*cantidad[0];
         }
-        canvasCentral = new Canvas(800, 800);
+        canvasCentral = new Canvas(maxX, maxY);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
         vistaJuego.dibujar(maxX, maxY );
         contenedorCentral = new VBox(canvasCentral);
