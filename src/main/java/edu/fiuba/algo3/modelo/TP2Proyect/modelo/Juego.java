@@ -16,11 +16,16 @@ public class Juego {
     private Mapa mapa;
     private boolean llegada;
     private Random random;
+    private int maxMapaX;
+    private int maxMapaY;
 
 
     public Juego(TipoVehiculo vehiculo){
         this.random = new Random();
-        this.mapa = new Mapa(vehiculo,this.random.generarInt(15),this.random.generarInt(15));
+        this.maxMapaX = this.random.generarInt(15);
+        this.maxMapaY = this.random.generarInt(15);
+        this.random = new Random(this.maxMapaX, this.maxMapaY);
+        this.mapa = new Mapa(vehiculo,this.maxMapaX,this.maxMapaY);
         this.movimientos = 0;
     }
     public Juego(TipoVehiculo vehiculo,int maxPosX, int maxPosY){

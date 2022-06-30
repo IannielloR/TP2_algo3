@@ -39,7 +39,7 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
         canvasCentral = new Canvas(800, 770);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
 
-       vistaJuego.dibujar(800, 800 );
+        vistaJuego.dibujar(800, 800 );
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));

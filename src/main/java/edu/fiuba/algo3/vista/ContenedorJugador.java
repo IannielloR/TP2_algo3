@@ -88,39 +88,7 @@ public class ContenedorJugador extends VBox {
         }
         this.juego = new Juego(this.vehiculo);
         juego.crearMeta();
-        Interferencia obstaculo1 = new Pozo(1,2,2,2);
-
-        Interferencia obstaculo2 = new Pozo(2,2, 3,2);
-
-        Interferencia obstaculo3 = new Pozo(5,2,5,3);
-
-        Interferencia obstaculo4 = new Piquete(3,3,4,3);
-
-        Interferencia obstaculo5 = new ControlPolicial(4,1,3,1, (float) 0.1);
-
-        Interferencia obstaculo6 = new SorpresaFavorable(5,5,6,5);
-
-        Interferencia obstaculo7 = new SorpresaDesfavorable(7,6,6,6);
-
-        Interferencia obstaculo8 = new SorpresaCambioVehiculo(4,4,4,5);
-
-        Interferencia obstaculo9 = new SorpresaFavorable(5,2,5,3);
-
-        Interferencia obstaculo10 = new SorpresaDesfavorable(6,1,6,2);
-
-        Interferencia obstaculo11 = new SorpresaCambioVehiculo(2,2,2,3);
-
-        juego.agregarInterferencia(0,obstaculo1);
-        juego.agregarInterferencia(1,obstaculo2);
-        juego.agregarInterferencia(2,obstaculo3);
-        juego.agregarInterferencia(3,obstaculo4);
-        juego.agregarInterferencia(4,obstaculo5);
-        juego.agregarInterferencia(5,obstaculo6);
-        juego.agregarInterferencia(6,obstaculo7);
-        juego.agregarInterferencia(7,obstaculo8);
-        juego.agregarInterferencia(8,obstaculo9);
-        juego.agregarInterferencia(9,obstaculo10);
-        juego.agregarInterferencia(10,obstaculo11);
+        juego.crearInterferencias();
     }
 
     public Juego obtenerJuego(){
