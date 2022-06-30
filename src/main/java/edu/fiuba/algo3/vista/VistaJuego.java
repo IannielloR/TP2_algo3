@@ -95,15 +95,15 @@ public class VistaJuego{
     }
     private void dibujarVisivilidadJugador(int maxX, int maxY) {
         canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, 32.0));
-        canvas.getGraphicsContext2D().setFill(Color.RED);
-        canvas.getGraphicsContext2D().fillText("Movimientos: " + juego.getMovimientos(),0, 10);
-        /*int[] coordenada = coordenadasVehiculo();
-        canvas.getGraphicsContext2D().strokeOval((coordenada[0]-this.largoCuadraX), (coordenada[1]-this.largoCuadraY), (this.largoCuadraX*4), (this.largoCuadraY*4));
+        canvas.getGraphicsContext2D().setFill(Color.BLACK);
+        canvas.getGraphicsContext2D().fillText("Movimientos: " + juego.getMovimientos(),0, 30);
+        //int[] coordenada = coordenadasVehiculo();
+       // canvas.getGraphicsContext2D().strokeOval((coordenada[0]-this.largoCuadraX), (coordenada[1]-this.largoCuadraY), (this.largoCuadraX*4), (this.largoCuadraY*4));
         //canvas.getGraphicsContext2D().clearRect();
-        canvas.getGraphicsContext2D().setStroke(Color.BLACK);
-        canvas.getGraphicsContext2D().setLineWidth(800);
+        //canvas.getGraphicsContext2D().setStroke(Color.BLACK);
+        //canvas.getGraphicsContext2D().setLineWidth(800);
 
-         */
+
     }
 
 
@@ -154,15 +154,18 @@ public class VistaJuego{
                 canvas.getGraphicsContext2D().setFill(Color.CHOCOLATE);
             }
             System.out.println(interferencias.size());
+            int x =(coordenadaVehiculo[0]-coordenadaInterferencia[0]);
+            int y = (coordenadaVehiculo[1]-coordenadaInterferencia[1]);
+            int distancia = (int) Math.sqrt(((x*x) + (y*y)));
             if((coordenadaInterferencia[0] == coordenadaInterferencia[2])){
                 System.out.println("InterX:" +coordenadaInterferencia[0] + " VehiculoX:" +(coordenadaVehiculo[0]+2) +" InterY:"+coordenadaInterferencia[1]+ " VehiculoY:" +(coordenadaVehiculo[1]+2));
-                if(((coordenadaVehiculo[0]-coordenadaInterferencia[0])<= 2) && ((coordenadaVehiculo[1]-coordenadaInterferencia[1])<= 2)){
+                if(distancia < 2){
                     canvas.getGraphicsContext2D().fillRect(posXSiXInicialIgualXFinal, (coordenadaInterferencia[1] * largoCuadraY),this.espacioCalleX,this.espacioCalleY);
                 }
             }
             if((coordenadaInterferencia[1] == coordenadaInterferencia[3])){
                 System.out.println("InterX:" +coordenadaInterferencia[0] + " VehiculoX:" +(coordenadaVehiculo[0]+2) +" InterY:"+coordenadaInterferencia[1]+ " VehiculoY:" +(coordenadaVehiculo[1]+2));
-                if(((coordenadaVehiculo[0]-coordenadaInterferencia[0])< 2) && ((coordenadaVehiculo[1]-coordenadaInterferencia[1])< 2)){
+                if(distancia < 2){
                     canvas.getGraphicsContext2D().fillRect((coordenadaInterferencia[0] * largoCuadraX), posYSiYInicialIgualYFinal,this.espacioCalleX,this.espacioCalleY);
                 }
 

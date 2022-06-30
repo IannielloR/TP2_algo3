@@ -16,7 +16,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 
-public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent>{
+public class ContenedorJuego extends BorderPane{
     Stage stage;
     BarraDeMenu menuBar;
     VistaJuego vistaJuego;
@@ -25,7 +25,6 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
     public ContenedorJuego(Stage stage, Juego juego, TipoVehiculo vehiculo){
         this.setMenu();
         this.setCentro(juego, vehiculo);
-        this.setConsola();
         // Image imagen = new Image(path);
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
@@ -38,19 +37,12 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
         canvasCentral = new Canvas(800, 770);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
-
         vistaJuego.dibujar(800, 800 );
+        contenedorCentral = new VBox(canvasCentral);
 
-        Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-        etiqueta.setText("PROXIMAMENTE");
-        etiqueta.setTextFill(Color.web("#000000"));
-
-
-        contenedorCentral = new VBox(canvasCentral, etiqueta);
-        contenedorCentral.setAlignment(Pos.CENTER);
+        //contenedorCentral.setAlignment(Pos.CENTER);
         //contenedorCentral.setSpacing(20);
-        //contenedorCentral.setPadding(new Insets(25));
+        //contenedorCentral.(new Insets(this.menuBar.getHeight()));
 
 
        // Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
@@ -58,40 +50,6 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
         //contenedorCentral.setBackground(new Background(imagenDeFondo));
 
         this.setCenter(contenedorCentral);
-    }
-    private void setConsola(){
-        Label etiqueta = new Label();
-        etiqueta.setText("consola...");
-        etiqueta.setFont(Font.font("couier new", FontWeight.SEMI_BOLD, 14));
-        etiqueta.setTextFill(Color.WHITE);
-
-        VBox contenedorConsola = new VBox(etiqueta);
-        contenedorConsola.setSpacing(10);
-        contenedorConsola.setPadding(new Insets(15));
-        contenedorConsola.setStyle("-fx-background-color: black;");
-        this.setBottom(contenedorConsola);
-    }
-
-    public BarraDeMenu getMenuBar() {
-        return menuBar;
-    }
-
-    @Override
-    public void handle(KeyEvent event) {
-        switch (event.getCode()){
-            case UP:
-                System.out.println("Arriba");
-                break;
-            case DOWN:
-                System.out.println("Abajo");
-                break;
-            case RIGHT:
-                System.out.println("Der");
-                break;
-            case LEFT:
-                System.out.println("Izq");
-                break;
-        }
     }
     public VistaJuego obtenerVistaJuego(){
         return  vistaJuego;
