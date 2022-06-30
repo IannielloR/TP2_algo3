@@ -95,6 +95,10 @@ public class Juego {
         return llegada;
     }
 
+    public int[] obtenerTamanioMapa(){
+        return this.mapa.obtenerTamanioMapa();
+    }
+
     public int getMovimientos(){
         return this.mapa.devolverMovimientos();
     }

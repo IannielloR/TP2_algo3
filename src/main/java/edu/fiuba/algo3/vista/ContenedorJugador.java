@@ -40,6 +40,7 @@ public class ContenedorJugador extends VBox {
         Button botonAuto = new Button();
         botonAuto.setText("Auto");
         BotonAutoEventHandle botonAutoEventHandle = new BotonAutoEventHandle(this.vehiculo, tipoVehiculo);
+
         botonAuto.setOnAction(botonAutoEventHandle);
 
         Button botonMoto = new Button();

@@ -2,18 +2,23 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class ContenedorJuego extends BorderPane {
+import java.util.Scanner;
+
+public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent> {
     Stage stage;
 
     BarraDeMenu menuBar;
@@ -32,11 +37,11 @@ public class ContenedorJuego extends BorderPane {
         this.menuBar = new BarraDeMenu(this.stage);
         this.setTop(menuBar);
     }
-
+    
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
         canvasCentral = new Canvas(460, 220);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
-        vistaJuego.dibujar();
+        vistaJuego.dibujar(800, 800);
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
@@ -67,6 +72,23 @@ public class ContenedorJuego extends BorderPane {
         contenedorConsola.setPadding(new Insets(15));
         contenedorConsola.setStyle("-fx-background-color: black;");
         this.setBottom(contenedorConsola);
+    }
+
+    public void handle(KeyEvent event){
+        switch (event.getCode()){
+            case UP:
+                //Mover vehiculo arriba
+                break;
+            case DOWN:
+                //Mover vehiculo abajo
+                break;
+            case RIGHT:
+                //Mover vehiculo derecha
+                break;
+            case LEFT:
+                //Mover vehiculo izquierda
+                break;
+        }
     }
 
     public BarraDeMenu getMenuBar() {
