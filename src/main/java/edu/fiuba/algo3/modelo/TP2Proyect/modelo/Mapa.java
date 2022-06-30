@@ -94,4 +94,11 @@ public class Mapa {
         return tamanio;
     }
 
+    public int[] obtenerCoordenada(){
+        int[] coordenada = new int[2];
+        coordenada[0] = maximoX;
+        coordenada[1] = maximoY;
+        return coordenada;
+    }
+
 }

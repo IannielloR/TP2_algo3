@@ -69,6 +69,9 @@ public class Juego {
     public int[] obtenerTamanioMapa(){
         return this.mapa.obtenerTamanioMapa();
     }
+    public int[] obtenerCoordenada(){
+        return this.mapa.obtenerCoordenada();
+    }
 
     public void moverVehiculoArriba(){
 
@@ -101,4 +104,5 @@ public class Juego {
     public int getMovimientos(){
         return this.mapa.devolverMovimientos();
     }
+
 }

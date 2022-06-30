@@ -1,20 +1,30 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class VistaJuego{
     private Juego juego;
     private TipoVehiculo vehiculo;
+
+    private int largoCuadraX;
+    private int largoCuadraY;
+    private int espacioCalleX;
+    private int espacioCalleY;
+
+
+    //private int largo
     Canvas canvas;
-    Pane pane;
 
     public VistaJuego(Juego juego, TipoVehiculo vehiculo, Canvas canvas){
         this.juego = juego;
@@ -22,44 +32,58 @@ public class VistaJuego{
         this.canvas = canvas;
     }
     public void dibujar(int maxX, int maxY){
-        this.dibujarMapa(maxX, maxY);
-        //this.dibujarVehiculo();
+        /*
+        Rectangle rec1 = new Rectangle(10,10,Color.BLUE);
+        Rectangle rec2 = new Rectangle(10,10,Color.RED);
+
+        GridPane panel = new GridPane();
+        panel.add(rec1,0,0);
+        panel.add(rec2,0,1);
+
+        Scene display = new Scene(panel);
+
+
+        return display;
+        */
+        this.dibujarMapa(maxX,maxY);
+        this.dibujarVehiculo();
     }
-    private void dibujarMapa(int maxX, int maxY){
-        //this.clean();
-        canvas.getGraphicsContext2D().setFill(Color.RED);
+    private void dibujarMapa(int maxX, int maxY) {
+        this.clean();
+        canvas.getGraphicsContext2D().setFill(Color.GRAY);
+        canvas.getGraphicsContext2D().fillRect(0, 0, maxX, maxY);
         int[] cantidad = this.juego.obtenerTamanioMapa();
-        cantidad[0] = cantidad[0] +1;
-        cantidad[1] = cantidad[1] +1;
-        float largoX = maxX / cantidad[0];
-        float largoY = maxY / cantidad[1];
-        float espacioCalleX = ((largoX*25)/100);
-        float espacioCalleY = ((largoY*25)/100);
-        for (float i = 0; i < ((largoY)*cantidad[1]); i += largoY){
-            for(float j = 0; j < ((largoX)*cantidad[0]); j += largoX){
-                canvas.getGraphicsContext2D().setFill(Color.GRAY);
-                canvas.getGraphicsContext2D().fillRect(i, j, largoX, largoY);
+        cantidad[0] = cantidad[0] + 1;
+        cantidad[1] = cantidad[1] + 1;
+        this.largoCuadraX = maxX/cantidad[0];
+        this.largoCuadraY = maxY/cantidad[1];
+        this.espacioCalleX = ((this.largoCuadraX * 25) / 100);
+        this.espacioCalleY = ((this.largoCuadraY * 25) / 100);
+        for (int i = 0; i < ((this.largoCuadraX) * cantidad[0]); i += this.largoCuadraX) {
+            for (int j = 0; j < ((this.largoCuadraY) * cantidad[1]); j += this.largoCuadraY) {
                 canvas.getGraphicsContext2D().setFill(Color.GREEN);
-                canvas.getGraphicsContext2D().fillRect(i+10, j+10, (largoX-espacioCalleX), (largoY-espacioCalleY));
+                canvas.getGraphicsContext2D().fillRect(i + this.espacioCalleX, j + this.espacioCalleY, (this.largoCuadraX - this.espacioCalleX), (this.largoCuadraY - this.espacioCalleY));
             }
         }
 
     }
-    private void dibujarVehiculo(){
-        this.clean();
 
+
+    private void dibujarVehiculo(){
+        int [] coordenada = juego.obtenerCoordenada();
+        coordenada[0] = ((1 *this.largoCuadraX)+ (espacioCalleX/4));
+        coordenada[1] = ((7 *this.largoCuadraY) + (espacioCalleY/4));
         if(this.vehiculo.getClass() == Moto.class){
             canvas.getGraphicsContext2D().setFill(Color.RED);
-            canvas.getGraphicsContext2D().fillRect(0,0,468,220);
         }
         if(this.vehiculo.getClass() == Auto.class){
             canvas.getGraphicsContext2D().setFill(Color.BLUE);
-            canvas.getGraphicsContext2D().fillRect(0,0,468,220);
         }
         if(this.vehiculo.getClass() == CuatroXCuatro.class){
             canvas.getGraphicsContext2D().setFill(Color.BLACK);
-            canvas.getGraphicsContext2D().fillRect(0,0,468,220);
         }
+        canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],10,10);
+
 
     }
 
@@ -67,7 +91,7 @@ public class VistaJuego{
         canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
         canvas.getGraphicsContext2D().fillRect(0,0,468,220);
     }
-  /*  public  void update(){
-        this.dibujar();
-    }*/
+    public  void update(){
+        this.dibujar(800, 800);
+    }
 }
