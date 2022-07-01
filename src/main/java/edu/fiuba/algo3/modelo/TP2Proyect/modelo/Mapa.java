@@ -107,4 +107,8 @@ public class Mapa {
         return interferencias;
     }
 
+    public Vehiculo obtenerVehiculo(){
+        return vehiculo;
+    }
+
 }

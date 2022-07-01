@@ -106,7 +106,7 @@ public class VistaJuego{
 
     private void dibujarVehiculo(){
         int[] coordenada = coordenadasVehiculo();
-        if(this.vehiculo.getClass() == Moto.class){
+        if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == Moto.class){
           // Path currentPath = Paths.get(System.getProperty("user.dir"));
            // path = "file:" + currentPath.toString();
            // Path iconPath = Paths.get(path, "imagenes", "icon.png");
@@ -117,10 +117,10 @@ public class VistaJuego{
             //canvas.getGraphicsContext2D().drawImage(moto, coordenada[0], coordenada[1]);
             canvas.getGraphicsContext2D().setFill(Color.DARKVIOLET);
         }
-        if(this.vehiculo.getClass() == Auto.class){
+        if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == Auto.class){
             canvas.getGraphicsContext2D().setFill(Color.PINK);
         }
-        if(this.vehiculo.getClass() == CuatroXCuatro.class){
+        if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == CuatroXCuatro.class){
             canvas.getGraphicsContext2D().setFill(Color.BLACK);
         }
         canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],(espacioCalle/2),(espacioCalle/2));
@@ -130,7 +130,7 @@ public class VistaJuego{
     private void dibujarMeta(){
         int[] coordenada = coordenadasMeta();
         canvas.getGraphicsContext2D().setFill(Color.WHITE);
-        canvas.getGraphicsContext2D().fillRect(coordenada[0], (coordenada[1]+35),this.espacioCalle,this.espacioCalle);
+        canvas.getGraphicsContext2D().fillRect(coordenada[0], (coordenada[1]),this.espacioCalle,this.espacioCalle);
     }
     private void dibujarInterferencias(){
         List<Interferencia> interferencias = juego.obtenerInterferencias();
