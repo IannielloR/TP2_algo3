@@ -1,0 +1,11 @@
+@startuml
+
+[*] --> Auto
+[*] --> Moto
+[*] --> 4X4
+
+Auto --> 4X4 : sorpresaCambioVehiuclo
+Moto --> Auto : sorpresaCambioVehiuclo
+4X4 --> Moto : sorpresaCambioVehiuclo
+
+@enduml
