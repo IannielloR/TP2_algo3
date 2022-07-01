@@ -15,7 +15,7 @@ public class TestPruebaAuto {
         // Arrange
         Auto vehiculo = new Auto();
         Juego gpsChallenge = new Juego(vehiculo,10,10);
-
+        gpsChallenge.agregarJugador("Tomas");
         Interferencia obstaculo1 = new Pozo(1,2,2,2);
 
         Interferencia obstaculo2 = new Pozo(2,2, 3,2);
@@ -61,7 +61,7 @@ public class TestPruebaAuto {
         // Arrange
         Auto vehiculo = new Auto();
         Juego gpsChallenge = new Juego(vehiculo,10,10);
-
+        gpsChallenge.agregarJugador("Carlitos");
         Interferencia obstaculo1 = new Pozo(1,2,2,2);
 
         Interferencia obstaculo2 = new Pozo(2,2, 3,2);

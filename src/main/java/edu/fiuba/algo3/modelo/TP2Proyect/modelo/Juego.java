@@ -13,10 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Juego {
     private int movimientos;
@@ -138,26 +135,17 @@ public class Juego {
             }
         }
         ArchivoTexto archivoRanking = new ArchivoTexto(archivo);
-        ArrayList<Integer> ranking = archivoRanking.leerArchivo();
 
-        ranking.add(movimientos);
-        ranking.sort(Comparator.reverseOrder());
+        HashMap<String, Integer> ranking = archivoRanking.leerArchivo();
+
+        ranking.put(this.jugador, movimientos);
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(ranking.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+
+//        ArrayList<Integer> ranking = archivoRanking.leerArchivo();
+//        ranking.add(movimientos);
+//        ranking.sort(Comparator.reverseOrder());
         archivoRanking.escribirArchivo(ranking);
-
-//        FileWriter archivoRanking;
-//        PrintWriter escritor;
-//        try {
-//            archivoRanking = new FileWriter("C:\\Mateo\\AyP3\\TP2\\TP2_algo3\\ranking.txt");
-//            escritor = new PrintWriter(archivoRanking);
-//            escritor.println("Ranking");
-//            escritor.println(Integer.toString(ranking.size()));
-//            for (int i = 0; i < ranking.size(); i++) {
-//                escritor.print(Integer.toString(ranking.get(i)) + ", ");
-//            }
-//            escritor.close();
-//        }catch (Exception e){
-//            System.out.println("Error: " + e.getMessage());
-//        }
     }
 
     public void agregarJugador(String jugador){
