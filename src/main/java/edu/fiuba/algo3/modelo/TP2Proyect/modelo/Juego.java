@@ -125,7 +125,7 @@ public class Juego {
         return movimientosTotales;
     }
 
-    public void modificarRanking(int movimientos) {
+    public void modificarRanking(int puntaje) {
         File archivo = new File("ranking.txt");
         if(!archivo.exists()){
             try {
@@ -135,16 +135,28 @@ public class Juego {
             }
         }
         ArchivoTexto archivoRanking = new ArchivoTexto(archivo);
+        ArrayList<String[]> ranking = archivoRanking.leerArchivo();
 
-        HashMap<String, Integer> ranking = archivoRanking.leerArchivo();
+        String[] jugadorNuevo = new String[2];
+        jugadorNuevo[0] = this.jugador;
+        jugadorNuevo[1] = Integer.toString(puntaje);
+        ranking.add(jugadorNuevo);
 
-        ranking.put(this.jugador, movimientos);
-        List<Map.Entry<String, Integer>> list = new ArrayList<>(ranking.entrySet());
-        list.sort(Map.Entry.comparingByValue());
+        for (int i = 0; i < (ranking.size()); i++) {
+            for (int j = 0; j < (ranking.size() -1); j++) {
+                String[] jugador1 = ranking.get(j);
+                String[] jugador2 = ranking.get(j+1);
+                String auxNombre = jugador2[0];
+                String auxPuntaje = jugador2[1];
+                if (Integer.parseInt(jugador2[1]) < Integer.parseInt(jugador1[1])){
+                    jugador2[0] = jugador1[0];
+                    jugador2[1] = jugador1[1];
 
-//        ArrayList<Integer> ranking = archivoRanking.leerArchivo();
-//        ranking.add(movimientos);
-//        ranking.sort(Comparator.reverseOrder());
+                    jugador1[0] = auxNombre;
+                    jugador1[1] = auxPuntaje;
+                }
+            }
+        }
         archivoRanking.escribirArchivo(ranking);
     }
 
