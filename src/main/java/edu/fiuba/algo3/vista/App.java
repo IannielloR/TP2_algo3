@@ -22,8 +22,14 @@ public class App extends Application {
     public void start(Stage stage) {
         stage.setTitle("GPS Challenge");
 
-        ContenedorInicio contenedorInicio = new ContenedorInicio(stage);
+        ContenedorInicio contenedorInicial = new ContenedorInicio(stage);
+        Scene escenaInicial = new Scene(contenedorInicial, 800, 800);
+
+        ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaInicial);
         Scene escenaInicio = new Scene(contenedorInicio, 800, 800);
+
+        contenedorInicio = new ContenedorInicio(stage, escenaInicio);
+        escenaInicio = new Scene(contenedorInicio, 800, 800);
 
         stage.setScene(escenaInicio);
         stage.show();

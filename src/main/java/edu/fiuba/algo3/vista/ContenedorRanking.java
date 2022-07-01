@@ -17,7 +17,7 @@ public class ContenedorRanking extends VBox {
     Stage stage;
     //VBox contenedor;
     //static private String path;
-    public ContenedorRanking(Stage stage){
+    public ContenedorRanking(Stage stage, Scene escenaInico){
         super();
 
         this.stage = stage;
@@ -39,7 +39,7 @@ public class ContenedorRanking extends VBox {
         botonInicio.setText("Volver");
 
 
-        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage);
+        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage,escenaInico);
         botonInicio.setOnAction(botonVolverHandler);
 
         this.getChildren().addAll(etiqueta,botonInicio);

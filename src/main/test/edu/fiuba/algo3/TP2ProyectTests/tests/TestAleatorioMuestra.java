@@ -19,6 +19,7 @@ public class TestAleatorioMuestra {
         gpsChallenge.crearInterferencias();
         gpsChallenge.crearMeta();
 
+
         // Act
         gpsChallenge.moverVehiculoAbajo();
         gpsChallenge.moverVehiculoDerecha();

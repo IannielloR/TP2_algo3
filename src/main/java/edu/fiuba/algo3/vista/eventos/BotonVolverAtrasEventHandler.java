@@ -8,16 +8,16 @@ import javafx.stage.Stage;
 public class BotonVolverAtrasEventHandler implements EventHandler<ActionEvent> {
 
     Stage stage;
+    Scene escena;
 
-    public BotonVolverAtrasEventHandler(Stage stage) {
+    public BotonVolverAtrasEventHandler(Stage stage, Scene scene) {
         this.stage = stage;
-
+        this.escena = scene;
     }
 
     @Override
     public void handle(ActionEvent evento) {
-        stage.getScene();
-        this.stage.setFullScreenExitHint("");
-        this.stage.setFullScreen(false);
+        this.stage.setScene(this.escena);
+        stage.show();
     }
 }

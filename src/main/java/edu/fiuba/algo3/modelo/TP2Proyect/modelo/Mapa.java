@@ -17,6 +17,7 @@ public class Mapa {
     private List<Interferencia> interferencias = new ArrayList<Interferencia>();
     private Meta meta;
 
+
     public Mapa(TipoVehiculo vehiculo, int maxPosX, int maxPosY){
         this.maximoX = maxPosX;
         this.maximoY = maxPosY;
@@ -28,6 +29,7 @@ public class Mapa {
     public int devolverMovimientos(){
         return this.vehiculo.devolverMovimientos();
     }
+
     public void moverVehiculoAbajo(){
         if(posVehiculoY + 1 <= maximoY) {
             if (revisarObstaculos(posVehiculoX, (posVehiculoY + 1))) {
@@ -42,7 +44,6 @@ public class Mapa {
 
             }
         }
-
     }
     public void moverVehiculoDerecha(){
         if(posVehiculoX + 1 <= maximoX) {
@@ -69,6 +70,8 @@ public class Mapa {
         this.vehiculo.sumarMovimiento();
         return vehiculoAvanza;
     }
+
+
     public void agregarInterferenciaAMapa(int posicion, Interferencia interferencia){
         this.interferencias.add(posicion,interferencia);
     }
@@ -90,7 +93,7 @@ public class Mapa {
         return tamanio;
     }
 
-    public int[] obtenerCoordenada(){
+    public int[] obtenerCoordenadaVehiculo(){
         int[] coordenada = new int[2];
         coordenada[0] = posVehiculoX;
         coordenada[1] = posVehiculoY;

@@ -55,11 +55,11 @@ public class ContenedorJuego extends BorderPane{
         //contenedorCentral.setSpacing(20);
         //contenedorCentral.(new Insets(this.menuBar.getHeight()));
 
-
+        /*
         Image moto = new Image("file:src/vista/imagenes/moto.jpg");
         BackgroundImage imagenDeFondo = new BackgroundImage(moto, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorCentral.setBackground(new Background(imagenDeFondo));
-
+        */
         this.setCenter(contenedorCentral);
     }
     public VistaJuego obtenerVistaJuego(){

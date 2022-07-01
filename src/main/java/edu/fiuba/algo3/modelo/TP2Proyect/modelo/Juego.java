@@ -45,19 +45,22 @@ public class Juego {
     }
     public void agregarMeta(int y){
         this.mapa.agregarMeta(y);
+
     }
     public void crearInterferencias() {
         int cantTotalInterfencias = random.generarInt(10);
+
         for (int i = 0; i < cantTotalInterfencias; i++) {
             agregarInterferencia(i, random.crearInterferencias());
         }
     }
 
+
     public int[] obtenerTamanioMapa(){
         return this.mapa.obtenerTamanioMapa();
     }
-    public int[] obtenerCoordenada(){
-        return this.mapa.obtenerCoordenada();
+    public int[] obtenerCoordenadaVehiculo(){
+        return this.mapa.obtenerCoordenadaVehiculo();
     }
     public int[] obtenerCoordenadaMeta(){return this.mapa.obtenerCoordenadaMeta();}
 

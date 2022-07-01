@@ -50,21 +50,22 @@ public class VistaJuego{
 
         this.dibujarInterferencias();
 
-        this.dibujarMascara();
+       // this.dibujarMascara();
         this.dibujarMeta();
-        this.dibujarPuntaje(maxX,maxY);
+        this.dibujarPuntaje();
         this.dibujarVehiculo();
     }
     private int[] coordenadasVehiculo(){
-        int [] coordenada = juego.obtenerCoordenada();
+        int [] coordenada = juego.obtenerCoordenadaVehiculo();
+
         coordenada[0] = ((coordenada[0] *this.largoCuadra) + (espacioCalle/4));
-        coordenada[1] = (((coordenada[1] *this.largoCuadra) + (espacioCalle/4))+35);
+        coordenada[1] = ((coordenada[1] *this.largoCuadra) + (espacioCalle/4))+35;
         return coordenada;
     }
     private int[] coordenadasMeta(){
         int [] coordenada = juego.obtenerCoordenadaMeta();
         coordenada[0] = (coordenada[0] *this.largoCuadra);
-        coordenada[1] = ((coordenada[1] *this.largoCuadra)+35);
+        coordenada[1] = (coordenada[1] *this.largoCuadra)+35;
         return coordenada;
     }
     private void dibujarMapa(int maxX, int maxY) {
@@ -80,10 +81,8 @@ public class VistaJuego{
             maxX = cantidad[0]*largoCuadra;
             maxY = cantidad[1]*largoCuadra;
         }
-        canvas.getGraphicsContext2D().setFill(Color.BLACK);
-        canvas.getGraphicsContext2D().fillRect(0, 0, maxX, 35);
         canvas.getGraphicsContext2D().setFill(Color.GRAY);
-        canvas.getGraphicsContext2D().fillRect(0, 35, maxX, maxY);
+        canvas.getGraphicsContext2D().fillRect(0, 0, maxX, maxY+35);
 
         if(cantidad[0]> cantidad[1]){
             largoCuadra = maxX/cantidad[0];
@@ -99,7 +98,7 @@ public class VistaJuego{
         }
 
     }
-    private void dibujarPuntaje(int maxX, int maxY) {
+    private void dibujarPuntaje() {
         canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, 32.0));
         canvas.getGraphicsContext2D().setFill(Color.WHITE);
         canvas.getGraphicsContext2D().fillText("Movimientos: " + juego.getMovimientos(),0, 30);
@@ -110,34 +109,37 @@ public class VistaJuego{
     private void dibujarVehiculo(){
         int[] coordenada = coordenadasVehiculo();
         if(this.vehiculo.getClass() == Moto.class){
-            Image moto = new Image("file:src/vista/imagenes/moto.jpg");
-            canvas.getGraphicsContext2D().drawImage(moto, coordenada[0], coordenada[1],moto.getHeight(),moto.getWidth());
-            //canvas.getGraphicsContext2D().setFill(Color.DARKVIOLET);
+          // Path currentPath = Paths.get(System.getProperty("user.dir"));
+           // path = "file:" + currentPath.toString();
+           // Path iconPath = Paths.get(path, "imagenes", "icon.png");
+            //stage.getIcons().add(new Image(iconPath.toString()));
+
+            //System.out.println("Directorio ejecucion = " + System.getProperty("user.dir"));
+            //Image moto = new Image("/vista/imagenes/4x4.png");
+            //canvas.getGraphicsContext2D().drawImage(moto, coordenada[0], coordenada[1]);
+            canvas.getGraphicsContext2D().setFill(Color.DARKVIOLET);
         }
         if(this.vehiculo.getClass() == Auto.class){
             canvas.getGraphicsContext2D().setFill(Color.PINK);
-            canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],(espacioCalle/2),(espacioCalle/2));
         }
         if(this.vehiculo.getClass() == CuatroXCuatro.class){
             canvas.getGraphicsContext2D().setFill(Color.BLACK);
-            canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],(espacioCalle/2),(espacioCalle/2));
         }
-        //canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],(espacioCalle/2),(espacioCalle/2));
+        canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],(espacioCalle/2),(espacioCalle/2));
 
 
     }
     private void dibujarMeta(){
         int[] coordenada = coordenadasMeta();
         canvas.getGraphicsContext2D().setFill(Color.WHITE);
-        canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],this.espacioCalle,this.espacioCalle);
+        canvas.getGraphicsContext2D().fillRect(coordenada[0], (coordenada[1]+35),this.espacioCalle,this.espacioCalle);
     }
     private void dibujarInterferencias(){
         List<Interferencia> interferencias = juego.obtenerInterferencias();
-        int[] coordenadaVehiculo = juego.obtenerCoordenada();
         for(int i = 0; i < interferencias.size(); i++){
             int[] coordenadaInterferencia = interferencias.get(i).obtenerCoordenadaInterferencia();
-            int posXSiXInicialIgualXFinal = (coordenadaInterferencia[0] * largoCuadra)+ largoCuadra/2;
-            int posYSiYInicialIgualYFinal = (coordenadaInterferencia[1] * largoCuadra)+ largoCuadra/2;
+            int posYSiXInicialIgualXFinal = (coordenadaInterferencia[1] * largoCuadra)+ largoCuadra/2;
+            int posXSiYInicialIgualYFinal = (coordenadaInterferencia[0] * largoCuadra)+ largoCuadra/2;
 
             if(interferencias.get(i).getClass() == ControlPolicial.class){
                 canvas.getGraphicsContext2D().setFill(Color.BLUE);
@@ -158,12 +160,12 @@ public class VistaJuego{
                 canvas.getGraphicsContext2D().setFill(Color.GREEN);
             }
             if((coordenadaInterferencia[0] == coordenadaInterferencia[2])){
-                canvas.getGraphicsContext2D().fillRect(posXSiXInicialIgualXFinal,( (coordenadaInterferencia[1] * largoCuadra)+35),this.espacioCalle,this.espacioCalle);
+                canvas.getGraphicsContext2D().fillRect((coordenadaInterferencia[0] * largoCuadra), (posYSiXInicialIgualXFinal+35),this.espacioCalle,this.espacioCalle);
             }
             if((coordenadaInterferencia[1] == coordenadaInterferencia[3])){
-                canvas.getGraphicsContext2D().fillRect((coordenadaInterferencia[0] * largoCuadra), (posYSiYInicialIgualYFinal+35),this.espacioCalle,this.espacioCalle);
-
+                canvas.getGraphicsContext2D().fillRect(posXSiYInicialIgualYFinal, ((coordenadaInterferencia[1] * largoCuadra)+35),this.espacioCalle,this.espacioCalle);
             }
+            System.out.println("Xinicial:"+(coordenadaInterferencia[0])+" Yinicial:"+coordenadaInterferencia[1]+ " Xfinal:"+(coordenadaInterferencia[2])+" Yfinal:"+coordenadaInterferencia[3]);
 
         }
 

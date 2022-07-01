@@ -59,7 +59,11 @@ public class Random {
         return posYFinal;
     }
     public int generarInt( int numMax){
-        return random.nextInt(numMax);
+        int num = random.nextInt(numMax);
+        if(num == 0){
+            num = 1;
+        }
+        return num;
     }
     public float generarFloat(){
         return random.nextFloat();
