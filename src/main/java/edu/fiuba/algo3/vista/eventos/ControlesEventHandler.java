@@ -42,7 +42,7 @@ public class ControlesEventHandler  implements EventHandler<KeyEvent> {
                 break;
         }
         if(juego.getLlegada()){
-            ContenedorLlegada contenedorLlegada = new ContenedorLlegada(stage);
+            ContenedorLlegada contenedorLlegada = new ContenedorLlegada(stage, juego);
             Scene escenaLlegada = new Scene(contenedorLlegada, 800, 800);
             this.stage.setScene(escenaLlegada);
             this.stage.setFullScreenExitHint("");
