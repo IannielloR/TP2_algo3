@@ -19,10 +19,18 @@ public class Random {
         this.maxYMapa = yMapa;
     }
     public int generarXInicial(){
-        return random.nextInt((this.maxXMapa+1));
+        int coordenada =  random.nextInt((this.maxXMapa));
+        if(coordenada == 0){
+            coordenada = 1;
+        }
+        return coordenada;
     }
     public int generarYInicial(){
-        return random.nextInt((this.maxYMapa+1));
+        int coordenada =  random.nextInt((this.maxYMapa));
+        if(coordenada == 0){
+            coordenada = 1;
+        }
+        return coordenada;
     }
 
     public int generarXFinal(int xInicial){

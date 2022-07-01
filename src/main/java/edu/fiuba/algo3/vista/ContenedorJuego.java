@@ -2,13 +2,14 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
+
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -16,11 +17,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.Scanner;
-
-public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent> {
+public class ContenedorJuego extends BorderPane{
     Stage stage;
-
     BarraDeMenu menuBar;
     VistaJuego vistaJuego;
     Canvas canvasCentral;
@@ -28,7 +26,6 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
     public ContenedorJuego(Stage stage, Juego juego, TipoVehiculo vehiculo){
         this.setMenu();
         this.setCentro(juego, vehiculo);
-        this.setConsola();
         // Image imagen = new Image(path);
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
@@ -39,20 +36,23 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
     }
     
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
-        canvasCentral = new Canvas(460, 220);
+        int[] cantidad = juego.obtenerTamanioMapa();
+        cantidad[0] = cantidad[0] + 1;
+        cantidad[1] = cantidad[1] + 1;
+        int maxX =800;
+        int maxY =800;
+        if(cantidad[0]> cantidad[1]){
+            maxY = (maxX/cantidad[0])*cantidad[1];
+        }else {
+            maxX = (maxY/cantidad[1])*cantidad[0];
+        }
+        canvasCentral = new Canvas(maxX, maxY);
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
-        vistaJuego.dibujar(800, 800);
-
-        Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-        etiqueta.setText("PROXIMAMENTE");
-        etiqueta.setTextFill(Color.web("#000000"));
-
-
-        contenedorCentral = new VBox(canvasCentral, etiqueta);
-        contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
+        vistaJuego.dibujar(maxX, maxY );
+        contenedorCentral = new VBox(canvasCentral);
+        //contenedorCentral.setAlignment(Pos.CENTER);
+        //contenedorCentral.setSpacing(20);
+        //contenedorCentral.(new Insets(this.menuBar.getHeight()));
 
 
        // Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
@@ -61,37 +61,8 @@ public class ContenedorJuego extends BorderPane implements EventHandler<KeyEvent
 
         this.setCenter(contenedorCentral);
     }
-    private void setConsola(){
-        Label etiqueta = new Label();
-        etiqueta.setText("consola...");
-        etiqueta.setFont(Font.font("couier new", FontWeight.SEMI_BOLD, 14));
-        etiqueta.setTextFill(Color.WHITE);
-
-        VBox contenedorConsola = new VBox(etiqueta);
-        contenedorConsola.setSpacing(10);
-        contenedorConsola.setPadding(new Insets(15));
-        contenedorConsola.setStyle("-fx-background-color: black;");
-        this.setBottom(contenedorConsola);
+    public VistaJuego obtenerVistaJuego(){
+        return  vistaJuego;
     }
 
-    public void handle(KeyEvent event){
-        switch (event.getCode()){
-            case UP:
-                //Mover vehiculo arriba
-                break;
-            case DOWN:
-                //Mover vehiculo abajo
-                break;
-            case RIGHT:
-                //Mover vehiculo derecha
-                break;
-            case LEFT:
-                //Mover vehiculo izquierda
-                break;
-        }
-    }
-
-    public BarraDeMenu getMenuBar() {
-        return menuBar;
-    }
 }

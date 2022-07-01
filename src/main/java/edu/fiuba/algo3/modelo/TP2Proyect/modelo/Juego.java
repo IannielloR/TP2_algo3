@@ -9,16 +9,32 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaD
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Juego {
     private int movimientos;
     private Mapa mapa;
     private boolean llegada;
     private Random random;
+    private int maxMapaX;
+    private int maxMapaY;
+
+    private String jugador;
 
 
     public Juego(TipoVehiculo vehiculo){
         this.random = new Random();
-        this.mapa = new Mapa(vehiculo,this.random.generarInt(15),this.random.generarInt(15));
+        this.maxMapaX = this.random.generarInt(15);
+        this.maxMapaY = this.random.generarInt(15);
+        this.random = new Random(this.maxMapaX, this.maxMapaY);
+        this.mapa = new Mapa(vehiculo,this.maxMapaX,this.maxMapaY);
         this.movimientos = 0;
     }
     public Juego(TipoVehiculo vehiculo,int maxPosX, int maxPosY){
@@ -66,6 +82,17 @@ public class Juego {
         }
     }
 
+    public int[] obtenerTamanioMapa(){
+        return this.mapa.obtenerTamanioMapa();
+    }
+    public int[] obtenerCoordenada(){
+        return this.mapa.obtenerCoordenada();
+    }
+    public int[] obtenerCoordenadaMeta(){return this.mapa.obtenerCoordenadaMeta();}
+
+    public List<Interferencia> obtenerInterferencias(){
+        return this.mapa.obtenerInterferencias();
+    }
 
     public void moverVehiculoArriba(){
 
@@ -95,11 +122,45 @@ public class Juego {
         return llegada;
     }
 
-    public int[] obtenerTamanioMapa(){
-        return this.mapa.obtenerTamanioMapa();
+    public int getMovimientos(){
+        int movimientosTotales = this.mapa.devolverMovimientos();
+        modificarRanking(movimientosTotales);
+        return movimientosTotales;
     }
 
-    public int getMovimientos(){
-        return this.mapa.devolverMovimientos();
+    public void modificarRanking(int movimientos) {
+        File archivo = new File("ranking.txt");
+        if(!archivo.exists()){
+            try {
+                archivo.createNewFile();
+            }catch (IOException e){
+                e.printStackTrace(System.out);
+            }
+        }
+        ArchivoTexto archivoRanking = new ArchivoTexto(archivo);
+        ArrayList<Integer> ranking = archivoRanking.leerArchivo();
+
+        ranking.add(movimientos);
+        ranking.sort(Comparator.reverseOrder());
+        archivoRanking.escribirArchivo(ranking);
+
+//        FileWriter archivoRanking;
+//        PrintWriter escritor;
+//        try {
+//            archivoRanking = new FileWriter("C:\\Mateo\\AyP3\\TP2\\TP2_algo3\\ranking.txt");
+//            escritor = new PrintWriter(archivoRanking);
+//            escritor.println("Ranking");
+//            escritor.println(Integer.toString(ranking.size()));
+//            for (int i = 0; i < ranking.size(); i++) {
+//                escritor.print(Integer.toString(ranking.get(i)) + ", ");
+//            }
+//            escritor.close();
+//        }catch (Exception e){
+//            System.out.println("Error: " + e.getMessage());
+//        }
+    }
+
+    public void agregarJugador(String jugador){
+        this.jugador =  jugador;
     }
 }

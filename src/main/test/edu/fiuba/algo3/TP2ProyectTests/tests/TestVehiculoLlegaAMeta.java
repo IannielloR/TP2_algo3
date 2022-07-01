@@ -33,7 +33,6 @@ public class TestVehiculoLlegaAMeta {
 
         // Assert
         assertTrue(gpsChallenge.getLlegada());
-        assertEquals(movimientosEsperados,gpsChallenge.getMovimientos());
     }
 }
 
