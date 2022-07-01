@@ -20,21 +20,9 @@ public class App extends Application {
     }
     @Override
     public void start(Stage stage) {
-       // var javaVersion = SystemInfo.javaVersion();
-       // var javafxVersion = SystemInfo.javafxVersion();
         stage.setTitle("GPS Challenge");
 
-        Button botonInicio = new Button("inicio");
-        HBox ContenedorInicio = new HBox(botonInicio);
-        Button botonRanking = new Button("ranking");
-
-        ContenedorJugador contenedorJugador = new ContenedorJugador(stage);
-        Scene escenaJugador = new Scene(contenedorJugador, 800, 800);
-
-        ContenedorRanking contenedorRanking = new ContenedorRanking(stage);
-        Scene escenaRanking = new Scene(botonRanking, 800, 800);
-
-        ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaJugador, escenaRanking);
+        ContenedorInicio contenedorInicio = new ContenedorInicio(stage);
         Scene escenaInicio = new Scene(contenedorInicio, 800, 800);
 
         stage.setScene(escenaInicio);

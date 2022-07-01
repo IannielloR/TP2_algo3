@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;
@@ -62,6 +63,35 @@ public class Random {
     }
     public float generarFloat(){
         return random.nextFloat();
+    }
+
+    public Interferencia crearInterferencias() {
+        int maxInterferencias = 6;
+        int numInterferencia = generarInt(maxInterferencias);
+        int xIncial = generarXInicial();
+        int yInicial = generarYInicial();
+        int xFinal = generarXFinal(xIncial);
+        int yFinal = generarYFinal(yInicial, xIncial, xFinal);
+        if (numInterferencia == 0) {
+            return new Pozo(xIncial, yInicial, xFinal, yFinal);
+        }
+        if (numInterferencia == 1) {
+            return new Piquete(xIncial, yInicial, xFinal, yFinal);
+        }
+        if (numInterferencia == 2) {
+            return new ControlPolicial(xIncial, yInicial, xFinal, yFinal, generarFloat());
+        }
+        if (numInterferencia == 3) {
+            return new SorpresaDesfavorable(xIncial, yInicial, xFinal, yFinal);
+        }
+        if (numInterferencia == 4) {
+            return new SorpresaFavorable(xIncial, yInicial, xFinal, yFinal);
+        }
+        if (numInterferencia == 5) {
+            return new SorpresaCambioVehiculo(xIncial, yInicial, xFinal, yFinal);
+
+        }
+        return null;
     }
 
 

@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -14,9 +15,8 @@ import javafx.stage.Stage;
 
 public class ContenedorInicio extends VBox {
     Stage stage;
-    //VBox contenedor;
-    //static private String path;
-    public ContenedorInicio(Stage stage, Scene escenaJugador, Scene escenaRanking){
+
+    public ContenedorInicio(Stage stage){
         super();
 
         this.stage = stage;
@@ -26,6 +26,9 @@ public class ContenedorInicio extends VBox {
         // Image imagen = new Image(path);
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
+        Image moto = new Image("file:src/vista/imagenes/moto.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(moto, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        this.setBackground(new Background(imagenDeFondo));
 
         Button botonJuego = new Button();
         botonJuego.setText("Jugar");
@@ -33,6 +36,11 @@ public class ContenedorInicio extends VBox {
         Button botonRanking = new Button();
         botonRanking.setText("Ver Ranking");
 
+        ContenedorJugador contenedorJugador = new ContenedorJugador(stage);
+        Scene escenaJugador = new Scene(contenedorJugador, 800, 800);
+
+        ContenedorRanking contenedorRanking = new ContenedorRanking(stage );
+        Scene escenaRanking = new Scene(contenedorRanking, 800, 800);
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));

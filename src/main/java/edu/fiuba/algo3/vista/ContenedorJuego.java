@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -38,14 +39,14 @@ public class ContenedorJuego extends BorderPane{
         int[] cantidad = juego.obtenerTamanioMapa();
         cantidad[0] = cantidad[0] + 1;
         cantidad[1] = cantidad[1] + 1;
-        int maxX =800;
-        int maxY =800;
+        int maxX =1024;
+        int maxY =768;
         if(cantidad[0]> cantidad[1]){
             maxY = (maxX/cantidad[0])*cantidad[1];
         }else {
             maxX = (maxY/cantidad[1])*cantidad[0];
         }
-        canvasCentral = new Canvas(maxX, maxY);
+        canvasCentral = new Canvas(maxX, (maxY+35));
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
         vistaJuego.dibujar(maxX, maxY );
         contenedorCentral = new VBox(canvasCentral);
@@ -55,9 +56,9 @@ public class ContenedorJuego extends BorderPane{
         //contenedorCentral.(new Insets(this.menuBar.getHeight()));
 
 
-       // Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
-       // BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, B);
-        //contenedorCentral.setBackground(new Background(imagenDeFondo));
+        Image moto = new Image("file:src/vista/imagenes/moto.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(moto, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        contenedorCentral.setBackground(new Background(imagenDeFondo));
 
         this.setCenter(contenedorCentral);
     }

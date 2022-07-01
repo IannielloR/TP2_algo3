@@ -89,6 +89,7 @@ public class ContenedorJugador extends VBox {
         this.juego = new Juego(this.vehiculo);
         juego.crearMeta();
         juego.crearInterferencias();
+        //juego.agregarJugador("A");
     }
 
     public Juego obtenerJuego(){

@@ -18,6 +18,7 @@ public class Juego {
     private Random random;
     private int maxMapaX;
     private int maxMapaY;
+    private String jugador;
 
 
     public Juego(TipoVehiculo vehiculo){
@@ -36,6 +37,9 @@ public class Juego {
     public void agregarInterferencia(int posicion, Interferencia interferencia){
         this.mapa.agregarInterferenciaAMapa(posicion,interferencia);
     }
+    public void agregarJugador(String jugador){
+        this.jugador =  jugador;
+    }
     public void crearMeta(){
         this.mapa.crearMeta(this.random);
     }
@@ -45,31 +49,7 @@ public class Juego {
     public void crearInterferencias() {
         int cantTotalInterfencias = random.generarInt(10);
         for (int i = 0; i < cantTotalInterfencias; i++) {
-            int maxInterferencias = 6;
-            int numInterferencia = random.generarInt(maxInterferencias);
-            int xIncial = random.generarXInicial();
-            int yInicial = random.generarYInicial();
-            int xFinal = random.generarXFinal(xIncial);
-            int yFinal = random.generarYFinal(yInicial, xIncial, xFinal);
-            if (numInterferencia == 0) {
-                agregarInterferencia(i, new Pozo(xIncial, yInicial, xFinal, yFinal));
-            }
-            if (numInterferencia == 1) {
-                agregarInterferencia(i, new Piquete(xIncial, yInicial, xFinal, yFinal));
-            }
-            if (numInterferencia == 2) {
-                agregarInterferencia(i, new ControlPolicial(xIncial, yInicial, xFinal, yFinal, random.generarFloat()));
-            }
-            if (numInterferencia == 3) {
-                agregarInterferencia(i, new SorpresaDesfavorable(xIncial, yInicial, xFinal, yFinal));
-            }
-            if (numInterferencia == 4) {
-                agregarInterferencia(i, new SorpresaFavorable(xIncial, yInicial, xFinal, yFinal));
-            }
-            if (numInterferencia == 5) {
-                agregarInterferencia(i, new SorpresaCambioVehiculo(xIncial, yInicial, xFinal, yFinal));
-
-            }
+            agregarInterferencia(i, random.crearInterferencias());
         }
     }
 

@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.vista.eventos.BotonInicioEventHandle;
+import edu.fiuba.algo3.vista.eventos.BotonVolverAtrasEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,8 +35,13 @@ public class ContenedorRanking extends VBox {
         etiqueta.setText("GPS Challenge");
         etiqueta.setTextFill(Color.web("#000000"));
 
+        Button botonInicio = new Button();
+        botonInicio.setText("Volver");
 
 
-        this.getChildren().addAll(etiqueta);
+        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage);
+        botonInicio.setOnAction(botonVolverHandler);
+
+        this.getChildren().addAll(etiqueta,botonInicio);
     }
 }
