@@ -16,7 +16,6 @@ public class TestVehiculoLlegaAMeta {
     public void test1(){
         // Arrange
         Auto vehiculo = new Auto();
-
         Juego gpsChallenge = new Juego(vehiculo,10,10);
         gpsChallenge.agregarMeta(1);
         int movimientosEsperados = 9;
@@ -34,7 +33,6 @@ public class TestVehiculoLlegaAMeta {
 
         // Assert
         assertTrue(gpsChallenge.getLlegada());
-
     }
 }
 

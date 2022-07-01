@@ -9,7 +9,11 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaD
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 
-import java.util.List;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.*;
 
 public class Juego {
     private int movimientos;
@@ -19,6 +23,7 @@ public class Juego {
     private int maxMapaX;
     private int maxMapaY;
     private String jugador;
+
 
 
     public Juego(TipoVehiculo vehiculo){
@@ -36,9 +41,6 @@ public class Juego {
     }
     public void agregarInterferencia(int posicion, Interferencia interferencia){
         this.mapa.agregarInterferenciaAMapa(posicion,interferencia);
-    }
-    public void agregarJugador(String jugador){
-        this.jugador =  jugador;
     }
     public void crearMeta(){
         this.mapa.crearMeta(this.random);
@@ -97,7 +99,47 @@ public class Juego {
     }
 
     public int getMovimientos(){
-        return this.mapa.devolverMovimientos();
+        int movimientosTotales = this.mapa.devolverMovimientos();
+        modificarRanking(movimientosTotales);
+        return movimientosTotales;
     }
 
+    public void modificarRanking(int puntaje) {
+        File archivo = new File("ranking.txt");
+        if(!archivo.exists()){
+            try {
+                archivo.createNewFile();
+            }catch (IOException e){
+                e.printStackTrace(System.out);
+            }
+        }
+        ArchivoTexto archivoRanking = new ArchivoTexto(archivo);
+        ArrayList<String[]> ranking = archivoRanking.leerArchivo();
+
+        String[] jugadorNuevo = new String[2];
+        jugadorNuevo[0] = this.jugador;
+        jugadorNuevo[1] = Integer.toString(puntaje);
+        ranking.add(jugadorNuevo);
+
+        for (int i = 0; i < (ranking.size()); i++) {
+            for (int j = 0; j < (ranking.size() -1); j++) {
+                String[] jugador1 = ranking.get(j);
+                String[] jugador2 = ranking.get(j+1);
+                String auxNombre = jugador2[0];
+                String auxPuntaje = jugador2[1];
+                if (Integer.parseInt(jugador2[1]) < Integer.parseInt(jugador1[1])){
+                    jugador2[0] = jugador1[0];
+                    jugador2[1] = jugador1[1];
+
+                    jugador1[0] = auxNombre;
+                    jugador1[1] = auxPuntaje;
+                }
+            }
+        }
+        archivoRanking.escribirArchivo(ranking);
+    }
+
+    public void agregarJugador(String jugador){
+        this.jugador =  jugador;
+    }
 }

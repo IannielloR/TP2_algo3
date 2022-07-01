@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.ArchivoTexto;
 import edu.fiuba.algo3.vista.eventos.BotonInicioEventHandle;
 import edu.fiuba.algo3.vista.eventos.BotonVolverAtrasEventHandler;
 import javafx.geometry.Insets;
@@ -7,11 +8,17 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class ContenedorRanking extends VBox {
     Stage stage;
@@ -39,7 +46,7 @@ public class ContenedorRanking extends VBox {
         botonInicio.setText("Volver");
         // BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage);
         //botonInicio.setOnAction(botonVolverHandler);
-        /*
+
         File archivo = new File("ranking.txt");
 
 
@@ -61,10 +68,8 @@ public class ContenedorRanking extends VBox {
             tableView.getItems().add(jugador);
         }
 
-        //VBox vbox = new VBox(tableView);*/
-
-        this.getChildren().addAll(etiqueta,botonInicio);
-    //}
-
+        this.getChildren().addAll(etiqueta,tableView,botonInicio);
     }
+
+
 }

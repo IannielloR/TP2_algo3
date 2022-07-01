@@ -28,7 +28,6 @@ import javafx.stage.Stage;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
-
 public class VistaJuego{
     private Juego juego;
     private TipoVehiculo vehiculo;
@@ -102,7 +101,6 @@ public class VistaJuego{
         canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, 32.0));
         canvas.getGraphicsContext2D().setFill(Color.WHITE);
         canvas.getGraphicsContext2D().fillText("Movimientos: " + juego.getMovimientos(),0, 30);
-
     }
 
 

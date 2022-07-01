@@ -2,20 +2,9 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
 
 public class ContenedorJuego extends BorderPane{
     Stage stage;
@@ -34,7 +23,7 @@ public class ContenedorJuego extends BorderPane{
         this.menuBar = new BarraDeMenu(this.stage);
         this.setTop(menuBar);
     }
-
+    
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
         int[] cantidad = juego.obtenerTamanioMapa();
         cantidad[0] = cantidad[0] + 1;
@@ -50,7 +39,6 @@ public class ContenedorJuego extends BorderPane{
         vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
         vistaJuego.dibujar(maxX, maxY );
         contenedorCentral = new VBox(canvasCentral);
-
         //contenedorCentral.setAlignment(Pos.CENTER);
         //contenedorCentral.setSpacing(20);
         //contenedorCentral.(new Insets(this.menuBar.getHeight()));
@@ -67,4 +55,3 @@ public class ContenedorJuego extends BorderPane{
     }
 
 }
-
