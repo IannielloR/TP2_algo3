@@ -37,11 +37,34 @@ public class ContenedorRanking extends VBox {
 
         Button botonInicio = new Button();
         botonInicio.setText("Volver");
+        // BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage);
+        //botonInicio.setOnAction(botonVolverHandler);
+        /*
+        File archivo = new File("ranking.txt");
 
 
-        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage,escenaInico);
-        botonInicio.setOnAction(botonVolverHandler);
+        ArchivoTexto archivoRanking = new ArchivoTexto(archivo);
+        ArrayList<String[]> ranking = archivoRanking.leerArchivo();
+
+        TableView tableView = new TableView();
+        TableColumn<String, String> column1 = new TableColumn<>("Jugador");
+        column1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        TableColumn<String, String> column2 = new TableColumn<>("Puntuacion");
+        column2.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
+
+
+        tableView.getColumns().add(column1);
+        tableView.getColumns().add(column2);
+
+        for (int i = 0; i < ranking.size(); i++) {
+            Jugador jugador = new Jugador(ranking.get(i)[0], Integer.parseInt(ranking.get(i)[1]));
+            tableView.getItems().add(jugador);
+        }
+
+        //VBox vbox = new VBox(tableView);*/
 
         this.getChildren().addAll(etiqueta,botonInicio);
+    //}
+
     }
 }
