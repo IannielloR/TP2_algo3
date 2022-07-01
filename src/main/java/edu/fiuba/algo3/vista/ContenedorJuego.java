@@ -8,21 +8,16 @@ import javafx.stage.Stage;
 
 public class ContenedorJuego extends BorderPane{
     Stage stage;
-    BarraDeMenu menuBar;
     VistaJuego vistaJuego;
     Canvas canvasCentral;
     VBox contenedorCentral;
     public ContenedorJuego(Stage stage, Juego juego, TipoVehiculo vehiculo){
-        this.setMenu();
         this.setCentro(juego, vehiculo);
         // Image imagen = new Image(path);
         //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //this.setBackground(new Background(imagenDeFondo));
     }
-    private void  setMenu(){
-        this.menuBar = new BarraDeMenu(this.stage);
-        this.setTop(menuBar);
-    }
+
     
     private void setCentro(Juego juego, TipoVehiculo vehiculo){
         int[] cantidad = juego.obtenerTamanioMapa();

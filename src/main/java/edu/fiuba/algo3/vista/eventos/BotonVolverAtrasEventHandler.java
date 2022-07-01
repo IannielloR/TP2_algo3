@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
+import edu.fiuba.algo3.vista.ContenedorInicio;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -17,7 +18,17 @@ public class BotonVolverAtrasEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent evento) {
-        this.stage.setScene(this.escena);
+
+        ContenedorInicio contenedorInicio = new ContenedorInicio(stage);
+        Scene escenaInicio = new Scene(contenedorInicio, 800, 800);
+
+        contenedorInicio = new ContenedorInicio(stage, escenaInicio);
+        escenaInicio = new Scene(contenedorInicio, 800, 800);
+
+        contenedorInicio = new ContenedorInicio(stage, escenaInicio);
+        escenaInicio = new Scene(contenedorInicio, 800, 800);
+
+        stage.setScene(escenaInicio);
         stage.show();
     }
 }

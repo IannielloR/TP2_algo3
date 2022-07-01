@@ -40,9 +40,8 @@ public class BotonJuegoEventHandle implements EventHandler<ActionEvent> {
             maxX = cantidad[0]*largoCuadra;
             maxY = cantidad[1]*largoCuadra;
         }
-
         contenedorJuego = this.contenedorJugador.obtenerContenedorJuego();
-        escena = new Scene(contenedorJuego, maxX, maxY);
+        escena = new Scene(contenedorJuego, maxX, (maxY+35));
         escena.setOnKeyPressed(new ControlesEventHandler(this.stage,this.contenedorJugador.obtenerJuego(),contenedorJuego.obtenerVistaJuego()));
 
         this.stage.setScene(escena);

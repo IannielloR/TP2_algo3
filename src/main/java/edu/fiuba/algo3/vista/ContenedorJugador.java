@@ -16,7 +16,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,6 +30,8 @@ public class ContenedorJugador extends VBox {
     public TipoVehiculo vehiculo;
     private  Label tipoVehiculo;
     private Juego juego;
+    private String jugador;
+    TextField txtJugador;
     public ContenedorJugador(Stage stage){
         super();
 
@@ -73,7 +77,14 @@ public class ContenedorJugador extends VBox {
         etiqueta.setText("Seleccione su vehiculo");
         etiqueta.setTextFill(Color.web("#000000"));
 
-        this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, this.tipoVehiculo, botonJugar);
+        Label lblJugador = new Label("Nombre:");
+        this.txtJugador = new TextField ("S/N");
+        HBox hb = new HBox();
+        hb.getChildren().addAll(lblJugador, txtJugador);
+        hb.setSpacing(10);
+        hb.setAlignment(Pos.CENTER);
+
+        this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, hb, this.tipoVehiculo, botonJugar);
     }
 
     public void crearModelo(){
@@ -89,7 +100,7 @@ public class ContenedorJugador extends VBox {
         this.juego = new Juego(this.vehiculo);
         juego.crearMeta();
         juego.crearInterferencias();
-        //juego.agregarJugador("A");
+        juego.agregarJugador(this.txtJugador.getText());
     }
 
     public Juego obtenerJuego(){
