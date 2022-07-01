@@ -32,7 +32,7 @@ public class ContenedorJugador extends VBox {
     private Juego juego;
     private String jugador;
     TextField txtJugador;
-    public ContenedorJugador(Stage stage){
+    public ContenedorJugador(Stage stage, Scene escenaInicio){
         super();
 
         this.stage = stage;
@@ -68,7 +68,7 @@ public class ContenedorJugador extends VBox {
 
         Button botonJugar = new Button();
         botonJugar.setText("Iniciar Partida");
-        BotonJuegoEventHandle botonJuegoHandler = new BotonJuegoEventHandle(stage, this);
+        BotonJuegoEventHandle botonJuegoHandler = new BotonJuegoEventHandle(stage, this, escenaInicio);
         botonJugar.setOnAction(botonJuegoHandler);
 
 

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
 import edu.fiuba.algo3.vista.eventos.BotonInicioEventHandle;
+import edu.fiuba.algo3.vista.eventos.BotonVolverAtrasEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -19,7 +20,7 @@ public class ContenedorLlegada extends VBox {
     Stage stage;
     //VBox contenedor;
     //static private String path;
-    public ContenedorLlegada(Stage stage, Juego juego){
+    public ContenedorLlegada(Stage stage, Juego juego, Scene escenaInicio){
         super();
 
         this.stage = stage;
@@ -32,16 +33,20 @@ public class ContenedorLlegada extends VBox {
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-
         etiqueta.setText("VAMOOOO LLEGASTEEE");
         etiqueta.setTextFill(Color.BLACK);
+
         Label movimientos = new Label();
         movimientos.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-
         movimientos.setText("Puntuacion: " + juego.getMovimientos());
         movimientos.setTextFill(Color.BLACK);
 
+        Button botonInicio = new Button();
+        botonInicio.setText("Volver");
+        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage,escenaInicio);
+        botonInicio.setOnAction(botonVolverHandler);
 
-        this.getChildren().addAll(etiqueta, movimientos);
+
+        this.getChildren().addAll(etiqueta, movimientos, botonInicio);
     }
 }

@@ -37,7 +37,7 @@ public class ContenedorInicio extends VBox {
         Button botonRanking = new Button();
         botonRanking.setText("Ver Ranking");
 
-        ContenedorJugador contenedorJugador = new ContenedorJugador(stage);
+        ContenedorJugador contenedorJugador = new ContenedorJugador(stage, escenaInicio);
         Scene escenaJugador = new Scene(contenedorJugador, 800, 800);
 
         ContenedorRanking contenedorRanking = new ContenedorRanking(stage,escenaInicio);

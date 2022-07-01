@@ -24,7 +24,7 @@ public class ContenedorRanking extends VBox {
     Stage stage;
     //VBox contenedor;
     //static private String path;
-    public ContenedorRanking(Stage stage, Scene escenaInico){
+    public ContenedorRanking(Stage stage, Scene escenaInicio){
         super();
 
         this.stage = stage;
@@ -44,7 +44,7 @@ public class ContenedorRanking extends VBox {
 
         Button botonInicio = new Button();
         botonInicio.setText("Volver");
-        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage,escenaInico);
+        BotonVolverAtrasEventHandler botonVolverHandler = new BotonVolverAtrasEventHandler(stage,escenaInicio);
         botonInicio.setOnAction(botonVolverHandler);
 
         File archivo = new File("ranking.txt");

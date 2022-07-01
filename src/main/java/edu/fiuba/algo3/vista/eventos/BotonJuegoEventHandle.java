@@ -13,11 +13,12 @@ public class BotonJuegoEventHandle implements EventHandler<ActionEvent> {
 
     Stage stage;
     private ContenedorJugador contenedorJugador;
+    private Scene escenaInicio;
 
-    public BotonJuegoEventHandle(Stage stage, ContenedorJugador contenedorJugador) {
+    public BotonJuegoEventHandle(Stage stage, ContenedorJugador contenedorJugador, Scene escenaInicio) {
         this.contenedorJugador = contenedorJugador;
         this.stage = stage;
-
+        this.escenaInicio = escenaInicio;
     }
 
     @Override
@@ -42,7 +43,7 @@ public class BotonJuegoEventHandle implements EventHandler<ActionEvent> {
         }
         contenedorJuego = this.contenedorJugador.obtenerContenedorJuego();
         escena = new Scene(contenedorJuego, maxX, (maxY+35));
-        escena.setOnKeyPressed(new ControlesEventHandler(this.stage,this.contenedorJugador.obtenerJuego(),contenedorJuego.obtenerVistaJuego()));
+        escena.setOnKeyPressed(new ControlesEventHandler(this.stage,this.contenedorJugador.obtenerJuego(),contenedorJuego.obtenerVistaJuego(), this.escenaInicio));
 
         this.stage.setScene(escena);
         this.stage.setFullScreenExitHint("");

@@ -15,10 +15,13 @@ public class ControlesEventHandler  implements EventHandler<KeyEvent> {
     private Juego juego;
     private VistaJuego vistaJuego;
 
-    public ControlesEventHandler(Stage stage, Juego juego, VistaJuego vistaJuego){
+    private Scene escenaInicio;
+
+    public ControlesEventHandler(Stage stage, Juego juego, VistaJuego vistaJuego, Scene escenaInicio){
         this.juego = juego;
         this.stage = stage;
         this.vistaJuego = vistaJuego;
+        this.escenaInicio = escenaInicio;
     }
 
     @Override
@@ -42,7 +45,7 @@ public class ControlesEventHandler  implements EventHandler<KeyEvent> {
                 break;
         }
         if(juego.getLlegada()){
-            ContenedorLlegada contenedorLlegada = new ContenedorLlegada(stage, juego);
+            ContenedorLlegada contenedorLlegada = new ContenedorLlegada(this.stage, this.juego, this.escenaInicio);
             Scene escenaLlegada = new Scene(contenedorLlegada, 800, 800);
             this.stage.setScene(escenaLlegada);
             this.stage.setFullScreenExitHint("");
