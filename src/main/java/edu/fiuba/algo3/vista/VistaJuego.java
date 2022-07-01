@@ -105,8 +105,12 @@ public class VistaJuego{
     private void dibujarVehiculo(){
         int[] coordenada = coordenadasVehiculo();
         if(this.vehiculo.getClass() == Moto.class){
-            Image moto = new Image(getClass().getResourceAsStream("moto.png"));
-           canvas.getGraphicsContext2D().drawImage(moto, coordenada[0], coordenada[1]);
+           // Path currentPath = Paths.get(System.getProperty("user.dir"));
+           // path = "file:" + currentPath.toString();
+           // Path iconPath = Paths.get(path, "imagenes", "icon.png");
+            //stage.getIcons().add(new Image(iconPath.toString()));
+            //Image moto = new Image(getClass().getResourceAsStream("moto.png"));
+           //canvas.getGraphicsContext2D().drawImage(moto, coordenada[0], coordenada[1]);
             canvas.getGraphicsContext2D().setFill(Color.RED);
         }
         if(this.vehiculo.getClass() == Auto.class){
