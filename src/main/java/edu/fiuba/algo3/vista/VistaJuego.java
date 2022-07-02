@@ -96,16 +96,27 @@ public class VistaJuego{
 
     private void dibujarVehiculo(){
         int[] coordenada = coordenadasVehiculo();
+        String letra = "";
+        int tamanio = 0;
         if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == Moto.class){
             canvas.getGraphicsContext2D().setFill(Color.DARKVIOLET);
+            letra = "M";
+            tamanio = espacioCalle/2;
         }
         if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == Auto.class){
-            canvas.getGraphicsContext2D().setFill(Color.PINK);
+            canvas.getGraphicsContext2D().setFill(Color.DEEPPINK);
+            letra = "A";
+            tamanio = espacioCalle/2;
         }
         if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == CuatroXCuatro.class){
             canvas.getGraphicsContext2D().setFill(Color.BLACK);
+            letra = "4";
+            tamanio = espacioCalle/2;
         }
         canvas.getGraphicsContext2D().fillRect(coordenada[0], coordenada[1],(espacioCalle/2),(espacioCalle/2));
+        canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, tamanio));
+        canvas.getGraphicsContext2D().setFill(Color.WHITE);
+        canvas.getGraphicsContext2D().fillText(letra,(coordenada[0]), (coordenada[1]+(espacioCalle/2)));
     }
 
     private void dibujarMeta(){
