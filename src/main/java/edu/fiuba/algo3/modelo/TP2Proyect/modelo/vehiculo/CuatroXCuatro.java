@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
 
-
 public class CuatroXCuatro extends TipoVehiculo {
     private int pozos;
 
@@ -11,12 +10,14 @@ public class CuatroXCuatro extends TipoVehiculo {
     public TipoVehiculo devolverSorpresaCambioDeVehiculo() {
         return new Moto();
     }
+
     public int devolverPenalizacionControlPolical(float prob){
         if(prob < 0.3){
             return 3;
         }
         return 0;
     }
+
     public int devolverPenalizacionPozo(){
         this.pozos++;
         if(this.pozos == 3){
@@ -27,6 +28,7 @@ public class CuatroXCuatro extends TipoVehiculo {
             return 0;
         }
     }
+
     public int devolverPenalizacionPiquete(){
         return -1;
     }

@@ -15,10 +15,12 @@ public class Random {
 
     public Random(){
     }
+
     public Random(int xMapa, int yMapa) {
         this.maxXMapa = xMapa;
         this.maxYMapa = yMapa;
     }
+
     public int generarXInicial(){
         int coordenada =  random.nextInt((this.maxXMapa));
         if(coordenada == 0){
@@ -26,6 +28,7 @@ public class Random {
         }
         return coordenada;
     }
+
     public int generarYInicial(){
         int coordenada =  random.nextInt((this.maxYMapa));
         if(coordenada == 0){
@@ -47,6 +50,7 @@ public class Random {
         }
         return posXFinal;
     }
+
     public int generarYFinal(int yInicial,int xInicial, int xFinal){
         int posYFinal = yInicial;
         if(xFinal == xInicial){
@@ -58,6 +62,7 @@ public class Random {
         }
         return posYFinal;
     }
+
     public int generarInt( int numMax){
         int num = random.nextInt(numMax);
         if(num == 0){
@@ -65,6 +70,7 @@ public class Random {
         }
         return num;
     }
+
     public float generarFloat(){
         return random.nextFloat();
     }
@@ -97,7 +103,5 @@ public class Random {
         }
         return null;
     }
-
-
 }
 

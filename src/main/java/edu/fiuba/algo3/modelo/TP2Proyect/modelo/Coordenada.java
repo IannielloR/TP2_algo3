@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
-
-import java.util.Random;
-
 public class Coordenada {
     private int posXInicial;
     private int posYInicial;
@@ -15,6 +12,7 @@ public class Coordenada {
         this.posXFinal = xFinal;
         this.posYFinal = yFinal;
     }
+
     public boolean hayColision(int vehiculoXInical, int vehiculoYInicial, int vehiculoXFinal, int vehiculoYFinal) {
         if ((vehiculoXInical == posXInicial) && (vehiculoYInicial == posYInicial) && (vehiculoXFinal == posXFinal) && (vehiculoYFinal == posYFinal)) {
             return true;
@@ -24,6 +22,7 @@ public class Coordenada {
         }
         return false;
     }
+
     public int[] obtenerCordenadaInterferencia(){
         int[] coordenada = new int[4];
         coordenada[0] = posXInicial;
@@ -33,16 +32,3 @@ public class Coordenada {
         return coordenada;
     }
 }
-//    private int posX;
-//    private int posY;
-//    public Pozo(int id1, int id2) {
-//        this.posX = id1;
-//        this.posY = id2;
-//    }
-//    public int analizarVehiculo(TipoVehiculo vehiculo, int id1, int id2, int movimientos){
-//        if(this.posX == id1 && this.posY == id2 ){
-//            return (vehiculo.devolverVehiculo()).devolverPenalizacionPozo();
-//        }
-//        return 0;
-//    }
-//}

@@ -1,10 +1,6 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
-
 import java.io.*;
-import java.lang.reflect.Array;
-import java.nio.Buffer;
 import java.util.*;
 
 public class ArchivoTexto {
@@ -22,7 +18,6 @@ public class ArchivoTexto {
                 escritura.write(jugador[0] + " " + jugador[1]);
                 escritura.write("\n");
             }
-
             escritura.close();
         }catch (IOException e){
             e.printStackTrace(System.out);
