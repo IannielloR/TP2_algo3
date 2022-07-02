@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BotonVolverAtrasEventHandler implements EventHandler<ActionEvent> {
-
     Stage stage;
     Scene escena;
 
@@ -18,7 +17,6 @@ public class BotonVolverAtrasEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent evento) {
-
         ContenedorInicio contenedorInicio = new ContenedorInicio(stage);
         Scene escenaInicio = new Scene(contenedorInicio, 800, 800);
 

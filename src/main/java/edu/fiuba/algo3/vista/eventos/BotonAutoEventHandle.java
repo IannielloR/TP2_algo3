@@ -7,7 +7,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 
 public class BotonAutoEventHandle implements EventHandler<ActionEvent> {
-
     private TipoVehiculo vehiculo;
     private Label labelVehiculo;
 

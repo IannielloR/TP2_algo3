@@ -14,22 +14,16 @@ import javafx.stage.Stage;
 
 public class ContenedorInicio extends VBox {
     Stage stage;
-    //VBox contenedor;
-    //static private String path;
     public ContenedorInicio(Stage stage){
         super();
         this.stage = stage;
     }
     public ContenedorInicio(Stage stage,Scene escenaInicio){
         super();
-
         this.stage = stage;
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
-        // Image imagen = new Image(path);
-        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        //this.setBackground(new Background(imagenDeFondo));
 
         Button botonJuego = new Button();
         botonJuego.setText("Jugar");
@@ -51,7 +45,6 @@ public class ContenedorInicio extends VBox {
 
         BotonInicioEventHandle botonJuegoHandler = new BotonInicioEventHandle(stage, escenaJugador);
         botonJuego.setOnAction(botonJuegoHandler);
-
 
         BotonInicioEventHandle botonRankingHandler = new BotonInicioEventHandle(stage, escenaRanking);
         botonRanking.setOnAction(botonRankingHandler);

@@ -11,7 +11,6 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaF
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -19,14 +18,12 @@ import javafx.scene.text.FontWeight;
 import java.util.List;
 public class VistaJuego{
     private Juego juego;
-    private TipoVehiculo vehiculo;
     private int largoCuadra;
     private int espacioCalle;
     Canvas canvas;
 
-    public VistaJuego(Juego juego, TipoVehiculo vehiculo, Canvas canvas){
+    public VistaJuego(Juego juego, Canvas canvas){
         this.juego = juego;
-        this.vehiculo = vehiculo;
         this.canvas = canvas;
     }
 
@@ -41,7 +38,6 @@ public class VistaJuego{
 
     private int[] coordenadasVehiculo(){
         int [] coordenada = juego.obtenerCoordenadaVehiculo();
-
         coordenada[0] = ((coordenada[0] *this.largoCuadra) + (espacioCalle/4));
         coordenada[1] = ((coordenada[1] *this.largoCuadra) + (espacioCalle/4))+35;
         return coordenada;

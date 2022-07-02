@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.vista.ContenedorJugador;
 import edu.fiuba.algo3.vista.ContenedorLlegada;
 import edu.fiuba.algo3.vista.VistaJuego;
 import javafx.event.EventHandler;
@@ -9,12 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-
 public class ControlesEventHandler  implements EventHandler<KeyEvent> {
     private Stage stage;
     private Juego juego;
     private VistaJuego vistaJuego;
-
     private Scene escenaInicio;
 
     public ControlesEventHandler(Stage stage, Juego juego, VistaJuego vistaJuego, Scene escenaInicio){

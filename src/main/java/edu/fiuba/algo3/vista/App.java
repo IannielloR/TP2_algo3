@@ -1,20 +1,10 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.SystemInfo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
-
     public static void main(String[] args) {
         launch();
     }
@@ -34,7 +24,4 @@ public class App extends Application {
         stage.setScene(escenaInicio);
         stage.show();
     }
-
-
-
 }

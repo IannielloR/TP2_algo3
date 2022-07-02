@@ -1,23 +1,14 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaCambioVehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaDesfavorable;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaFavorable;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
 import edu.fiuba.algo3.vista.eventos.*;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -30,7 +21,6 @@ public class ContenedorJugador extends VBox {
     public TipoVehiculo vehiculo;
     private  Label tipoVehiculo;
     private Juego juego;
-    private String jugador;
     TextField txtJugador;
     public ContenedorJugador(Stage stage, Scene escenaInicio){
         super();
@@ -40,10 +30,6 @@ public class ContenedorJugador extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(25));
         this.vehiculo = new Moto();
-
-        // Image imagen = new Image(path);
-        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        //this.setBackground(new Background(imagenDeFondo));
 
         this.tipoVehiculo = new Label();
         this.tipoVehiculo.setFont(Font.font("Arial", FontWeight.BOLD, 40));
@@ -60,7 +46,6 @@ public class ContenedorJugador extends VBox {
         BotonMotoEventHandle botonMotoEventHandle = new BotonMotoEventHandle(this.vehiculo, this.tipoVehiculo);
         botonMoto.setOnAction(botonMotoEventHandle);
 
-
         Button boton4x4 = new Button();
         boton4x4.setText("4x4");
         BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(this.vehiculo, this.tipoVehiculo);
@@ -70,7 +55,6 @@ public class ContenedorJugador extends VBox {
         botonJugar.setText("Iniciar Partida");
         BotonJuegoEventHandle botonJuegoHandler = new BotonJuegoEventHandle(stage, this, escenaInicio);
         botonJugar.setOnAction(botonJuegoHandler);
-
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
@@ -106,8 +90,9 @@ public class ContenedorJugador extends VBox {
     public Juego obtenerJuego(){
         return this.juego;
     }
+
     public ContenedorJuego obtenerContenedorJuego(){
-       return new ContenedorJuego(stage, this.juego, this.vehiculo);
+       return new ContenedorJuego(this.juego);
     }
 
 }

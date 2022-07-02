@@ -1,25 +1,18 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 public class ContenedorJuego extends BorderPane{
-    Stage stage;
     VistaJuego vistaJuego;
     Canvas canvasCentral;
     VBox contenedorCentral;
-    public ContenedorJuego(Stage stage, Juego juego, TipoVehiculo vehiculo){
-        this.setCentro(juego, vehiculo);
-        // Image imagen = new Image(path);
-        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        //this.setBackground(new Background(imagenDeFondo));
+    public ContenedorJuego(Juego juego){
+        this.setCentro(juego);
     }
 
-    
-    private void setCentro(Juego juego, TipoVehiculo vehiculo){
+    private void setCentro(Juego juego){
         int[] cantidad = juego.obtenerTamanioMapa();
         cantidad[0] = cantidad[0] + 1;
         cantidad[1] = cantidad[1] + 1;
@@ -31,22 +24,13 @@ public class ContenedorJuego extends BorderPane{
             maxX = (maxY/cantidad[1])*cantidad[0];
         }
         canvasCentral = new Canvas(maxX, (maxY+35));
-        vistaJuego = new VistaJuego(juego, vehiculo, canvasCentral);
+        vistaJuego = new VistaJuego(juego, canvasCentral);
         vistaJuego.dibujar(maxX, maxY );
         contenedorCentral = new VBox(canvasCentral);
-        //contenedorCentral.setAlignment(Pos.CENTER);
-        //contenedorCentral.setSpacing(20);
-        //contenedorCentral.(new Insets(this.menuBar.getHeight()));
-
-        /*
-        Image moto = new Image("file:src/vista/imagenes/moto.jpg");
-        BackgroundImage imagenDeFondo = new BackgroundImage(moto, BackgroundRepeat.SPACE, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        contenedorCentral.setBackground(new Background(imagenDeFondo));
-        */
         this.setCenter(contenedorCentral);
     }
+
     public VistaJuego obtenerVistaJuego(){
         return  vistaJuego;
     }
-
 }
