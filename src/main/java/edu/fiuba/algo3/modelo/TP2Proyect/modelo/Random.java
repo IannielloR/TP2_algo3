@@ -42,10 +42,13 @@ public class Random {
         int empiezaConX = random.nextInt(valor);
         int posXFinal = xInicial;
         if(empiezaConX == 0){
-            if(xInicial == this.maxXMapa){
-                posXFinal = (xInicial-1);
+            if(xInicial >= this.maxXMapa){
+                posXFinal = (this.maxXMapa-1);
             }else{
                 posXFinal = (xInicial +1);
+            }
+            if(maxXMapa==1){
+                posXFinal = xInicial;
             }
         }
         return posXFinal;
@@ -54,10 +57,13 @@ public class Random {
     public int generarYFinal(int yInicial,int xInicial, int xFinal){
         int posYFinal = yInicial;
         if(xFinal == xInicial){
-            if(yInicial == this.maxXMapa){
-                posYFinal = (yInicial-1);
+            if(yInicial >= this.maxYMapa){
+                posYFinal = (this.maxYMapa-1);
             }else{
                 posYFinal = (yInicial +1);
+            }
+            if(maxYMapa==1){
+                posYFinal = yInicial;
             }
         }
         return posYFinal;
@@ -71,13 +77,24 @@ public class Random {
         return num;
     }
 
+    public int generarYMapa(int numMax, int maxXMapa){
+        int num = random.nextInt(numMax);
+        if((maxXMapa == 1) && (num == 1)){
+            num = 2;
+        }
+        if(num == 0){
+            num = 1;
+        }
+        return num;
+    }
+
     public float generarFloat(){
         return random.nextFloat();
     }
 
     public Interferencia crearInterferencias() {
         int maxInterferencias = 6;
-        int numInterferencia = generarInt(maxInterferencias);
+        int numInterferencia = random.nextInt(maxInterferencias);
         int xIncial = generarXInicial();
         int yInicial = generarYInicial();
         int xFinal = generarXFinal(xIncial);
@@ -99,7 +116,6 @@ public class Random {
         }
         if (numInterferencia == 5) {
             return new SorpresaCambioVehiculo(xIncial, yInicial, xFinal, yFinal);
-
         }
         return null;
     }

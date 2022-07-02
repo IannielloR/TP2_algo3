@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import java.util.List;
+
 public class VistaJuego{
     private Juego juego;
     private int largoCuadra;
@@ -80,7 +81,15 @@ public class VistaJuego{
     }
 
     private void dibujarPuntaje() {
-        canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, 20.0));
+        int[] cantidad = this.juego.obtenerTamanioMapa();
+        cantidad[0] = cantidad[0] + 1;
+        double tamanio = 30;
+        if(cantidad[0]>2){
+            tamanio = 30;
+        }else {
+            tamanio = espacioCalle/2;
+        }
+        canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, tamanio));
         canvas.getGraphicsContext2D().setFill(Color.WHITE);
         canvas.getGraphicsContext2D().fillText("Movimientos: " + juego.getMovimientos(),0, 30);
     }
@@ -111,30 +120,49 @@ public class VistaJuego{
             int[] coordenadaInterferencia = interferencias.get(i).obtenerCoordenadaInterferencia();
             int posYSiXInicialIgualXFinal = (coordenadaInterferencia[1] * largoCuadra)+ largoCuadra/2;
             int posXSiYInicialIgualYFinal = (coordenadaInterferencia[0] * largoCuadra)+ largoCuadra/2;
-
+            String letra = "";
+            int tamanio = 0;
             if(interferencias.get(i).getClass() == ControlPolicial.class){
                 canvas.getGraphicsContext2D().setFill(Color.BLUE);
+                letra = "★";
+                tamanio = espacioCalle;
             }
             if(interferencias.get(i).getClass() == Piquete.class){
                 canvas.getGraphicsContext2D().setFill(Color.RED);
+                letra = "—/—";
+                tamanio = espacioCalle/2;
             }
             if(interferencias.get(i).getClass() == Pozo.class){
                 canvas.getGraphicsContext2D().setFill(Color.CHOCOLATE);
+                letra = "◉";
+                tamanio = espacioCalle*2;
             }
             if(interferencias.get(i).getClass() == SorpresaCambioVehiculo.class){
                 canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+                letra = "O▀O";
+                tamanio = espacioCalle/2;
             }
             if(interferencias.get(i).getClass() == SorpresaDesfavorable.class){
                 canvas.getGraphicsContext2D().setFill(Color.ORANGE);
+                letra = "(¬_¬)";
+                tamanio = espacioCalle/2;
             }
             if(interferencias.get(i).getClass() == SorpresaFavorable.class){
                 canvas.getGraphicsContext2D().setFill(Color.GREEN);
+                letra = "(★ ω ★)";
+                tamanio = espacioCalle/2;
             }
             if((coordenadaInterferencia[0] == coordenadaInterferencia[2])){
                 canvas.getGraphicsContext2D().fillRect((coordenadaInterferencia[0] * largoCuadra), (posYSiXInicialIgualXFinal+35),this.espacioCalle,this.espacioCalle);
+                canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, tamanio));
+                canvas.getGraphicsContext2D().setFill(Color.BLACK);
+                canvas.getGraphicsContext2D().fillText(letra,(coordenadaInterferencia[0] * largoCuadra), (posYSiXInicialIgualXFinal+35+(espacioCalle/2)));
             }
             if((coordenadaInterferencia[1] == coordenadaInterferencia[3])){
                 canvas.getGraphicsContext2D().fillRect(posXSiYInicialIgualYFinal, ((coordenadaInterferencia[1] * largoCuadra)+35),this.espacioCalle,this.espacioCalle);
+                canvas.getGraphicsContext2D().setFont(Font.font("Arial", FontWeight.BOLD, tamanio));
+                canvas.getGraphicsContext2D().setFill(Color.BLACK);
+                canvas.getGraphicsContext2D().fillText(letra,posXSiYInicialIgualYFinal, ((coordenadaInterferencia[1] * largoCuadra)+35+(espacioCalle/2)));
             }
         }
     }

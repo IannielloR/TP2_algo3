@@ -25,27 +25,24 @@ public class ContenedorInicio extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(25));
 
-        Button botonJuego = new Button();
-        botonJuego.setText("Jugar");
-
-        Button botonRanking = new Button();
-        botonRanking.setText("Ver Ranking");
+        Label etiqueta = new Label();
+        etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
+        etiqueta.setText("GPS Challenge");
+        etiqueta.setTextFill(Color.web("#000000"));
 
         ContenedorJugador contenedorJugador = new ContenedorJugador(stage, escenaInicio);
         Scene escenaJugador = new Scene(contenedorJugador, 800, 800);
 
-        ContenedorRanking contenedorRanking = new ContenedorRanking(stage,escenaInicio);
-        Scene escenaRanking = new Scene(contenedorRanking, 800, 800);
-
-        Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-
-        etiqueta.setText("GPS Challenge");
-        etiqueta.setTextFill(Color.web("#000000"));
-
+        Button botonJuego = new Button();
+        botonJuego.setText("Jugar");
         BotonInicioEventHandle botonJuegoHandler = new BotonInicioEventHandle(stage, escenaJugador);
         botonJuego.setOnAction(botonJuegoHandler);
 
+        ContenedorRanking contenedorRanking = new ContenedorRanking(stage,escenaInicio);
+        Scene escenaRanking = new Scene(contenedorRanking, 800, 800);
+
+        Button botonRanking = new Button();
+        botonRanking.setText("Ver Ranking");
         BotonInicioEventHandle botonRankingHandler = new BotonInicioEventHandle(stage, escenaRanking);
         botonRanking.setOnAction(botonRankingHandler);
 

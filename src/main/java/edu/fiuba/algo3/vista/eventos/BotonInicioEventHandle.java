@@ -6,14 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BotonInicioEventHandle implements EventHandler<ActionEvent> {
-
     Stage stage;
     private Scene escena;
 
     public BotonInicioEventHandle(Stage stage, Scene proximaEscena) {
         this.escena = proximaEscena;
         this.stage = stage;
-
     }
 
     @Override

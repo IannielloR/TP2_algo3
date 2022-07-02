@@ -15,7 +15,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -30,7 +29,6 @@ public class ContenedorRanking extends VBox {
 
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-
         etiqueta.setText("GPS Challenge");
         etiqueta.setTextFill(Color.web("#000000"));
 
@@ -40,7 +38,6 @@ public class ContenedorRanking extends VBox {
         botonInicio.setOnAction(botonVolverHandler);
 
         File archivo = new File("ranking.txt");
-
         ArchivoTexto archivoRanking = new ArchivoTexto(archivo);
         ArrayList<String[]> ranking = archivoRanking.leerArchivo();
 
@@ -49,10 +46,8 @@ public class ContenedorRanking extends VBox {
         column1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         TableColumn<String, String> column2 = new TableColumn<>("Puntuacion");
         column2.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
-
         tableView.getColumns().add(column1);
         tableView.getColumns().add(column2);
-
         for (int i = 0; i < ranking.size(); i++) {
             Jugador jugador = new Jugador(ranking.get(i)[0], Integer.parseInt(ranking.get(i)[1]));
             tableView.getItems().add(jugador);

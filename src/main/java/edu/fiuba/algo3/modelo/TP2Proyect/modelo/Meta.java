@@ -6,7 +6,11 @@ public class Meta {
 
     Meta(int x, int y) {
         this.posX = x;
-        this.posY = y;
+        if((posX == 1)&& (y == 1)){
+            this.posY = 2;
+        }else {
+            this.posY = y;
+        }
     }
 
     public boolean verificarMeta( int xVehiculo, int yVehiculo){

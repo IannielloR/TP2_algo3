@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.*;
 
 public class Juego {
-    private int movimientos;
     private Mapa mapa;
     private boolean llegada;
     private Random random;
@@ -19,16 +18,14 @@ public class Juego {
     public Juego(TipoVehiculo vehiculo){
         this.random = new Random();
         this.maxMapaX = this.random.generarInt(15);
-        this.maxMapaY = this.random.generarInt(15);
+        this.maxMapaY = this.random.generarYMapa(15,maxMapaX);
         this.random = new Random(this.maxMapaX, this.maxMapaY);
         this.mapa = new Mapa(vehiculo,this.maxMapaX,this.maxMapaY);
-        this.movimientos = 0;
     }
 
     public Juego(TipoVehiculo vehiculo,int maxPosX, int maxPosY){
         this.random = new Random();
         this.mapa = new Mapa(vehiculo,maxPosX,maxPosY);
-        this.movimientos = 0;
     }
 
     public void agregarInterferencia(int posicion, Interferencia interferencia){
@@ -138,6 +135,6 @@ public class Juego {
     }
 
     public void agregarJugador(String jugador){
-        this.jugador =  jugador;
+        this.jugador = jugador;
     }
 }

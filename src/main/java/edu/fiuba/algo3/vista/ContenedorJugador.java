@@ -24,13 +24,11 @@ public class ContenedorJugador extends VBox {
     TextField txtJugador;
     public ContenedorJugador(Stage stage, Scene escenaInicio){
         super();
-
         this.stage = stage;
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(25));
         this.vehiculo = new Moto();
-
         this.tipoVehiculo = new Label();
         this.tipoVehiculo.setFont(Font.font("Arial", FontWeight.BOLD, 40));
         this.tipoVehiculo.setTextFill(Color.web("#000000"));
