@@ -3,8 +3,8 @@ public class Jugador {
     String nombre;
     int puntaje;
     public Jugador(String nombre, int puntaje){
-              this.nombre = nombre;
-              this.puntaje = puntaje;
+        this.nombre = nombre;
+        this.puntaje = puntaje;
     }
 
     public String getNombre() {

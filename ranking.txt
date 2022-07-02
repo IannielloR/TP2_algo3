@@ -2,6 +2,7 @@ S/N 1
 S/N 1
 Mateo 1
 S/N 1
+Mateo 1
 S/N 5
 Ale 6
 S/N 6
@@ -12,9 +13,11 @@ S/N 8
 S/N 9
 S/N 9
 null 9
+null 9
 S/N 10
 S/N 10
 S/N 11
+A 11
 S/N 12
 S/N 12
 S/N 15

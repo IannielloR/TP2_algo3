@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Random;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-
 import java.util.List;
 import java.util.ArrayList;
 
