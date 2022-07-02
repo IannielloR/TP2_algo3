@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa;
+
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 
 public class Vehiculo {
     private TipoVehiculo tipoVehiculo;

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import edu.fiuba.algo3.vista.eventos.BotonVolverAtrasEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

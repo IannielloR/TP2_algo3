@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.*;
 

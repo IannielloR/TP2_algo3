@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import edu.fiuba.algo3.vista.ContenedorLlegada;
 import edu.fiuba.algo3.vista.VistaJuego;
 import javafx.event.EventHandler;

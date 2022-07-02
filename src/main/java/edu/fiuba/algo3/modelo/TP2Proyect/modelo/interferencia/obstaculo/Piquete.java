@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Vehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Interferencia;
 
 public class Piquete extends Interferencia {
     public Piquete(int xInicial, int yInicial, int xFinal, int yFinal) {

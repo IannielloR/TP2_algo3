@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa;
 
 public class Meta {
     private int posX;

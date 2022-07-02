@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Mapa{
+- int maximoX
+- int maximoY
+- int posVehiculoX
+- int posVehiculoY
+- Meta meta
+- Random random;
++ Mapa( TipoVehiculo : vehiculo, int maxPosX, int maxPosY)
++ devolverMovimientos() : int
++ moverVehiculoArriba() : void
++ moverVehiculoAbajo() : void
++ moverVehiculoIzquierda() : void
++ moverVehiculoDerecha() : void
++ revisarObstaculos( int posX, int posY ) : boolean
++ agregarInterferenciaAMapa( int posicion, Interferencia interferencia ) : void
++ crearMeta( Random random ) : void
++ agregarMeta( int posY ) : void
++ verificarMeta() : boolean
+}
+
+abstract class Interferencia{
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class Coordenada{
+- int posInicialX
+- int posInicialY
+- int posFinalX
+- int posFinalY
++ asignarCoordenadas( int xInicial, int yInicial, int xFinal, int yFinal ) : void
++ hayCoalicion( int vehiculoInicialX, int vehiculoInicialY , int vehiculoFinalX, int vehiculoFinalY ) : boolean
+}
+
+class Vehiculo{
+- int movimientos
+- TipoVehiculo tivpoVehiculo
++ Vehiculo( TipoVehiculo vehiculo )
++ devolverMovimientos() : int
++ sumarMovimiento() : void
++ cambiarEstado() : void
++ devolverSorpresaFavorable() : void
++ devolverSorpresaDesfavorable() : void
++ devolverPenalizacionControlPolical(float prob) : void
++ devolverPenalizacionPozo() : void
++ devolverPenalizacionPiquete() : boolean
+}
+
+Interferencia "1" --> "1" Coordenada
+Mapa "1" --> "*" Interferencia
+Mapa "1" --> "1" Vehiculo
+Interferencia ..> Vehiculo
+
+@enduml

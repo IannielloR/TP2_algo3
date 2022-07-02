@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/class-diagram
+package GPSChallenge{
+
+class Juego
+class Random
+
+}
+
+package Mapa{
+class Mapa
+class Meta
+class Coordenada
+abstract class Interferencia
+class Vehiculo
+}
+
+package Interferencias {
+
+package Obstaculo{
+
+class Pozo
+class Piquete
+class ControlPolicial
+
+}
+
+package Sorpresa{
+
+class SorpresaFavorable
+class SorpresaDesfavorable
+class SorpresaCambioVehiculo
+
+}
+}
+
+package Vehiculos {
+
+abstract class TipoVehiculo
+
+TipoVehiculo <|-- Moto
+TipoVehiculo <|-- Auto
+TipoVehiculo <|-- CuatroXCuatro
+
+}
+
+Interferencia <|--  Piquete
+Interferencia <|--  Pozo
+Interferencia <|--  ControlPolicial
+Interferencia <|--  SorpresaFavorable
+Interferencia <|--  SorpresaDesfavorable
+Interferencia <|--  SorpresaCambioVehiculo
+
+Juego "1" --> "1" Mapa
+Juego "1" -left-> "1" Random
+Mapa "1" --> "1" Random
+Mapa "1" --> "1" Vehiculo
+Mapa "1" --> "1" Meta
+Mapa "1" --> "*" Interferencia
+Vehiculo "1" --> "1" TipoVehiculo
+Interferencia "1" -right-> "1" Coordenada
+
+@enduml
