@@ -74,27 +74,30 @@ public class Juego {
         return this.mapa.obtenerVehiculo();
     }
     public void moverVehiculoArriba(){
-
         mapa.moverVehiculoArriba();
-        llegada = mapa.verificarMeta();
+        verificarMeta();
     }
 
     public void moverVehiculoAbajo(){
         mapa.moverVehiculoAbajo();
-        llegada = mapa.verificarMeta();
+        verificarMeta();
     }
 
     public void moverVehiculoIzquierda(){
         mapa.moverVehiculoIzquierda();
-        llegada = mapa.verificarMeta();
+        verificarMeta();
     }
 
     public void moverVehiculoDerecha(){
         mapa.moverVehiculoDerecha();
+        verificarMeta();
+    }
 
-
+    public void verificarMeta(){
         llegada = mapa.verificarMeta();
-
+        if(llegada){
+            modificarRanking(getMovimientos());
+        }
     }
 
     public boolean getLlegada() {
@@ -103,7 +106,6 @@ public class Juego {
 
     public int getMovimientos(){
         int movimientosTotales = this.mapa.devolverMovimientos();
-        modificarRanking(movimientosTotales);
         return movimientosTotales;
     }
 
