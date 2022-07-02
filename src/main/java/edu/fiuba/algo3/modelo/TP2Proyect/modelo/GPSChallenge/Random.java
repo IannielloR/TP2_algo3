@@ -79,7 +79,7 @@ public class Random {
 
     public int generarYMapa(int numMax, int maxXMapa){
         int num = random.nextInt(numMax);
-        if((maxXMapa == 1) && (num == 1)){
+        if((maxXMapa == 1) && (num <= 1)){
             num = 2;
         }
         if(num == 0){
