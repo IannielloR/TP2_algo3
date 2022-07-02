@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Vehiculo;
 
 public class SorpresaFavorable extends Interferencia {
     public SorpresaFavorable(int xInicial, int yInicial, int xFinal, int yFinal) {

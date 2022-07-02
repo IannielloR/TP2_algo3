@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;

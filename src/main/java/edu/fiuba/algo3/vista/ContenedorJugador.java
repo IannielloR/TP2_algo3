@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
 import edu.fiuba.algo3.vista.eventos.*;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

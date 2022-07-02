@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Random;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+
 import java.util.List;
 import java.util.ArrayList;
 

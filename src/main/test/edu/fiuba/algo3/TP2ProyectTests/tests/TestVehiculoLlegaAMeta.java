@@ -1,10 +1,6 @@
 package edu.fiuba.algo3.TP2ProyectTests.tests;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
 import org.junit.jupiter.api.Test;
 

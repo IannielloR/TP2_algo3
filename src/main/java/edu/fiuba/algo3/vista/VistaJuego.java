@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Juego;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.obstaculo.Pozo;

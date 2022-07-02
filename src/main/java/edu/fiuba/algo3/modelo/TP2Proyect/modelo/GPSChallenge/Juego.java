@@ -1,8 +1,10 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.Interferencia;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.ArchivoTexto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Interferencia;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa.Vehiculo;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;

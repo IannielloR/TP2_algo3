@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Interferencia{
+# Coordenada coordenada
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class ControlPolicial{
+- float probabilidad
++ ControlPolicial(int xInicial, int yInicial, int xFinal, int yFinal, float probabilidad)
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class Piquete{
++ ControlPolicial(int xInicial, int yInicial, int xFinal, int yFinal, float probabilidad)
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class Pozo{
++ ControlPolicial(int xInicial, int yInicial, int xFinal, int yFinal, float probabilidad)
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class SorpresaCambioVehiculo{
++ ControlPolicial(int xInicial, int yInicial, int xFinal, int yFinal, float probabilidad)
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class SorpresaDesfavorable{
++ ControlPolicial(int xInicial, int yInicial, int xFinal, int yFinal, float probabilidad)
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+class SorpresaFavorable{
++ ControlPolicial(int xInicial, int yInicial, int xFinal, int yFinal, float probabilidad)
++ analizarVehiculo(Vehiculo vehiculo, int xInicial, int yInicial, int xFinal, int yFinal) : boolean
+}
+
+Interferencia <|-left-  Piquete
+Interferencia <|-up-  Pozo
+Interferencia <|-up-  ControlPolicial
+Interferencia <|-right-  SorpresaFavorable
+Interferencia <|-down-  SorpresaDesfavorable
+Interferencia <|-down-  SorpresaCambioVehiculo
+
+@enduml

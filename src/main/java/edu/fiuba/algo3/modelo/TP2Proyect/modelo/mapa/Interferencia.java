@@ -1,7 +1,4 @@
-package edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia;
-
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.Coordenada;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Vehiculo;
+package edu.fiuba.algo3.modelo.TP2Proyect.modelo.mapa;
 
 public abstract class Interferencia {
     protected Coordenada coordenada = new Coordenada();
