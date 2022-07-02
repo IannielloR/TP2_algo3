@@ -23,7 +23,7 @@ public class Random {
 
     public int generarXInicial(){
         int coordenada =  random.nextInt((this.maxXMapa));
-        if(coordenada == 0){
+        if((coordenada == 0)||(this.maxXMapa == 1)){
             coordenada = 1;
         }
         return coordenada;
@@ -31,7 +31,7 @@ public class Random {
 
     public int generarYInicial(){
         int coordenada =  random.nextInt((this.maxYMapa));
-        if(coordenada == 0){
+        if((coordenada == 0)||(this.maxYMapa == 1)){
             coordenada = 1;
         }
         return coordenada;
@@ -103,6 +103,9 @@ public class Random {
             return new Pozo(xIncial, yInicial, xFinal, yFinal);
         }
         if (numInterferencia == 1) {
+            if((maxXMapa == 1)||(maxYMapa == 1)){
+                return new Pozo(xIncial, yInicial, xFinal, yFinal);
+            }
             return new Piquete(xIncial, yInicial, xFinal, yFinal);
         }
         if (numInterferencia == 2) {
