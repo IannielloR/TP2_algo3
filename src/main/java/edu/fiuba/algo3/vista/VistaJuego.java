@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.TP2Proyect.modelo.interferencia.sorpresa.SorpresaF
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.ReliantRobin;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -98,6 +99,11 @@ public class VistaJuego{
         int[] coordenada = coordenadasVehiculo();
         String letra = "";
         int tamanio = 0;
+        if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == ReliantRobin.class){
+            canvas.getGraphicsContext2D().setFill(Color.DARKGREEN);
+            letra = "R";
+            tamanio = espacioCalle/2;
+        }
         if(this.juego.obtenerVehiculo().devolverVehiculo().getClass() == Moto.class){
             canvas.getGraphicsContext2D().setFill(Color.DARKVIOLET);
             letra = "M";

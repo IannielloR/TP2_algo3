@@ -2,6 +2,7 @@ package edu.fiuba.algo3.TP2ProyectTests.tests;
 
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.ReliantRobin;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +12,7 @@ public class TestVehiculoLlegaAMeta {
     @Test
     public void test1(){
         // Arrange
-        Auto vehiculo = new Auto();
+        ReliantRobin vehiculo = new ReliantRobin();
         Juego gpsChallenge = new Juego(vehiculo,10,10);
         gpsChallenge.agregarMeta(1);
         int movimientosEsperados = 9;

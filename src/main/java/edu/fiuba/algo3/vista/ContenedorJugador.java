@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Auto;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.CuatroXCuatro;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.Moto;
-import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.TipoVehiculo;
+import edu.fiuba.algo3.modelo.TP2Proyect.modelo.vehiculo.*;
 import edu.fiuba.algo3.vista.eventos.*;
 import edu.fiuba.algo3.modelo.TP2Proyect.modelo.GPSChallenge.Juego;
 import javafx.geometry.Insets;
@@ -52,6 +49,11 @@ public class ContenedorJugador extends VBox {
         BotonCuatroXCuatroEventHandle botonCuatroXCuatroEventHandle = new BotonCuatroXCuatroEventHandle(this.vehiculo, this.tipoVehiculo);
         boton4x4.setOnAction(botonCuatroXCuatroEventHandle);
 
+        Button botonReliantRobin= new Button();
+        botonReliantRobin.setText("ReliantRobin");
+        BotonReliantRobinEventHandle botonReliantRobinEventHandle = new BotonReliantRobinEventHandle(this.vehiculo, this.tipoVehiculo);
+        botonReliantRobin.setOnAction(botonReliantRobinEventHandle);
+
         Button botonJugar = new Button();
         botonJugar.setText("Iniciar Partida");
         BotonJuegoEventHandle botonJuegoHandler = new BotonJuegoEventHandle(stage, this, escenaInicio);
@@ -69,7 +71,7 @@ public class ContenedorJugador extends VBox {
         hb.setSpacing(10);
         hb.setAlignment(Pos.CENTER);
 
-        this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4, hb, this.tipoVehiculo, botonJugar);
+        this.getChildren().addAll(etiqueta,botonMoto, botonAuto, boton4x4,botonReliantRobin, hb, this.tipoVehiculo, botonJugar);
     }
 
     public void crearModelo(){
@@ -81,6 +83,9 @@ public class ContenedorJugador extends VBox {
         }
         if(this.tipoVehiculo.getText() == "Auto"){
             this.vehiculo = new Auto();
+        }
+        if(this.tipoVehiculo.getText() == "ReliantRobin"){
+            this.vehiculo = new ReliantRobin();
         }
         this.juego = new Juego(this.vehiculo);
         juego.crearMeta();
